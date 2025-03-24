@@ -1,0 +1,361 @@
+\documentclass{dec}
+\title{VAXstation 2000}
+\subtitle{Hardware Option Guide for the 4-Plane Graphics Coprocessor}
+\ordernumber{EK-VAXAA-4P-001}
+\author{digital equipment corporation}
+\address{maynard, massachusetts}
+\date{November 1987}
+\titlepicture{titles/EK-VAXAA-4P-001}
+
+\begin{document}
+\maketitle
+
+\toc
+
+\newpage
+\uchapter{Preface}
+\thispagestyle{preface}
+The VAXstation 2000 4-plane graphics coprocessor provides a 4-plane video
+Subsystem for the VAXstation 2000 System. This guide is intended for
+users who are upgrading their VAXstation 2000 System to support a 4-plane
+graphics System with a monochrome monitor. If you have a color monitor,
+see the documentation packaged with the color monitor.
+
+This guide describes the 4-plane graphics coprocessor and gives some
+diagnostic Information on this Option. It also describes how to install the color
+cable that is needed to use a monochrome monitor for gray-scale display.
+
+The VAXstation 2000 4-plane graphics coprocessor is installed by a DIGITAL
+service representative.
+
+\subsection*{Recommended Reading Path}
+Read the VAXstation 2000 hardware and operating system Software documentation in the following order:
+\begin{enumerate}
+	\item Hardware Installation Information
+	\begin{enumerate}
+		\item VAXstation 2000 Hardware Installation Guide (Order No. EK-VAXAC-IN-003.)
+		\item To install a monochrome monitor, see this guide, the VAXstation 2000 Hardware Option Guide for the 4-Plane Graphics Coprocessor (Order No.  EK-VAXAA-4P-001.)
+		\item Workstations and MicroVAX 2000 Network Guide (Order No EK-NETAB-UG)
+	\end{enumerate}
+	\item Operating System Information
+	\begin{enumerate}
+		\item VAXstation 2000 Owner's Manual, Chapter 1 (Operating the VAXstation 2000) (Order No. EK-VAXAC-OM-003)
+		\item MicroVMS VAXstation 2000/MicroVAX 2000 Installation Guide (Order No. AA-JR84A-TN)
+
+				or
+
+				ULTRIX-32W Basic Installation Guide for the VAXstation 2000 (Order No. AA-KU45A-TE)
+	\end{enumerate}
+	\item Reference Information
+	\begin{enumerate}
+		\item VAXstation 2000 Owner's Manual (Order No. EK-VAXAC-OM-003)
+		\item MicroVMS VAXstation 2000/MicroVAX 2000 Operations Guide (Order No. AA-JR83A-TN)
+	\end{enumerate}
+\end{enumerate}
+
+\subsection*{Special Notices}
+The following notices appear throughout this guide:
+
+\begin{itemize}
+	\item Notes - Contain general or supplemental information about a topic.
+	\item Cautions - COntain information to prevent damage to equipment.
+\end{itemize}
+
+\subsection*{Conventions Used in This Guide}
+
+\begin{tabular}{m{3cm} m{7.5cm}}
+\hline
+\textbf{Convention} & \textbf{Meaning} \\
+\hline
+\textbf{Bold} & Notes, cautions and warnings appear in bold face. User input is also in bold.\\
+\hline
+\end{tabular}
+
+\newpage
+\setcounter{page}{1}
+\pagenumbering{arabic}
+\pagestyle{main}
+
+\usection{Setting Up the Color or Gray-Scale 4-Plane Graphics Option}
+
+If you have a monochrome monitor, use the instructions in this guide to
+install a color cable (packaged in the Upgrade kit) on the monitor.
+ If you ordered a new monitor with your Upgrade kit, first set it up as described in
+the monitor installation documentation, packaged with the monitor.
+ Then, after the Option is installed, follow the instructions in this guide.
+
+The VAXstation 2000 4-plane graphics coprocessor provides a 4-plane video
+Subsystem for the VAXstation 2000 System. This raster scan video Subsystem
+provides a resolution of 1024 by 864 pixels, and displays up to 16 gray-scales
+or 16 colors from a palette of 4096.
+
+A bitmap display provides variable character size or positioning and inherent
+graphics capability. The display provides about 850,000 pixels refreshed on
+the screen at 60 Hertz, thus preventing the flicker and smear of an interlaced
+display.
+
+\usection{Installing the Video Cable Assembly on a Monochrome Monitor}
+
+If you have a VR260 or VR150 monochrome monitor with a 4-plane graphics
+coprocessor to display gray-scale on your screen, you will need to install a
+color video cable assembly on your monitor.
+
+First, locate the video cable assembly shown in Figure 1 (part no. BC19S).
+\fig{MLO-1263-87}{Color Video Cable Assembly, BC19S}
+
+The following sections describe the installation process for the VR260 and
+VR150 respectively.
+
+\usubsection{VR260 Monochrome Monitor with 4-Plane Graphics Coprocessor}
+
+\begin{enumerate}
+\item Make sure the monitor's power supply is turned off.
+\item Insert only the G video cable connector of the color video cable assembly
+(BC19S) into the socket on the back of the monitor (Figure 2).
+\item Turn the connector clockwise to fasten.
+
+\textbf{Note: The R and B connectors will hang freely — do not connect
+them to anything.}
+
+\fig{MLO-1269-87}{Connecting G Cable Connector, VR260 Monochrome Monitor}
+
+\item Locate the shorter of the two knobs that come with the color video cable.
+\item Insert the shorter knob into the color video cable assembly.
+\item Turn the knob on the video cable assembly clockwise to secure it to the
+monitor (Figure 3).
+
+\fig{MLO-1270-87}{Video Cable Assembly Knob}
+
+\end{enumerate}
+
+
+\usubsection{VR150 Monochrome Monitor with 4-Plane Graphics Coprocessor}
+
+\begin{enumerate}
+\item Make sure the monitor's power supply is turned off.
+\item Locate the shorter of the two knobs that come with the color video cable.
+\item Insert the shorter knob into the color video cable assembly.
+\item Turn the knob on the video cable assembly clockwise to secure it to the monitor (Figure 3).
+\item Screw the video cable assembly into the cable mounting plate (Figure 4).
+\fig{MLO-1306-87}{Mounting Video Cable Assembly on VR150 Monitor, Color Cable}
+\textbf{Caution: Failure to secure the video cable assembly to the cable
+mounting plate may strain the cable and may also cause radio
+emissions in excess of FCC guidelines.}
+\item Connect only the G video cable to the video connector on the rear panel
+(Figure 5).
+\item Push the cable in and turn the connector clockwise to lock it in place.
+\end{enumerate}
+\textbf{Note: The R and B connectors will hang freely — do not connect them
+to anything.}
+
+\fig{MLO-1279-87}{Connecting G Cable Connector, VR150 Monitor}
+\usection{Connecting the Monitor Cable to the System Unit}
+
+Use the color video cable assembly (part no. BC19S) to connect your monitor
+to the System unit.
+
+Connect the monitor cable to the System unit as follows:
+
+\textbf{Caution: When installing the cables into the rear of the VAXstation 2000
+system unit, do not place the System unit on its front, as it may damage
+the drive door.}
+
+\begin{enumerate}
+\item Make sure the power supplies for the monitor and System unit are turned
+off.
+\item  Lift up the cable-restraining bar on the rear of the VAXstation 2000 System
+unit (Figure 6).
+\fig{MLO-2116-87}{Connecting the Monitor Cable to the System Unit}
+\textbf{Note: If you plan to connect the printer and modern cables, leave the
+cable-restraining bar up until you have connected those options.}
+\item Connect the end of the BC19S video cable to the video port on the rear
+of the VAXstation 2000 System unit.
+ The video port is identified by a
+video icon. Insert the cable with the video-icon side of the monitor cable
+facing you.
+\item Tighten the thumbscrews on the monitor video cable by turning them
+clockwise with your hngers (Figure 7).
+\end{enumerate}
+\textbf{Caution: Before connecting the monitor cable to the System, make sure
+the system's power supply is turned off.}
+\fig{MLO-2117-87}{Tightening the Thumbscrews on the Monitor Cable}
+
+
+\usection{Testing Your System}
+The VAXstation 2000 diagnostic tests are stored in the VAXstation 2000 read-
+only memory. After every power up, the VAXstation 2000 automatically Starts
+the System tests, which check the components of your System. The following
+section describes some of the diagnostic tests available on the VAXstation
+2000.
+ For more information, see the \textit{VAXstation 2000 Hardware Installation
+Guide.}
+
+If you are going to perform diagnostic tests, make sure that both the monitor
+and System unit power supplies are turned on.
+
+\usubsection{A Note on Diagnostics}
+In diagnostics, a Single question mark precedes additional Status information.
+An example of Status information is:
+
+{\tt ? 4 00D0  0009.0213}
+
+This example indicates that there is a 4-plane coprocessor present in the
+System with a monochrome monitor and a color cable.
+
+If the 4-plane module has a fatal error, the monitor screen will remain blank.
+
+\textbf{Note: If your monitor does not display any information on the screen after
+the power-up test sequence, you may have a failure in your video board
+and/or other failures.  Check the LEDs on your keyboard for secondary
+power-up error messages. If any of the LEDs in Table 1 are lit, call your
+service representative.}
+
+\begin{table}[H]
+\label{table:1}
+\caption{Power-Up Error Messages}
+\begin{tabularx}{\textwidth}{l l}
+\hline
+\textbf{If} & \textbf{Then there is a}\\
+\hline
+The Hold Screen keyboard LED is lit & System failure\\
+The Lock keyboard LED is lit & Video board failure \\
+The Compose keyboard LED is lit & Communication option failure\\
+\hline
+\end{tabularx}
+\end{table}
+
+\usubsection{TEST 50 Mnemonics}
+When you run TEST 50, information about the system is displayed using the mnemonics listed in Table 2.
+
+\begin{table}[H]
+\label{table:2}
+\caption{Definitions of TEST 50 Mnemonics}
+\begin{tabularx}{\textwidth}{l l}
+\hline
+\textbf{Mnemonic} & \textbf{Device}\\
+\hline
+CLK & System clock \\
+4PLN & 4-plane graphics coprocessor \\
+DZ & Serial line controller \\
+FP & Floating point \\
+HDC & Disk controller \\
+IT & Interval timer \\
+MEM & Memory \\
+MM & Memory management \\
+MONO & Monochrome video circuits on system module \\
+NVR & Nonvolatile RAM \\
+SYS & Interrupt controller and Ethernet ID ROM \\
+TPC & Tape controller \\
+\hline
+\end{tabularx}
+\end{table}
+
+The HDC mnemonic represents the disk Controller. The first group of numbers
+after the HDC line in the screen display teils you what type of device is
+installed.
+
+\usubsection{Monitor Screen Pattern Tests}
+
+Screen pattern tests are useful if you suspect a malfunction in your monitor.
+Record what you see and report it to your Service representative.
+
+\textbf{Note: Check your Software documentation for shutdown procedures before halting your System.}
+
+Put the VAXstation 2000 in console mode by pressing the halt button on the
+rear of the System. Then run any of the tests listed. When you have finished,
+type \textbf{BOOT} (or \textbf{BOOT} followed by the name of the device that contains
+operating System Software) at the console prompt and press Return to return
+to normal operation.
+
+\newpage
+
+\usubsubsection{Color Monitor}
+\begin{enumerate}
+\item Screen of Es Pattern
+
+Type \textbf{TEST 81} and press Return.
+
+The monitor displays a full screen of Es. Press Return to stop the display and return to the console prompt.
+
+\item White Screen
+
+Type \textbf{TEST 82} and press Return.
+
+The monitor displays a white screen. Press Return to stop the display and return to the console prompt.
+
+\item Eight Color Bars
+
+Type \textbf{TEST 87} and press Return.
+
+The monitor display eight color bars (Figure 8).
+\end{enumerate}
+
+\fig{MLO-1312-87}{Color Bars}
+
+\usubsubsection{Gray-Scale Patterns}
+
+If you are using gray-scale on your monochrome monitor and suspect a
+malfunction in your monitor, use the following test for gray-scale patterns:
+\begin{itemize}
+\item Eight Gray-Scale Bars
+
+Type \textbf{TEST 88} and press Return.
+
+The monitor displays eight gray-scale bars from black to white.
+ Press Return to stop the display and return the console mode prompt.
+\end{itemize}
+
+\usubsection{Restarting the System After Running Tests}
+
+While you are running any of the tests or procedures in this chapter, you are
+in console mode. To resume normal Operation of the VAXstation 2000, you
+must reenter program mode. The two ways to do this are:
+
+\begin{enumerate}
+\item Type \textbf{BOOT} at the console prompt and press Retum. The System then
+searches each device in turn for operating System Software.
+
+\item Type \textbf{BOOT} followed by a space and the name of the device that
+contains operating System Software and then press Return, as shown in
+this example:
+
+{\tt >>> BOOT DUA0}
+
+This procedure lets the System boot the operating System Software immediately, without searching.
+
+\end{enumerate}
+
+See your Software documentation for more information.
+
+\usubsection{Summary of TEST Commands}
+
+A list of all TEST commands and the tests or Utility programs they execute
+is shown in Table 3.
+
+\begin{table}[H]
+\caption{Summary of TEST Commands}
+\label{table:3}
+\begin{tabularx}{\textwidth}{l l}
+\hline
+\textbf{Command} & \textbf{Test or Utility Program}\\
+\hline
+TEST 0 & System exersizer \\
+TEST F-1 & Self-tests of each device in the system \\
+TEST 50 & Configuration \\
+TEST 51 & Sets default boot device \\
+TEST 52 & Sets default boot flags (operating system dependent) \\
+TEST 53 & Sets default recovery action \\
+TEST 54 & Sets keyboard language \\
+TEST 70 & Diskette and fixed-disk formatter \\
+TEST 71 & Fixed-disk verifier \\
+TEST 81 & Screen of Es (color monitor) \\
+TEST 82 & White screen (color monitor) \\
+TEST 87 & IEight color bars (color monitor) \\
+TEST 88 & Eight gray-scale bars (color or monochrome monitor) \\
+\end{tabularx}
+\end{table}
+
+
+\howtoorder
+
+\end{document}
