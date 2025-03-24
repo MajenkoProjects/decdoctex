@@ -14,6 +14,14 @@
 \usepackage[font=default,labelfont=bf,justification=raggedright]{caption}
 \usepackage{tabularx}
 \usepackage{multirow}
+\usepackage{hyperref}
+\hypersetup{
+    colorlinks,
+    citecolor=black,
+    filecolor=black,
+    linkcolor=blue,
+    urlcolor=black
+}
 \raggedbottom
 
 \renewcommand{\arraystretch}{1.3}
@@ -194,22 +202,22 @@ required to take measures to correct the interference.
 	\end{center}
 	\raggedright
 
-	\begin{tabularx}{\linewidth}{p{2.5cm} p{2cm} p{3.5cm}}
+	\begin{tabularx}{\linewidth}{p{2.5cm} p{2cm} p{5.5cm}}
 	\hline
 	\textbf{From} & \textbf{Call} & \textbf{Write} \\
 	\hline
 
 
-	Alaska, Hawaii, or New Hampshire 				&		603-884-6660			& \multirow{2}{\textwidth}{Digital Equipment Corporation\newline P.O. Box CS2008\newline Nashua, NH 03061} \\
-	Rest of U.S.A and Pierto Rico*					&		800-258-1710 \\
+	\raggedright Alaska, Hawaii, or New Hampshire 				&		603-884-6660			& \multirow{2}{\textwidth}{\vfill \raggedright Digital Equipment Corporation\newline P.O. Box CS2008\newline Nashua, NH 03061} \\
+	\raggedright Rest of U.S.A and Pierto Rico*					&		800-258-1710 \\
 	\multicolumn{3}{m{\linewidth}}{* Prepaid orders from Puerto Rico must be placed with DIGITAL's local subsidiary (0809-754-7575)} \\
 	\hline
-	Canada											&		800-267-6219 (for software documentation) 		& \multirow{2}{\textwidth}{Digital Equipment of Canada Ltd.\newline 100 Herzberg Road\newline Kanata, Ontario, Canada K2K 2A6\newline Attn: Direct Order desk} \\
+	Canada											&		800-267-6219 (for software documentation) 		& \multirow{2}{\textwidth}{\vfill\raggedright Digital Equipment of Canada Ltd.\newline 100 Herzberg Road\newline Kanata, Ontario, Canada K2K 2A6\newline Attn: Direct Order desk} \\
 	\vspace{0.5em}\\
 													&		613-592-5111 (for hardware documentation) \\
 	\hline
-	Internal orders (for Software documentation)    & - 			& Software Distribution Center (SDC)\newline Digital Equipment Corporation\newline Westminster, MA 01473 \\
-	Internal orders (for hardware documentation)	& 617-234-4323 	& Publishing \& Circulation Serv. (P{\&}CS)\newline NR03-1/W3\newline Digital Equipment Corporation\newline Northboro, MA 01532 \\
+	\raggedright Internal orders (for Software documentation)    & - 			&  {\raggedright Software Distribution Center (SDC)\newline Digital Equipment Corporation\newline Westminster, MA 01473} \\
+	\raggedright Internal orders (for hardware documentation)	& 617-234-4323 	& {\raggedright Publishing \& Circulation Serv. (P{\&}CS)\newline NR03-1/W3\newline Digital Equipment Corporation\newline Northboro, MA 01532} \\
 	\hline
 
 
