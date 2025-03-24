@@ -50,15 +50,19 @@
 \newcommand{\usubsubsection}[1]{\subsubsection*{#1}
 \addcontentsline{toc}{subsection}{\protect\numberline{}#1}}
 
+\def\@pubmonth{}
+\newcommand{\pubmonth}[1]{
+	\def\@pubmonth{#1}}
+
+\def\@pubyear{}
+\newcommand{\pubyear}[1]{
+	\def\@pubyear{#1}}
+
+\def\@product{}
+\newcommand{\product}[1]{
+	\def\@product{#1}}
 
 
-
-\def\@subtitle{}
-\newcommand{\subtitle}[1]{
-	\def\@subtitle{#1}}
-\newcommand{\show@subtitle}{
-	\@subtitle}
-\usepackage{ragged2e}
 \def\@ordernumber{}
 \newcommand{\ordernumber}[1]{
 	\def\@ordernumber{#1}}
@@ -75,8 +79,8 @@
 
 \fancypagestyle{main} {
 	\fancyhf{}
-	\fancyfoot[LE]{\small\fontfamily{phv}\selectfont \textbf{\thepage} \hspace{1em} \@title \hspace{1pt} \@subtitle}
-	\fancyfoot[RO]{\small\fontfamily{phv}\selectfont \@title \hspace{1pt}  \@subtitle \hspace{1em} \textbf{\thepage}}
+	\fancyfoot[LE]{\small\fontfamily{phv}\selectfont \textbf{\thepage} \hspace{1em} \@product \hspace{1pt} \@title}
+	\fancyfoot[RO]{\small\fontfamily{phv}\selectfont \@product \hspace{1pt} \@title \hspace{1em} \textbf{\thepage}}
 }
 
 \hyphenation{none}
@@ -94,8 +98,8 @@
 		\vspace*{1em}
 		{\fontfamily{phv}\selectfont
 		\Huge
-		\textbf{\@title}\\
-		\textbf{\@subtitle}\par
+		\textbf{\@product}\\
+		\textbf{\@title}\par
 		\vspace{20pt}
 		\large
 		Order Number \@ordernumber\par
@@ -108,12 +112,16 @@
 		\textbf{\@address}
 	}
 	\newpage
+	\boilerplate
+}
+
+\newcommand{\boilerplate}{%
 	\justifying
 	\setlength{\parindent}{0pt}
 	\thispagestyle{empty}
 	\footnotesize
 	\noindent\rule{\textwidth}{1.0pt}\\
-	\textbf{November 1987}
+	\textbf{{\@pubmonth} {\@pubyear}}
 
 	\par\noindent\rule{10em}{0.8pt}\\
 	The information in this document is subject to change without notice and should not be construed as a commitment by Digital Equipment Corporation.
@@ -125,7 +133,7 @@
 	or its affiliated companies.
 
 	\par\noindent\rule{10em}{0.8pt}\\
-	Copyright {\copyright}1987 by Digital Equipment Corporation.
+	Copyright {\copyright}{\@pubyear} by Digital Equipment Corporation.
 
 	All Rights Reserved.\\
 	Printed in U.S.A.
@@ -148,7 +156,8 @@
 	DEMPR			& Rainbow			& VT \\
 	DEQNA			& RSTS				& Work Processor \\
 	DESTA			& RSX				& \\
-	DEUAN			& RT				& [digital tm] \\
+	DEUAN			& RT				& \raisebox{-0.35\height}{\includegraphics[height=10pt]{logos/digital}} \textsuperscript{TM} \\
+
 	\end{tabular}
 
 	{
@@ -169,7 +178,7 @@ required to take measures to correct the interference.
 	\newpage
 }
 
-\titleformat{\chapter}{\raggedleft\fontfamily{phv}\selectfont\bfseries\huge}{}{0.0em}{}[\hrule]
+\titleformat{\chapter}{\raggedleft\fontfamily{phv}\selectfont\bfseries\huge}{}{1.0em}{}[\hrule]
 \titlespacing{\chapter}{0pc}{0pc}{\baselineskip}
 
 
@@ -185,11 +194,10 @@ required to take measures to correct the interference.
 \newcommand{\fig}[2]{\begin{figure}[H]
 \caption{#2}
 \begin{center}
-\includegraphics{fig/#1} 
+\makebox[\textwidth][c]{\includegraphics{fig/#1}}
 \end{center}
 \end{figure}
 }
-
 
 \newcommand{\howtoorder}{%
 	\newpage
@@ -256,3 +264,5 @@ required to take measures to correct the interference.
 }
 \makeatother
 
+
+\newcommand{\console}{{\tt {>}{>}{>}}\ }

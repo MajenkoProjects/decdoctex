@@ -1,8 +1,13 @@
-ORDER=EK-VAXAA-4P-001
+all: EK-VAXAA-4P-001.pdf EK-VSTAA-MG-001.pdf
 
-${ORDER}.pdf: ${ORDER}.tex dec.cls
-	pdflatex ${ORDER} < /dev/null
-	pdflatex ${ORDER} < /dev/null
+
+EK-VAXAA-4P-001.pdf: EK-VAXAA-4P-001.tex dec.cls
+	pdflatex EK-VAXAA-4P-001 < /dev/null
+	pdflatex EK-VAXAA-4P-001 < /dev/null
+
+EK-VSTAA-MG-001.pdf: EK-VSTAA-MG-001.tex dec.cls decsectional.cls
+	pdflatex EK-VSTAA-MG-001 < /dev/null
+	pdflatex EK-VSTAA-MG-001 < /dev/null
 
 watch:
-	printf "${ORDER}.tex\ndec.cls\n" | entr -c -s 'make'
+	ls *.tex *.cls | entr -c -s 'make'
