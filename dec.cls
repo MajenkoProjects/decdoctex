@@ -15,6 +15,8 @@
 \usepackage{tabularx}
 \usepackage{multirow}
 \usepackage{hyperref}
+\usepackage{keystroke}
+\usepackage{fancyvrb}
 \hypersetup{
     colorlinks,
     citecolor=blue,
@@ -276,3 +278,16 @@ required to take measures to correct the interference.
 \newcommand{\console}{{\tt {>}{>}{>}}\ }
 
 \newcommand{\pdf}[1]{\href{#1.pdf}{#1}}
+
+\newenvironment{ttfig}[2]{%
+\VerbatimEnvironment
+\begin{figure}[H] 
+\caption{#2}
+\label{figure:#1}
+\small
+\fontfamily{lmtt}\selectfont\bfseries
+\begin{Verbatim} 
+}{%
+\end{Verbatim}
+\end{figure}
+}

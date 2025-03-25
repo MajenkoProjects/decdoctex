@@ -15,7 +15,7 @@
 \titlespacing{\subsection}{0em}{0em}{0em}
 
 \titleformat{\subsubsection}{\raggedright\fontfamily{phv}\selectfont\bfseries}{\thesubsubsection\hspace{1em}}{0.0em}{}[]
-\titlespacing{\subsubsection}{0em}{0em}{0em}
+\titlespacing{\subsubsection}{0em}{0em}{-1em}
 
 
 
