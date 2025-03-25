@@ -17,10 +17,10 @@
 \usepackage{hyperref}
 \hypersetup{
     colorlinks,
-    citecolor=black,
-    filecolor=black,
+    citecolor=blue,
+    filecolor=blue,
     linkcolor=blue,
-    urlcolor=black
+    urlcolor=blue
 }
 \raggedbottom
 
@@ -95,7 +95,7 @@
 
 
 
-\def\@titlepicture{}
+\def\@titlepicture{titles/blank}
 \newcommand{\titlepicture}[1]{
 	\def\@titlepicture{#1}}
 
@@ -274,3 +274,5 @@ required to take measures to correct the interference.
 
 
 \newcommand{\console}{{\tt {>}{>}{>}}\ }
+
+\newcommand{\pdf}[1]{\href{#1.pdf}{#1}}

@@ -1,13 +1,21 @@
-all: EK-VAXAA-4P-001.pdf EK-VSTAA-MG-001.pdf
+SOURCEs=README EK-VAXAA-4P-001.tex EK-VSTAA-MG-001.tex
 
 
-EK-VAXAA-4P-001.pdf: EK-VAXAA-4P-001.tex dec.cls
-	pdflatex EK-VAXAA-4P-001 < /dev/null
-	pdflatex EK-VAXAA-4P-001 < /dev/null
 
-EK-VSTAA-MG-001.pdf: EK-VSTAA-MG-001.tex EK-VSTAA-MG-001-preamble.tex EK-VSTAA-MG-001-ch1.tex EK-VSTAA-MG-001-ch2.tex dec.cls decsectional.cls
-	pdflatex EK-VSTAA-MG-001 < /dev/null
-	pdflatex EK-VSTAA-MG-001 < /dev/null
+
+
+PDFS=$(patsubst %.tex,%.pdf,$(SOURCES))
+
+all: ${PDFS} README.md
+
+
+%.pdf: %.tex $(wildcard %-*.tex) dec.cls decsectional.cls
+	pdflatex ${basename $@ .pdf} < /dev/null
+	pdflatex ${basename $@ .pdf} < /dev/null
 
 watch:
 	ls *.tex *.cls | entr -c -s 'make'
+
+
+README.md: README.tex
+	pandoc -s README.tex -o README.md
