@@ -25,12 +25,13 @@ The reason for this is twofold:
 # How we are doing it
 
 It is highly likely (backed up by some evidence from the documentation
-itself[^1] is written in LaTeX. In order to try and maintain as much of
-the original layout and pagination as closely as possible to the
-original LaTeX has again been chosen as the method to re-create the
-documentation. This also lets us separate out the style from the content
-making it much faster, once suitable document classes have been created,
-to recreate documents with the minimum of effort.
+itself[^1]) the original documentation is written in LaTeX. In order to
+try and maintain as much of the original layout and pagination as
+closely as possible to the original LaTeX has again been chosen as the
+method to re-create the documentation. This also lets us separate out
+the style from the content making it much faster, once suitable document
+classes have been created, to recreate documents with the minimum of
+effort.
 
 # Contributing
 
