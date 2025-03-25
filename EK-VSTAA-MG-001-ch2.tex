@@ -35,7 +35,7 @@ mode of operation each prompt represents.
 
 \newpage
 
-\begin{tbl}{2-1}{Prompts}{c l}
+\begin{tbl}{Prompts}{c l}
 \textbf{Prompt} & \textbf{Mode of operation}\\
 \hline
 {>}{>}{>} & Console mode. Console commands are listed in \hyperlink{appendix.b}{Appendix B}. \\
@@ -84,8 +84,8 @@ default recovery actions.
 \item For a boot failure -- If the system fails to boot properly, the system 
 automatically halts the CPU and enters console mode. See Section 2.5.2
 for information on setting the default boot device.
-\item On a system error -- If the CPU detects a severe corruption of its oper-
-ating environment, it halts and reads the default recovery action in the
+\item On a system error -- If the CPU detects a severe corruption of its 
+operating environment, it halts and reads the default recovery action in the
 NVR. The default recovery action can be restart, boot, or halt. When
 it is restart and the restart fails, then the system automatically tries to
 boot the operating system software. If the boot fails, the CPU halts and
@@ -114,8 +114,8 @@ another node, the system keeps looking for the software indefinitely.
 If a boot message for the operating system software does not appear
 shortly after the Ethernet boot message (ESA0) is displayed, then you
 must press the halt button to abort the Ethernet boot. If you still need
-to boot over the Ethernet, make sure the node with the operating sys-
-tem software is operating normally and the software is loaded. Run the
+to boot over the Ethernet, make sure the node with the operating system 
+software is operating normally and the software is loaded. Run the
 Ethernet loopback Utility (TEST 90) to check the networking capability
 of the system if the Ethernet boot continues to fail.
 
@@ -129,8 +129,8 @@ operating system software at the address contained in the program counter
 (PC). This command starts up the operating software where it was halted
 provided no console test commands were run. Running a test command
 alters the PC and memory so that the operating system software cannot
-be started properly by entering the continue command. If a test com-
-mand was entered, use the boot command to start the operating system
+be started properly by entering the continue command. If a test command 
+was entered, use the boot command to start the operating system
 software. The continue command is similar to the start command. The
 start command can specify the address to Start the operating software
 and the continue command has the operating software continue where
@@ -184,8 +184,8 @@ console terminal. See \hyperlink{appendix.a}{Appendix A} for a complete listing 
 Power-up tests run each time the system power is turned on. Power-up
 testing consists of a sequence of tests executed for each device installed in
 the system. The test number of each device is listed on the power-up screen
-display as the device is tested. \figref{2-1} shows an example of the power-
-up screen display. The first line indicates the CPU name (KA410-A) and the
+display as the device is tested. \figref{2-1} shows an example of the powerup 
+screen display. The first line indicates the CPU name (KA410-A) and the
 ROM version (V1.0). The test numbers are listed next in descending order
 from the first test, F, to the final test, 1. TEST F will have an underscore
 after it on the MicroVAX 2000 to indicate that TEST F was not run. Note in
@@ -199,7 +199,7 @@ installed, but its ROM is destroyed and the Option device must be replaced.
 Only TESTS 1 through 4 can have an asterisk after them. \figref{2-2} lists
 the symbols that can appear in between the tests and what they indicate.
 
-\begin{ttfig}{2-1}{Example of Power-up Tests Screen Display}
+\begin{ttfig}{Example of Power-up Tests Screen Display}
 KA410-A V1.0
 F...E...D...C...B...A...9...8...7...6...5...4_..3_..2_..1_..
 \end{ttfig}
@@ -207,7 +207,7 @@ F...E...D...C...B...A...9...8...7...6...5...4_..3_..2_..1_..
 \figref{2-2} lists the definitions of the symbols that appear between the test
 numbers in the power-up test countdown.
 
-\begin{ttfig}{2-2}{Power-up Symbols Defined}
+\begin{ttfig}{Power-up Symbols Defined}
     ...  Device tested successfully or has a soft error
     ?..  Device has a hard error
     _..  Device not installed or not tested
@@ -236,13 +236,13 @@ table are updated every time self-test is run. See Paragraph 2.5.1 for an
 explanation of how to use the configuration table.
 
 Each error summary consists of one or two question marks, a test number,
-the ID number of the failed device, and an eight-digit error code. For ex-
-ample, in \figref{2-3}, the first line of the error summary shows a hard error
+the ID number of the failed device, and an eight-digit error code. For example, 
+in \figref{2-3}, the first line of the error summary shows a hard error
 for TEST F, a device ID number of 00B0, and an error code of 0001.F002.
 The second line shows a soft error for TEST E, a device ID of 0040, and an
 error code of 0000.0005. \hyperlink{subsubsection.2.3.1.1}{Section 2.3.1.1} describes the error codes.
 \newpage
-\begin{ttfig}{2-3}{Example of Power-up Tests Screen Display with Errors.}
+\begin{ttfig}{Example of Power-up Tests Screen Display with Errors.}
 KA410-A V1.0
 
 F?..E...0...C...B...A...9...8...7...6...5...4_..3_..2_..1_..
@@ -257,7 +257,7 @@ this happens, the only way to determine the cause of the problem is by
 viewing the LEDs on the keyboard. One of the LEDs will be lit to indicate
 the failing module. \tabref{2-2} lists the LEDs and which module has failed.
 
-\begin{tbl}{2-2}{Keyboard LEDs Defined}{l l}
+\begin{tbl}{Keyboard LEDs Defined}{l l}
 \textbf{Keyboard LED} & \textbf{Failing module}\\
 \hline
 Hold Screen & System module \\
@@ -299,7 +299,7 @@ of the configuration table and for an explanation of the configuration table,
 see \hyperlink{subsection.2.5.1}{Paragraph 2.5.1}.
 
 
-\begin{ttfig}{2-4}{Example of the Configuration Table}
+\begin{ttfig}{Example of the Configuration Table}
 >>> TEST 50
 
 KA410-A V1.0
@@ -355,7 +355,7 @@ tested. \tabref{2-3} lists the test numbers and the devices tested by those
 numbers. \figref{2-5} shows an example of running self-test successfully on
 the disk controller.
 
-\begin{ttfig}{2-5}{Example of Running Self-test on the Disk Controller}
+\begin{ttfig}{Example of Running Self-test on the Disk Controller}
 >>> TEST 7
   7...
 >>>
@@ -370,7 +370,7 @@ all tests between C and 4 are tested successfully. Note that you cannot
 pick and choose which devices to test between C and 4, all tests between
 C and 4 are tested when entered as a group.
 
-\begin{ttfig}{2-6}{Example of Running a Series of Self-tests}
+\begin{ttfig}{Example of Running a Series of Self-tests}
 >>> TEST C 4
   C...B...A...9...8...7...6...5...4_..
 >>>
@@ -379,7 +379,7 @@ C and 4 are tested when entered as a group.
 To test all devices, enter TEST F 1. The MicroVAX 2000 skips over the
 MONO video test (TEST F) since it does not use the video circuits.
 
-\begin{tbl}{2-3}{Self-test Commands}{p{2cm} p{8cm}}
+\begin{tbl}{Self-test Commands}{p{2cm} p{8cm}}
 \raggedright\textbf{Test\newline Number} & \textbf{Device\newline Tested} \\
 \hline
 1 & Option module (Network Interconnect module) (NI) \\[0.5em]
@@ -437,7 +437,7 @@ tests and not the results of the system exerciser. See Paragraph 2 5 1 for an
 explanation of the configuration table.
 
 \newpage 
-\begin{ttfig}{2-7}{Example of a Self-test Error on the Disk Controller}
+\begin{ttfig}{Example of a Self-test Error on the Disk Controller}
   >>> TEST 7
     7?..
     84 FAIL
@@ -468,8 +468,8 @@ This type of testing usually finds any intermittent failures.
 
 The system exerciser has two modes: customer mode and field service
 mode. Customer mode system exerciser (TEST 0) does not use loopback
-connectors and does not fully test all of the devices. Field service mode sys-
-tem exerciser requires loopback connectors installed and removable media
+connectors and does not fully test all of the devices. Field service mode system 
+exerciser requires loopback connectors installed and removable media
 from the maintenance kit inserted and loaded. You must initialize the floppy
 diskette in the maintenance kit with a special diagnostic key so the exerciser
 can perform write tests on the RX33. Refer to Paragraph 2.5.11 for more
@@ -495,7 +495,7 @@ configuration.
 \subsubsection{System Exerciser Diagnostic Commands}
 \tabref{2-4} lists the system exerciser diagnostic commands.
 
-\begin{tbl}{2-4}{System Exerciser Diagnostic Commands}{p{0.2\textwidth} p{0.8\textwidth}}
+\begin{tbl}{System Exerciser Diagnostic Commands}{p{0.2\textwidth} p{0.8\textwidth}}
 \textbf{Test Commands} 	&	\textbf{Description of Commands} \\
 \hline
 
@@ -564,7 +564,7 @@ installed, the system tests those devices the same as in customer mode.
 the system exerciser in field service mode. Customer mode gives the same
 display, but with a CU in place of the FS on the top of the display.
 
-\begin{ttfig}{2-8}{System Exerciser Display Example}
+\begin{ttfig}{System Exerciser Display Example}
 KA410-A V1.0          01     FS
 
    F  00B0    MONO    0000.0001      2      0 00:00:55.01
@@ -663,11 +663,11 @@ service mode. Both modes test the NVR circuits the same.
 
 To run self-test, enter TEST D. Any error code other than 0000.0001 in
 dicates a fault in the NVR. An error code of 0000.0005 indicates that the
-battery charge is below the normal voltage level. If the battery is low, al-
-low the system to charge the battery for five minutes and then run TEST D
+battery charge is below the normal voltage level. If the battery is low, allow 
+the system to charge the battery for five minutes and then run TEST D
 again. If the error code is still 0000.0005, replace the battery. A charging
-time of 20-25 hours is needed to fully charge the battery. Leaving the sys-
-tem powered up charges the battery. If any other error code appears in the
+time of 20-25 hours is needed to fully charge the battery. Leaving the system 
+powered up charges the battery. If any other error code appears in the
 CLK error display, you must replace the system module.
 
 The system exerciser does not display the status of the NVR circuits. The
@@ -693,8 +693,8 @@ code other than 0000.4001 indicates a fault in the DZ controller.
 \textbf{VAXstation 2000}
 
 To run self-test in field service mode on VAXstation 2000, install a loopback
-(p/n 29-24795) on the 25-pin communication port and a loopback (p/n 29-
-24794) on the 9-pin printer port. Enter TEST C. If the error code is not
+(p/n 29-24795) on the 25-pin communication port and a loopback (p/n 29-24794) 
+on the 9-pin printer port. Enter TEST C. If the error code is not
 0000.0001, check to see if the loopbacks are still connected. Reconnect
 them, if necessary, and test again. Replace the system module if the error
 still exists. Loopbacks cannot be used to test the DZ controller when the
@@ -768,7 +768,7 @@ error code indicates. The status portion of the code indicates the number
 of pages tested during the last test pass (1 page = 512 bytes) if there were
 no errors found.
 \newpage
-\begin{ttfig}{2-9}{Example of MEM System Exerciser Error Code}
+\begin{ttfig}{Example of MEM System Exerciser Error Code}
 .
 .
 .
@@ -788,7 +788,7 @@ the last test pass, the error portion of the code contains the error code.
 \tabref{2-5} lists the MEM system exerciser errors and shows which module
 is causing the error.
 
-\begin{tbl}{2-5}{MEM System Exerciser Error Codes}{l l}
+\begin{tbl}{MEM System Exerciser Error Codes}{l l}
 \textbf{Error Codes} & \textbf{Definition}\\
 \hline
 0001.001F   &   Compare error on the system module\\
@@ -847,14 +847,14 @@ The system exerciser does not exercise the IT circuits.
 
 You can troubleshoot the disk controller and drives using self-test and the
 system exerciser. These diagnostics test the disk controller on the system
-module and also test the drives connected to the controller. There is a max-
-imum number of three drives that can be supported in either a VAXstation
+module and also test the drives connected to the controller. There is a maximum 
+number of three drives that can be supported in either a VAXstation
 2000 or a MicroVAX 2000. The three drives are labelled DUA0, DUA1, and
 DUA2. DUA0 will always be the hard disk drive (RD) located in the system
 box. DUA0 can be a full-height or a half-height drive. DUA1 will always be
 the hard disk drive (RD) located in the expansion box. DUAI communicates
-to the system module through port B on the expansion adapter; thus allow-
-ing you to isolate DUA1 during testing, if necessary, without opening the
+to the system module through port B on the expansion adapter; thus allowing 
+you to isolate DUA1 during testing, if necessary, without opening the
 system box. DUA2 will always be the half-height floppy disk drive (RX33)
 and will only be located in the system box. If DUA0 is a full-height drive,
 then a floppy disk drive cannot be installed because of lack of space in the
@@ -873,7 +873,7 @@ broken into five segments: status of DUA2, DUA1, DUA0, tape controller,
 and the error code if a hard error is found. The power-up error code is the
 same as the self-test error code.
 
-\begin{ttfig}{2-10}{HDC Power-up and Self-test Error Code}
+\begin{ttfig}{HDC Power-up and Self-test Error Code}
 7 0090 0000.0000
        |||| |  |
        |||| `--'
@@ -903,7 +903,7 @@ digits of the error code repeat the first four digits if a hard error is found o
 the disk controller. Otherwise, the last four digits contain 0001 to indicate
 no errors or soft errors.
 
-\begin{tbl}{2-6}{Power-up and Self-test Error Codes for each Dlsk Drive}{p{0.2\textwidth} p{0.75\textwidth}}
+\begin{tbl}{Power-up and Self-test Error Codes for each Dlsk Drive}{p{0.2\textwidth} p{0.75\textwidth}}
 \textbf{Error Codes} & \textbf{Description of error codes for each disk drive}\\
 \hline
 1	&	Good -- No error for this drive.\\
@@ -983,7 +983,7 @@ or an error in the controller. You must replace one or both to fix the error.
 Two question marks for DUA2 may also indicate bad media on the floppy
 diskette.
 
-\begin{ttfig}{2-11}{Example of System Exerciser Display for the Disk Controller}
+\begin{ttfig}{Example of System Exerciser Display for the Disk Controller}
 .
 .
 .
@@ -999,7 +999,7 @@ diskette.
 \tabref{2-7} lists the erorr codes for the disk controller's line and \tabref{2-8}
 lists the error codes for the drives.
 
-\begin{tbl}{2-7}{HDC Disk Controller System Exerciser Error Codes}{p{0.1\textwidth} p{0.3\textwidth} p{0.5\textwidth}}
+\begin{tbl}{HDC Disk Controller System Exerciser Error Codes}{p{0.1\textwidth} p{0.3\textwidth} p{0.5\textwidth}}
 \textbf{Error Codes} & \textbf{Possible Cause} & \textbf{Corrective Action}\\
 \hline
 
@@ -1028,7 +1028,7 @@ X000.0001	&	The X indicates the drive used for the data transfer test &
 
 \end{tbl}
 
-\begin{tbl}{2-8}{HDC Dlsk Drive System Exerciser Error Codes}{p{0.1\textwidth} p{0.25\textwidth} p{0.55\textwidth}}
+\begin{tbl}{HDC Dlsk Drive System Exerciser Error Codes}{p{0.1\textwidth} p{0.25\textwidth} p{0.55\textwidth}}
 \textbf{Error Codes} & \textbf{Possible Cause} & \textbf{Corrective Action}\\
 \hline
 
@@ -1108,10 +1108,10 @@ the expansion box.
 DUA2 -- Refer to \figref{2-14} to set the drive select jumper on an RX33 in
 the system box.
 
-\fig[0.6]{2-12}{MA-0131-87}{RD32 Drive Select Jumper Setting for DUA0}
-\fig[0.6]{2-13}{SHR-0126-85}{RD53 Drive Select Jumper Setting for DUA0 and DUA1}
+\fig[0.6]{MA-0131-87}{RD32 Drive Select Jumper Setting for DUA0}
+\fig[0.6]{SHR-0126-85}{RD53 Drive Select Jumper Setting for DUA0 and DUA1}
 
-\fig[0.7]{2-14}{SHR-0045-86}{RX33 Drive Select Jumper Setting for DUA2}
+\fig[0.7]{SHR-0045-86}{RX33 Drive Select Jumper Setting for DUA2}
 
 \subsection{TPC -- Tape Drive Controller Troubleshooting Procedures}
 
@@ -1142,7 +1142,7 @@ into five segments: ID addresses of devices connected to the tape port,
 ID addresses of the devices that tested successfully, two possible cause
 indicators, and a status of the tape controller.
 
-\begin{ttfig}{2-15}{TPC Power-up and Self-test Error Code}
+\begin{ttfig}{TPC Power-up and Self-test Error Code}
 6  00A0 0000.0000
         |||| ||||
         `|`| ||`|
@@ -1191,8 +1191,8 @@ does not recognize it or it is not powered up.
 
 If the second two digits of the status code shown in \figref{2-15} (good
 devices) do not match the first two digits (connected devices), then there
-is a communication problem between the tape expansion box and the sys-
-tem. Disconnect the cable from port A on the expansion adapter and run
+is a communication problem between the tape expansion box and the system. 
+Disconnect the cable from port A on the expansion adapter and run
 self-test again. If the status code for TPC now contains anything other than
 0000.4001, replace the system module. Otherwise, if the status code is
 0000.4001, reconnect the cable to port A and make sure the tape expan
@@ -1230,8 +1230,8 @@ pass test of the TPC does not perform any diagnostics or data transfer tests
 on the tape expansion box. The first pass test only checks whether or not the
 tape expansion box is there and whether or not it can communicate over the
 tape port to the tape controller. Complete data transfer and read/write (field
-Service mode only) testing is done on subsequent test passes. For exam-
-ple, in field Service mode with the Special keyed COMPACTape cartridge
+Service mode only) testing is done on subsequent test passes. For example, 
+in field Service mode with the Special keyed COMPACTape cartridge
 installed, the error code for the tape expansion box shows that the TK50 is
 not writeable (1100.0001) during the first pass. However, the second pass
 shows that the TK50 is writeable (1300.0001) as long as the cartridge has a
@@ -1265,7 +1265,7 @@ and the system module must be replaced. Otherwise, the error is in the
 expansion box and you must run the internal self-test on the expansion box
 as described below.
 
-\begin{ttfig}{2-16}{Example of System Exerciser Display for the Tape Controller}
+\begin{ttfig}{Example of System Exerciser Display for the Tape Controller}
 .
 .
 .
@@ -1282,7 +1282,7 @@ as described below.
 and \tabref{2-10} lists the system exerciser error codes for the tape drives error
 line.
 
-\begin{tbl}{2-9}{TPC Tape Controller System Exerciser Error Codes}{p{0.2\textwidth} p{0.2\textwidth} p{0.5\textwidth}}
+\begin{tbl}{TPC Tape Controller System Exerciser Error Codes}{p{0.2\textwidth} p{0.2\textwidth} p{0.5\textwidth}}
 \textbf{Error Codes} & \textbf{Possible Cause} & \textbf{Corrective Action}\\
 \hline
 
@@ -1313,3 +1313,324 @@ X000.0001	&	This error code indicates no Controller error. The X indicates
 
 \end{tbl}
 
+
+\begin{tbl}{Tape Drive Expansion Box System Exerciser Error Codes}{p{0.2\textwidth} p{0.2\textwidth} p{0.5\textwidth}}
+\textbf{Error Codes} & \textbf{Possible Cause} & \textbf{Corrective Action}\\
+\hline
+
+X000.0001	&	The X indicates the device ID address of tape expansion box. &
+	This device ID address can be 1, 2, 3, 4, 5, 6, or 7. It should normally be 1 unless the device ID address
+	jumpers (Pl, P2, P3) on the TZK50 controller board have been changed. It must never be 0. If a 0 is in
+	this position, the device ID address jumpers are set to zero and they must be reset to another ID. The
+	ID address must be 1 for systems running VMS or ULTRIX.
+\\
+0X00.0001	&	The X indicates the tape cartridge status. &
+	The X position indicates whether or not the device on the tape port has removeable or non-removeable
+	media and also whether or not the device is writeable. 1 = removeable media, 2 = writeable, and 3
+	= removeable media and it is writeable. This digit should be a 1 or a 3 since the TK50 has removeable
+	media. This digit should be a 1 in customer mode and a 3 in field Service mode if the special-keyed
+	cartridge is installed and loaded in the TK50. Note that this digit can never be a 3 in field Service mode
+	until a second pass test is done on the TPC since the system exerciser does not do a write test on the first
+	pass.
+\\
+00XX.0001	&	The XX indicates the drive error count during the data transfer test.  00 indicates no error. &
+	The error may be in the TZK50 controller board, the TK50 tape drive, or the tape controller on the
+	system module. Run the exerciser again but with another tape expansion box, if possible, to determine 
+	if the error is on the tape controller or in the tape expansion box you removed. If the data
+	transfer error still appears after replacing the tape expansion box, replace the system module. 
+	Otherwise, troubleshoot the tape expansion box as shown in \hyperlink{subsubsection.2.4.10.3}{Paragraph 2.4.10.3}
+	 below. If you do not have an other tape expansion box to swap out, replace the following FRUs one at a time 
+	and run the exerciser after each one is replaced until there are no more transfer errors. First, TZK50 
+	controller board; second, TK50 tape drive; third, the system module.  Remember that the TK50 tape drive is not 
+	tested in customer mode and is also not tested in field service mode if the special-keyed tape cartridge is not
+	loaded in the TK50 tape drive.
+\\
+\end{tbl}
+
+\begin{tblcont}{Tape Drive Expansion Box System Exerciser Error Codes}{p{0.2\textwidth} p{0.2\textwidth} p{0.5\textwidth}}
+\textbf{Error Codes} & \textbf{Possible Cause} & \textbf{Corrective Action}\\
+\hline
+0000.XXX1	&	The XXX indicates the error codes. 000 indicates no errors. &
+	If anything other than zeros (.0001) appear, Run the exerdser again but with another tape expansion
+	box, if possible, to determine if the error is on the tape controller or in the tape expansion box you
+	removed. If the error still appears after replacing the tape expansion box, replace the system module.
+	Otherwise, troubleshoot tne tape expansion box as shown in \hyperlink{subsubsection.2.4.10.3}{Paragraph 2.4.10.3}
+	below. If you do not have another tape expansion box to swap out, replace the following FRUs one at a time and run the
+	exerciser after each one is replaced until there are no more transfer errors.  First, TZK50 controller
+	board; second, TK50 tape drive; third, the system module. Remember that the TK50 tape drive is not
+	tested in customer mode and is also not tested in field service mode if the special-keyed tape cartridge
+	is not loaded in the TK50 tape drive.
+\\
+\end{tblcont}
+
+\subsubsection{Troubleshooting the Tape Expansion Box}
+
+If the results for the TPC indicate a problem in the tape expansion box, the
+problem could be the TK50 tape drive, the TZK50 controller board, or the
+power supply. The TK50 tape drive performs an internal self-test every time
+the tape expansion box is powered up. The TZK50 controller also performs
+an internal self-test at power up. To do an in-depth self-test on the TK50
+tape drive and the TZK50 controller board, follow the procedure below. Do
+each step indicated until you find and fix the problem.
+
+\begin{enumerate}
+
+\item	Remove the tape drive expansion box cover.
+
+\item	Check all cables to make sure they are connected properly. Remove the
+		shield to check the cables on the back of the drive. Note that there are
+		two power cables connected to the resistor load board.
+
+\item	Check the jumpers on the TZK50 controller board for proper installation. 
+		Refer to \figref{2-17} for jumper locations and tape port ID address 
+		confirmation. \figref{2-17} shows the controller board set for ID
+		address 1, with parity checking enabled, and internal diagnostics disabled. 
+		Make sure the three ID address jumpers (Pl, P2, and P3) are set
+		to ID address 1. Jumper P4 is the parity checking jumper and must be
+		installed for normal operation. Jumper P5 is the diagnostic jumper and
+		must not be installed for normal operation. Note the position of the
+		spare jumper(s). Spare jumpers should be stored across P5 and one of
+		the spare posts.
+
+\item	Check the three resistor network packs (Z7, Z6, and Z5) to make sure
+		they are installed properly. If this expansion box is the only box 
+		connected to the tape port, these resistor network packs must be installed
+		on this board. If this expansion box is not the only box connected to the
+		tape port, then make sure the last box in the chain contains these 
+		resistor network packs and all other boxes in the chain have their resistor
+		network packs removed.
+
+\item	Plug in the power cord and switch on power to the expansion box.
+
+\item	If the LED on the TZK50 controller board and on the TK50 tape drive
+		do not light when power is first turned on or the fan does not turn,
+		troubleshoot the power supply (\hyperlink{subsection.2.4.13}{Paragraph 2.4.13}).
+
+\item	Watch the red light on the TK50 tape drive. It should shut off after five
+		to six seconds after power up if no tape is installed. If it starts flashing,
+		replace the TK50 tape drive. When a tape is installed, the red light stays
+		lit.
+
+\item	Look at the LED on the TZK50 controller board. It turns on at power
+		up, then turns off after two seconds. It must stay off once it turns off.
+		If it does not stay off, replace the TZK50 controller board.
+
+\item	Insert and load a blank COMPACTape cartridge into the TK50 tape
+		drive. Do not use the special-keyed cartridge from the kit or a cartridge
+		that has good data, because the next few steps will erase the special
+		key and the data on the cartridge. If you must use the special-keyed
+		cartridge, reload the special key onto the cartridge using TEST 73 after
+		you complete this procedure.
+
+\item	Switch off power to the expansion box.
+
+\item	Remove a spare jumper and install it onto P5. If there are two spare
+		jumpers then both must be removed from their storage positions so one
+		of them can be installed onto P5.
+
+\item	Switch on the power switch.
+
+\item	Wait about one minute for the test to finish. If the LED on the TZK50
+		controller board starts flashing during or at the end of the test, replace
+		the TK50 tape drive. If the LED is on steady, replace the TZK50 Con
+		troller board. If the LED is off, the TZK50 controller board and the TK50
+		tape drive are operating properly. Note that the LED comes on again
+		at the end of the test for about two seconds to indicate that the testing
+		cycle has completed and is starting over again. The test will continue
+		to cycle until the P5 diagnostic jumper is removed or power is switched
+		off.
+
+\newpage
+\fig{MA-0158-87}{TZK50 Controller Board Jumper Locations}
+\newpage
+
+\item	Replace the faulty component, if any, and retest.
+
+\item	Set up the jumpers on the TZK50 controller board for normal operation.
+		Spare jumpers must be stored across P5 and one of the spare posts.
+
+\item	This concludes the troubleshooting procedures for the tape expansion
+		box.
+
+\end{enumerate}
+
+\subsection{SYS -- Interrupt Controller and ThinWire Ethernet ID ROM Troubleshooting Procedures}
+
+You can troubleshoot the interrupt controller and ThinWire Ethernet ID
+ROM (SYS) in either customer mode or field service mode. Both modes
+test these circuits the same.
+
+\subsubsection{Self-test}
+
+To run self-test, enter TEST 5.  Any error code other than 0000.0001 or
+0000.0100 indicates a fault in the interrupt Controller or the ThinWire Ether
+net ID ROM on the system module. The 0000.0100 error code indicates that
+the keyboard is disconnected from the VAXstation 2000 systems. Replace
+just the ThinWire Ethernet ID ROM on the system module to fix an error
+code of 0000.0004. Replace the system module to fix any other error code.
+The replacement procedure for the system module instructs you to remove
+the Thinwire Ethernet ID ROM from the system module being removed and
+install it onto the new system module. If the ThinWire Ethernet ID ROM
+has been replaced for an error code of 0000.0004 and the same error code
+of 0000.0004 reappears when you retest, replace the system module instead
+of just the ThinWire Ethernet ID ROM.
+
+The system exerciser does not display the status of the SYS circuits. The
+SYS circuits are not directly tested but are tested through the testing of other
+circuits.
+
+\newpage
+
+\subsection{NI -- ThinWire Ethernet Network Option Troubleshooting Procedures}
+
+You can troubleshoot the ThinWire Ethernet network option (NI) in either
+customer mode or field service mode. Both modes of self-test test the network 
+option the same. The field service mode of the system exerciser does
+a more in-depth testing of the option. To troubleshoot the network option,
+run self-test (TEST 1) or run the system exerciser (TEST 0 for customer mode
+or TEST 101 for field service mode).
+
+Self-test and the system exerciser test the network interconnect module,
+the ThinWire transceiver circuits on the system module, and also perform
+a loopback function on the ThinWire cable. All tests fail with an error
+code of 0000.7004 if the ThinWire cable is not connected to the back of the
+System box. An error code of 0000.7008 indicates the ThinWire cable is
+not terminated properly. Check the ThinWire cable first if any error code
+has a number seven in the fifth position (0000.7000). The seven in the fifth
+Position indicates a loopback error, but it does not exclude a problem on the
+network option inside the system box. An error code of 0000.0001 indicates
+no error and the network option is operational.
+
+\subsubsection{Self-test}
+
+To run self-test, enter TEST 1. Any error code other than 0000.0001 indicates 
+a fault in either the network interconnect module or on the ThinWire
+Ethernet cable. Note that positions 3 and 4 (00XX.0001) in the error code
+indicate the number of retries over the Ethernet cable before a success. If
+the error code is not 0000.0001, check the ThinWire Ethernet cable on the
+back of the system for proper connections and terminators. Reconnect the
+Thinwire cable and terminators, if disconnected, and test again. If the error
+code is 0000.7000 or above (for example, 0000.7001 or higher), disconnect
+the ThinWire T connector from the back of the system and install the T con
+nector with terminators from the service kit. Run the test again. If the error
+code is 0000.0001 after installing the T connector with both terminators, the
+problem is on the ThinWire Ethernet cable. Otherwise, if the error code
+is anything other than 0000.0001, replace the network interconnect module
+and test again with the T connector and both terminators installed. If the
+error code is still not 0000.0001 after repladng the network interconnect
+module, replace the system module.
+
+\subsubsection{System Exerciser}
+
+To run the system exerciser, enter TEST 0 for customer mode or TEST 101
+for field service mode. Field service mode does a more in-depth test of
+the circuits. Any error code other than 0000.0001 indicates a fault in the
+network interconnect module or on the system module. Unlike the self-test
+for the network Option, the system exerciser does not do any testing over
+the ThinWire Ethernet cable. It only tests the internal circuitry. If the error
+code is not 0000.0001, replace the network interconnect module. If the error
+code is still not 0000.0001 after replacing the network interconnect module,
+replace the system module.
+
+\subsection{Power Supply Troubleshooting Procedures}
+
+Follow the flowchart in \figref{2-18} if a problem with the power supply in
+either the system box, hard disk expansion box, or tape drive expansion
+box exists. The flowchart is designed to troubleshoot the power supply in
+any of the three boxes.
+
+\fig[0.6]{MA-0066-87}{Flowchart for Troubleshooting the Power Supply}
+
+\fig{MA-0156-87}{Power Connectors Pin Voltages}
+
+\newpage
+
+\subsection{VR260 Monochrome Monitor Troubleshooting Procedures}
+
+\tabref{2-11} lists some Symptoms of common problems with the VR260.
+When troubleshooting the VR260, follow the suggested corrective actions
+in the order listed.
+
+\begin{tbl}{VR260 Troubleshooting Table}{p{0.3\textwidth} p{0.6\textwidth}}
+\textbf{Symptom} & \textbf{Corrective Action} \\
+\hline
+
+No LED; blank screen.	&
+	Check the power cord connection.
+
+	\vspace*{0.8em}
+	Check the 120/240 Vac setting.
+
+	\vspace*{0.8em}
+	Check the fuse.
+
+	\vspace*{0.8em}
+	Remove the rear bulkhead assembly and check the connection to the transformer assembly.
+
+	\vspace*{0.8em}
+	Check the deflection board connections.
+
+	\vspace*{0.8em}
+	Replace the deflection board connections.
+\\
+Flashing LED.	&
+	Check the deflection board connections, including the chassis ground.
+
+	\vspace*{0.8em}
+	Make sure the high-voltage anode lead has a good connection with the CRT.
+
+	\vspace*{0.8em}
+	Replace the deflection board.
+\\
+Compressed raster; no video display.	&
+	Make sure the monitor cable is connected between the system and the monitor.
+
+	\vspace*{0.8em}
+	Adjust the contrast and brightness adjustments.
+
+	\vspace*{0.8em}
+	Run the monochrome video diagnostics (TEST F). If a failure is indicated, 
+	replace the System module in the system box before proceeding with troubleshooting the VR260.
+
+	\vspace*{0.8em}
+	Remove the rear bulkhead assembly and check the cable connections to the video amp board.
+
+	\vspace*{0.8em}
+	Remove the video amp board and check the CRT pin connections.
+
+	\vspace*{0.8em}
+	Replace the video amp board.
+\\
+Raster; no video display.	&
+	Run the monochrome video diagnostics (TEST F). If a failure 
+	is indicated, replace the system module in the System
+	box before proceeding with troubleshooting the VR260.
+
+	\vspace*{0.8em}
+	Ensure good CRT connections.
+
+	\vspace*{0.8em}
+	Replace the video amp board.
+\\
+\end{tbl}
+
+\begin{tblcont}{VR260 Troubleshooting Table}{p{0.3\textwidth} p{0.6\textwidth}}
+\textbf{Symptom} & \textbf{Corrective Action} \\
+\hline
+
+No LED but good video display.	&
+	Remove the LED bezel assembly and check for a good connection.
+
+	\vspace*{0.8em}
+	Replace the LED.
+
+	\vspace*{0.8em}
+	Ensure proper cable connections fr.om.the deflection board
+	to the LED bezel assembly.
+\\
+Video display but not to specifications.	&
+	Bring up the appropriate monochrome display alignment
+	pattern (TESTS 60, 61, or 62) and perform the adjustment
+	according to \hyperlink{chapter.4}{Chapter 4}.
+\\
+\end{tblcont}

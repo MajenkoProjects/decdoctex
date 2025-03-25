@@ -88,3 +88,39 @@ DIBOL & Rainbow & \\
 }
 
 
+
+\renewcommand\thefigure{\thechapter-\arabic{figure}}
+\renewcommand\thetable{\thechapter-\arabic{table}}
+
+\RenewEnviron{tbl}[2]{
+    \begin{table}[H]
+    \label{table:\tbllabel}
+    \captionsetup{font=Large}
+    \caption{#1}
+    \small
+    \begin{tabularx}{\textwidth}{#2}
+    \hline
+    \BODY
+    \hline
+    \end{tabularx}
+    \end{table}
+}
+
+\RenewEnviron{tblcont}[2]{
+    \begin{table}[H]
+    \addtocounter{table}{-1}
+    \renewcommand\thetable{\thechapter-\arabic{table} (Cont.)}
+    \captionsetup{font=Large}
+    \caption[]{#1}
+    \small
+    \begin{tabularx}{\textwidth}{#2}
+    \hline
+    \BODY
+    \hline
+    \end{tabularx}
+    \end{table}
+}
+
+\renewcommand{\figlabel}{\thechapter-\arabic{figure}}
+\renewcommand{\tbllabel}{\thechapter-\arabic{table}}
+

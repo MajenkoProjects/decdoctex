@@ -20,9 +20,13 @@
 \usepackage{enumitem}
 \usepackage{environ}
 \usepackage{caption}
+\usepackage{longtable}
 
 \setlist{nosep}
 \setlist{parsep=0em, itemsep=0.5em,topsep=-0.8em}
+
+\newcommand{\figlabel}{\arabic{figure}}
+\newcommand{\tbllabel}{\arabic{figure}}
 
 
 \hypersetup{
@@ -209,13 +213,13 @@ required to take measures to correct the interference.
 \titleformat{\subsubsection}{\raggedright\fontfamily{phv}\selectfont\bfseries}{}{0.0em}{}[]
 \titlespacing{\subsubsection}{0em}{0em}{0em}
 
-\newcommand{\fig}[4][1.0]{\begin{figure}[H]
-\caption{#4}
+\newcommand{\fig}[3][1.0]{\begin{figure}[H]
+\caption{#3}
 \begin{center}
-\makebox[#1\textwidth][c]{\includegraphics[width=#1\textwidth]{fig/#3}}
+\makebox[#1\textwidth][c]{\includegraphics[width=#1\textwidth]{fig/#2}}
 \end{center}
 \end{figure}
-\label{figure:#2}
+\label{figure:\figlabel}
 }
 
 \newcommand{\howtoorder}{%
@@ -291,11 +295,11 @@ required to take measures to correct the interference.
 \captionsetup{skip=0pt}
 \captionsetup{font=Large}
 
-\newenvironment{ttfig}[2]{%
+\newenvironment{ttfig}[1]{%
 \VerbatimEnvironment
 \begin{figure}[H] 
-\caption{#2}
-\label{figure:#1}
+\caption{#1}
+\label{figure:\figlabel}
 \small
 \fontfamily{lmtt}\selectfont\bfseries
 \begin{Verbatim} 
@@ -306,19 +310,36 @@ required to take measures to correct the interference.
 
 
 
-\NewEnviron{tbl}[3]{
+
+\NewEnviron{tbl}[2]{
 	\begin{table}[H]
-	\label{table:#1}
+	\label{table:tbllabel}
 	\captionsetup{font=Large}
-	\caption{#2}
+	\caption{#1}
 	\small
-	\begin{tabularx}{\textwidth}{#3}
+	\begin{tabularx}{\textwidth}{#2}
 	\hline
 	\BODY
 	\hline
 	\end{tabularx}
 	\end{table}
 }
+
+\NewEnviron{tblcont}[2]{
+	\begin{table}[H]
+	\addtocounter{table}{-1}
+	\renewcommand\thetable{\arabic{table} (Cont.)}
+	\captionsetup{font=Large}
+	\caption{#1}
+	\small
+	\begin{tabularx}{\textwidth}{#2}
+	\hline
+	\BODY
+	\hline
+	\end{tabularx}
+	\end{table}
+}
+
 
 \newcommand{\figref}[1]{\hyperref[figure:#1]{Figure #1}}
 \newcommand{\tabref}[1]{\hyperref[table:#1]{Table #1}}
