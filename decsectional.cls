@@ -64,3 +64,27 @@ DIBOL & Rainbow & \\
     \newpage
 }
 
+\let\Chaptermark\chaptermark
+\def\chaptermark#1{\def\Chaptername{#1}\Chaptermark{#1}}
+
+\fancypagestyle{preface} {
+    \fancyhf{}
+    \fancyfoot[LE]{\small\fontfamily{phv}\selectfont \textbf{\thepage}}
+    \fancyfoot[RO]{\small\fontfamily{phv}\selectfont \textbf{\thepage}}
+}
+
+\fancypagestyle{main} {
+    \fancyhf{}
+    \fancyfoot[LE]{\small\fontfamily{phv}\selectfont \textbf{\thechapter-\thepage} \hspace{1em} \@product \hspace{1pt} \@title}
+    \fancyfoot[RO]{\small\fontfamily{phv}\selectfont \Chaptername \hspace{1em} \textbf{\thechapter-\thepage}}
+}
+
+\fancypagestyle{plain}{%
+    \fancyhf{}%
+    \fancyfoot[LE]{\small\fontfamily{phv}\selectfont \textbf{\thechapter-\thepage} \hspace{1em} \@product \hspace{1pt} \@title}
+    \fancyfoot[RO]{\small\fontfamily{phv}\selectfont \Chaptername \hspace{1em} \textbf{\thechapter-\thepage}}
+    \renewcommand{\headrulewidth}{0pt}% Line at the header invisible
+    \renewcommand{\footrulewidth}{0pt}% Line at the footer visible
+}
+
+

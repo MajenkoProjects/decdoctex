@@ -83,6 +83,14 @@
 	\fancyfoot[RO]{\small\fontfamily{phv}\selectfont \@product \hspace{1pt} \@title \hspace{1em} \textbf{\thepage}}
 }
 
+\fancypagestyle{plain}{%
+  	\fancyhf{}%
+	\fancyfoot[LE]{\small\fontfamily{phv}\selectfont \textbf{\thepage} \hspace{1em} \@product \hspace{1pt} \@title}
+	\fancyfoot[RO]{\small\fontfamily{phv}\selectfont \@product \hspace{1pt} \@title \hspace{1em} \textbf{\thepage}}
+  	\renewcommand{\headrulewidth}{0pt}% Line at the header invisible
+  	\renewcommand{\footrulewidth}{0pt}% Line at the footer visible
+}
+
 \hyphenation{none}
 
 

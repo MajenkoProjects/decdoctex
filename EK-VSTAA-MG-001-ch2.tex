@@ -1,0 +1,488 @@
+\chapter{Testing and Troubleshooting}
+\setcounter{page}{1}
+
+\section{Introduction}
+
+This chapter describes how to test and troubleshoot the VAXstation 2000
+and the MicroVAX 2000 systems. Differences between the VAXstation 2000
+and the MicroVAX 2000 are specifically identified in the text.
+
+This chapter contains the following sections.
+
+\begin{itemize}
+\item How to use console mode: determining the console device, enter
+ing console mode, exiting console mode, utilizing the diagnostic
+console device, and where to find a list of the console commands.
+\item How to run the diagnostic tests and interpret the error codes for
+each test: power-up tests, self-test, and system exerciser.
+\item How to troubleshoot all devices in the system.
+\item How to use the utilities.
+\end{itemize}
+
+\section{Using Console Mode}
+
+The VAXstation 2000 and the MicroVAX 2000 systems have two modes
+of operation: program mode and console mode. Normal operation of the
+VAXstation 2000 and the MicroVAX 2000 is in program mode, that is, with
+the operating system controlling the system. Console mode allows the user
+to control the system from the console terminal using the console com
+mands described in \hyperlink{appendix.b}{Appendix B}. Console mode is contained in ROM on
+the system module.
+
+Testing is done while in console mode. The System returns the \console
+prompt when it is in console mode. \hyperref[table:2-1]{Table 2-1} lists the prompts and the
+mode of operation each prompt represents.
+
+\begin{table}[H]
+\caption{Prompts}
+\label{table:2-1}
+\begin{tabularx}{\textwidth}{c l}
+\hline
+\textbf{Prompt} & \textbf{Mode of operation}\\
+\hline
+{>}{>}{>} & Console mode. Console commands are listed in \hyperlink{appendix.b}{Appendix B}. \\
+\$ & Program mode (VMS operating system) \\
+\% & Program mode (Ultrix operating system) \\
+\hline
+\end{tabularx}
+\end{table}
+
+\subsection{Determining the Console Device}
+
+The console device for a VAXstation 2000 system is the keyboard (LK201)
+and monitor (VR260) connected to the video port. The keyboard inputs
+commands at 4800 baud and the monitor displays output from the video
+circuits.
+
+The console device for a MicroVAX 2000 system is the terminal (VT220 or
+similar terminal) connected to connector 1 on the DEC423 converter. The
+terminal operates at 9600 baud.
+
+\subsection{Entering Console Mode}
+
+Console mode is entered any time the CPU halts. The CPU can be halted
+automatically or manually. A halt means that CPU control has passed 
+control from the operating system to the console mode program in ROM. If
+the system halts the CPU, then the console mode program checks the 
+nonvolatile RAM (NVR) for user-defined instructions on how to handle the halt.
+If you manually halt the CPU, the system enters console mode program 
+immediately without checking the NVR for instructions.
+
+You can manually halt the CPU and enter console mode by one of the
+following methods.
+
+\begin{itemize}
+\item HALT button -- Press the halt button. It is located next to the printer port
+on the back of the System box. The \console prompt is displayed when
+ready for console commands.
+\item BREAK key -- Press the BREAK key on the diagnostic console device
+that is connected to the printer port with the BCC08 cable. The \console
+prompt is displayed when ready for console commands.
+\end{itemize}
+The system automatically halts the CPU for the following reasons.
+\begin{itemize}
+\item After power-up testing -- If the default recovery action is halt, the system
+automatically halts the CPU and enters console mode after power-up
+tests are complete. See Section 2.5.4 for information on setting the
+default recovery actions.
+\item For a boot failure -- If the system fails to boot properly, the system 
+automatically halts the CPU and enters console mode. See Section 2.5.2
+for information on setting the default boot device.
+\item On a system error -- If the CPU detects a severe corruption of its oper-
+ating environment, it halts and reads the default recovery action in the
+NVR. The default recovery action can be restart, boot, or halt. When
+it is restart and the restart fails, then the system automatically tries to
+boot the operating system software. If the boot fails, the CPU halts and
+enters console mode. When the default recovery action is boot and the
+boot fails, the CPU halts and enters console mode. When the default re
+covery action is halt, the CPU unconditionally halts and enters console
+mode.
+\end{itemize}
+
+One other way to halt the CPU is when the operating system software 
+executes a halt instruction. The CPU then reads the default recovery action in
+the NVR and acts on it as described above.
+
+\subsection{Exiting Console Mode}
+
+Console mode is exited by typing one of the following console commands.
+
+\begin{itemize}
+\item BOOT -- This command initializes the CPU and boots the operating 
+system software from the device specified. If no device is specified, the
+system searches each on-line device until the operating system software
+|s found. The boot command starts the system similar to when power
+is turned on except that the power-up tests are not run. If the system
+attempts to boot over the net (ESA0) and no software is available on
+another node, the system keeps looking for the software indefinitely.
+If a boot message for the operating system software does not appear
+shortly after the Ethernet boot message (ESA0) is displayed, then you
+must press the halt button to abort the Ethernet boot. If you still need
+to boot over the Ethernet, make sure the node with the operating sys-
+tem software is operating normally and the software is loaded. Run the
+Ethernet loopback Utility (TEST 90) to check the networking capability
+of the system if the Ethernet boot continues to fail.
+
+When a boot is invoked using this boot command, you can specify
+several boot command flags by bit encoding the flags in a flag word
+specified with the /R5: qualifier. These command flags are listed in
+Paragraph 2.5.3.
+
+\item CONTINUE -- This command instructs the CPU to continue the 
+operating system software at the address contained in the program counter
+(PC). This command starts up the operating software where it was halted
+provided no console test commands were run. Running a test command
+alters the PC and memory so that the operating system software cannot
+be started properly by entering the continue command. If a test com-
+mand was entered, use the boot command to start the operating system
+software. The continue command is similar to the start command. The
+start command can specify the address to Start the operating software
+and the continue command has the operating software continue where
+it left off.
+
+\item START -- This command Starts the operating System Software at a 
+specified address. If no address is given, the contents of the PC are used.
+However, running a test command alters the PC and memory so that the
+operating system software cannot be started properly by entering the
+start command. If a test command was entered, use the boot command
+to start the operating system software.
+
+\end{itemize}
+
+\subsection{Diagnostic Console Device}
+
+There is a diagnostic console device available on the VAXstation 2000. The
+MicroVAX 2000 can use this device if the DEC423 Converter is removed.
+
+The diagnostic console device can be utilized by connecting a terminal (such
+as the VT100 or VT220) to the printer port with the special BCC08 cable.
+The terminal operates at 9600 baud. Field service technicians can use this
+terminal as a diagnostic tool to isolate a problem in the normal console
+device.
+
+To use this diagnostic console device you must turn off power, connect the
+BCC08 cable to the printer port and terminal, and then turn power back on.
+The diagnostic console device now controls the system. The normal console
+monitor displays video test patterns on the VAXstation 2000 when the video
+circuits are tested. The normal console keyboard does not operate.
+
+\subsection{Console Commands}
+
+Console commands are listed in \hyperlink{appendix.b}{Appendix B}.
+\newpage
+\section{Testing}
+
+Testing procedures on the VAXstation 2000 and the MicroVAX 2000 systems
+are almost identical. The differences between the systems are explained
+where applicable. All diagnostic tests are ROM-based and testine is done
+while in console mode. Tests are executed in either of two ways:
+
+\begin{itemize}
+\item Automatically -- When power is turned on the power-up tests begin.
+\item Manually -- By entering one of the console test commands on the 
+console terminal. See \hyperlink{appendix.a}{Appendix A} for a complete listing of the test commands.
+\end{itemize}
+
+\subsection{Power-up Tests}
+
+Power-up tests run each time the system power is turned on. Power-up
+testing consists of a sequence of tests executed for each device installed in
+the system. The test number of each device is listed on the power-up screen
+display as the device is tested. Figure 2-1 shows an example of the power-
+up screen display. The first line indicates the CPU name (KA410-A) and the
+ROM version (V1.0). The test numbers are listed next in descending order
+from the first test, F, to the final test, 1. TEST F will have an underscore
+after it on the MicroVAX 2000 to indicate that TEST F was not run. Note in
+Figure 2-1 that tests 4, 3, 2, and 1 have an underscore (\_) immediately after
+them. This underscore indicates that there is no option device installed for
+that test; thus, no tests are done. TEST F has an underscore after it on the
+MicroVAX 2000 systems because the monochrome video circuits are not
+used by the MicroVAX 2000. No other test numbers can have underscores
+after them. An asterisk (*) after TESTS 4 through 1 indicate that an option is
+installed, but its ROM is destroyed and the Option device must be replaced.
+Only TESTS 1 through 4 can have an asterisk after them. Figure 2-2 lists
+the symbols that can appear in between the tests and what they indicate.
+
+\begin{figure}[H]
+\caption{Example of Power-up Tests Screen Display}
+\begin{verbatim}
+KA410-A V1.0
+F...E...D...C...B...A...9...8...7...6...5...4_..3_..2_..1_..
+\end{verbatim}
+\end{figure}
+
+Figure 2-2 lists the definitions of the symbols that appear between the test
+numbers in the power-up test countdown.
+
+\begin{figure}[H]
+\caption{Power-up Symbols Defined}
+\begin{verbatim}
+    ...  Device tested successfully or has a soft error
+    ?..  Device has a hard error
+    _..  Device not installed or not tested
+    *..  Device installed but its ROM is destroyed
+\end{verbatim}
+\end{figure}
+\label{figure:2-1}
+
+If any hard errors (errors that indicate the device must be replaced for
+proper operation) are found during power-up testing, a question mark is
+placed after the failing test number during the countdown sequence. An
+error summary of all errors detected is listed after the power-up sequence
+is complete. Two question marks in the error summary indicate a hard error.
+Error codes that indicate the status or soft errors do not put a question mark
+after the failing test number in the sequence, but do list the error code in the
+error summary. Figure 2-3 shows the power-up screen display with a hard
+error found in TEST F and a soft error found in TEST E. The error summary
+for each failed device is displayed before the boot sequence is started.
+However, the screen usually scrolls so fast when the system starts to boot
+that you may not be able to see what the error summary contained (if there
+was an error summary). To see what errors the power-up tests found, press
+the halt button and enter TEST 50 on the console terminal. TEST 50 is the
+command for bringing up the configuration table. The configuration table
+is created during power-up testing. This configuration table contains all of
+the error codes listed in the power-up error summary as well as error codes
+for all devices installed in the system. The error codes in the configuration
+table are updated every time self-test is run. See Paragraph 2.5.1 for an
+explanation of how to use the configuration table.
+
+Each error summary consists of one or two question marks, a test number,
+the ID number of the failed device, and an eight-digit error code. For ex-
+ample, in Figure 2-3, the first line of the error summary shows a hard error
+for TEST F, a device ID number of 00B0, and an error code of 0001.F002.
+The second line shows a soft error for TEST E, a device ID of 0040, and an
+error code of 0000.0005. Section ( 2.3.1.1) describes the error codes.
+\newpage
+\begin{figure}[H]
+\caption{Example of Power-up Tests Screen Display with Errors.}
+\begin{verbatim}
+KA410-A V1.0
+
+F?..E...0...C...B...A...9...8...7...6...5...4_..3_..2_..1_..
+
+?? F  00B0  0001.F002
+ ? E  0040  0000.0006
+\end{verbatim}
+\end{figure}
+\label{figure:2-2}
+
+If there is a fatal error in the NVR during power-up testing, the system stops
+testing the other devices and displays ?14 TOY ERR on the screen. When
+this happens, the only way to determine the cause of the problem is by
+viewing the LEDs on the keyboard. One of the LEDs will be lit to indicate
+the failing module. \hyperref[table:2-2]{Table 2-2} lists the LEDs and which module has failed.
+
+\begin{table}
+\label{table:2-2}
+\caption{Keyboard LEDs Deflned}
+\begin{tabularx}{\textwidth}{l l}
+\hline
+\textbf{Keyboard LED} & \textbf{Failing module}\\
+\hline
+Hold Screen & System module \\
+Lock & Not used \\
+Compose & ThinWire Ethernet option module \\
+Wait & Not used \\
+\hline
+\end{tabularx}
+\end{table}
+
+Once power-up testing is complete and no fatal or hard errors are found, the
+system boots the operating system software. Both the VAXstation 2000 and
+the MicroVAX 2000 boot the operating system software the same. The only
+difference between the two is that the VAXstation 2000 clears the console
+screen before it boots and the MicroVAX 2000 does not. If a default boot
+device is loaded in the NVR, the system boots off of that device. If no
+default device is loaded in the NVR, the system searches every on-line
+storage drive for the operating software. DUA2 is searched first if a floppy
+diskette is loaded. Otherwise, it is not searched at all. The hard disks are
+searched next, DUA0 then DUAl. MUA0, the tape drive, is checked after
+the hard disk drives if it is installed and a cartridge is loaded. Finally, the
+system searches the Ethernet network for the software and ESA0 is listed
+on the screen. The system continues to search the Ethernet network until
+the operating system software is found.
+\newpage
+\subsubsection{Power-up Test Error Codes}
+
+The power-up test error codes indicate status and/or error information. Any
+errors found by power-up tests are listed in the error summary after the
+power-up test countdown sequence. This summary, if any, gives you a brief
+summary of the errors. \hyperref[table:2-3]{Table 2-3} lists the test numbers and the devices that
+are tested during that particular test. To look at the complete list of devices
+and the status of that device, you must display the configuration table. The
+configuration table lists every device in the system and also lists the results
+of the self-test and power-up tests and is updated each time self-test is run.
+The error codes for each device in the configuration table are explained in
+the troubleshooting section for that individual device. Remember that the
+configuration table contains the results of the self-test and power-up tests
+and not the results of the system exerciser. Figure 2-4 shows an example
+of the configuration table and for an explanation of the configuration table,
+see Paragraph 2.5.1.
+
+
+\begin{figure}[H]
+\caption{Example of the Configuration Table}
+\begin{verbatim}
+>>> TEST 50
+KA410-A V1.0
+ID 08-00-2B-02-CF-A4
+
+?? MONO       0001.F002
+ ? CLK        0000.0005
+   NVR        0000.0001
+   DZ         0000.0001
+       00000001 00000001 00000001 00000001 00000001 000012A0
+   MEM        0002.0001
+       00200000
+   MM         0000.0001
+   FP         0000.0001
+   IT         0000.0001
+   HDC        1710.0001
+       000146B8 00000000 00000320
+   TPC        0202.0001
+       FFFFFF03 01000001 FFFFFF06 FFFFFF05 FFFFFF05 FFFFFF05 ...
+   SYS        0000.0001
+   NI         0000.0001 V1.0
+>>>
+\end{verbatim}
+\end{figure}
+\label{figure:2-3}
+
+The most common good error code is 0000.0001. There are, however, some
+devices that use the first four digits in the error code to indicate the status
+of the device and the last four digits to indicate the error found on the
+device. The memory (MEM) error code, for instance, contains 0002.0001
+which indicates two megabytes of memory is available (0002.) and no error
+found (.0001). On devices like these, the last four digits always indicate
+.0001 as a good (non-error) indication.
+
+Some error codes indicate no error at all and give a status of the device
+such as the clock (CLK) which shows that the date and time has not been
+set. This is not an error, just a status of the clock circuits.
+
+Any error code other than 0000.0001 on the MONO, MM, FP, IT, or SYS
+devices indicates a hard error and that device must be replaced for proper
+operation of the system. The other devices such as CLK, NVR, DZ, MEM,
+HDC, TPC, and NI may have a status or a soft error message in the error
+codes and may still operate normally.
+
+See the troubleshooting procedures section (Paragraph 2.4) for each device
+to determine whether or not the error code indicates a fault or a status for
+the device.
+
+\subsection{Self-test}
+
+Self-test allows you to test every device again individually, a few at a time,
+or all of them sequentially just like power-up tests. To individually test a
+device, enter TEST \# where \# is the test number of the device you want
+tested. \hyperref[table:2-3]{Table 2-3} lists the test numbers and the devices tested by those
+numbers. Figure 2-5 shows an example of running self-test successfully on
+the disk controller.
+
+\begin{figure}[H]
+\caption{Example of Running Self-test on the Disk Controller}
+\begin{verbatim}
+>>> TEST 7
+  7...
+>>>
+\end{verbatim}
+\end{figure}
+\label{figure:2-4}
+
+To test a group of devices, enter TEST followed by the test number of the
+first device to be tested and then the test number of the last device to be
+tested. Figure 2-6 shows an example of testing a group of devices. In Figure
+2-6, all tests between C and 4 are tested successfully. Note that you cannot
+pick and choose which devices to test between C and 4, all tests between
+C and 4 are tested when entered as a group.
+
+\begin{figure}[H]
+\caption{Example of Running a Series of Self-tests}
+\begin{verbatim}
+>>> TEST C 4
+  C...B...A...9...8...7...6...5...4_..
+>>>
+\end{verbatim}
+\end{figure}
+\label{figure:2-5}
+
+To test all devices, enter TEST F 1. The MicroVAX 2000 skips over the
+MONO video test (TEST F) since it does not use the video circuits.
+
+\begin{table}[H]
+\caption{Self-test Commands}
+\label{table:2-3}
+\begin{tabularx}{\textwidth}{p{2cm} p{8cm}}
+\hline
+\raggedright\textbf{Test\newline Number} & \textbf{Device\newline Tested} \\
+\hline
+1 & Option module (Network Interconnect module) (NI) \\
+2 & Option module (not available) \\
+3 & Option module (not available) \\
+4 & Option module (not available) \\
+5 & Interrupt Controller and ThinWire Ethernet ID ROM (SYS) \\
+6 & Tape Controller. (TPC) \\
+7 & Disk conroller. (HDC) \\
+8 & Interval timer. (IT) \\
+9 & Floating point unit. (FP) \\
+A & Memory management unit. (MM) \\
+B & Memory. (MEM) \\
+C & DZ Controller. (DZ) \\
+D & Non-volatile RAM. (NVR) \\
+E & Time-of-year dock. (CLK) \\
+F & Base video (MONO) (VAXstation 2000 only) \\
+\hline
+\end{tabularx}
+\end{table}
+
+\subsubsection{Self-test with Loopback Connectors}
+
+Customer mode self-test does not test the drivers or the lines of the serial
+line conroller (DZ) since loopbacks are not used. Run self-test in field 
+service mode to test the DZ drivers by installing the loopback connectors on
+the back of the System. Follow one of the procedures below.
+
+To test the DZ on VAXstation 2000, install a loopback (p/n 29-24795) on
+the 25-pin communication port and a loopback (p/n 29-24794) on the 9-pin
+printer port. Run TEST C. You cannot use loopback connectors if you are
+using the diagnostic console device with the BCC08 cable on the printer
+port since there is no loopback connector for the video port.
+
+To test the DZ on MicroVAX 2000, install a loopback (p/n 29-24795) on the
+25-pin communication port and install an MMJ loopback on both ports 2
+and 3. Run TEST C.
+
+\textbf{NOTE:} \textit{The ThinWire Ethernet port on the back of the 
+system box must be terminated properly when running diagnostics on the 
+network option (TEST 1) othetwise an error code of 0000.7001 or greater 
+is listed in the configuration table.}
+
+\subsubsection{Self-test Error Codes}
+
+Figure 2-7 shows how an error is displayed if found during self-test. This
+example shows an error on the disk controller during self-test. The 84 FAIL
+indicates an error was found on the device tested. You must display the
+configuration table (TEST 50) after self-test is complete to see the error code,
+if there is an error during self-test, since the error codes do not appear on
+the screen. The configuration table lists every device in the system, fists the
+results of the self-test and power-up tests, and is updated each time self-test
+is run. The error codes for each device in the configuration table are 
+explained in the troubleshooting section for that individual device. Remember
+that the configuration table contains the results of the self-test and power-up
+tests and not the results of the system exerciser. See Paragraph 2 5 1 for an
+explanation of the configuration table.
+
+\begin{figure}[H]
+\caption{Example of a Self-test Error on the Disk Controller}
+\begin{verbatim}
+>>> TEST 7
+  7?..
+  84 FAIL
+>>>
+\end{verbatim}
+\end{figure}
+\label{figure:2-6}
+
+(You must display the configuration table to see the error code)
+
+
