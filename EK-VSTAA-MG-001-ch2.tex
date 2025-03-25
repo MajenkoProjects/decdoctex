@@ -36,6 +36,7 @@ mode of operation each prompt represents.
 \begin{table}[H]
 \caption{Prompts}
 \label{table:2-1}
+\small
 \begin{tabularx}{\textwidth}{c l}
 \hline
 \textbf{Prompt} & \textbf{Mode of operation}\\
@@ -203,27 +204,20 @@ installed, but its ROM is destroyed and the Option device must be replaced.
 Only TESTS 1 through 4 can have an asterisk after them. Figure 2-2 lists
 the symbols that can appear in between the tests and what they indicate.
 
-\begin{figure}[H]
-\caption{Example of Power-up Tests Screen Display}
-\begin{verbatim}
+\begin{ttfig}{2-1}{Example of Power-up Tests Screen Display}
 KA410-A V1.0
 F...E...D...C...B...A...9...8...7...6...5...4_..3_..2_..1_..
-\end{verbatim}
-\end{figure}
+\end{ttfig}
 
 Figure 2-2 lists the definitions of the symbols that appear between the test
 numbers in the power-up test countdown.
 
-\begin{figure}[H]
-\caption{Power-up Symbols Defined}
-\begin{verbatim}
+\begin{ttfig}{2-2}{Power-up Symbols Defined}
     ...  Device tested successfully or has a soft error
     ?..  Device has a hard error
     _..  Device not installed or not tested
     *..  Device installed but its ROM is destroyed
-\end{verbatim}
-\end{figure}
-\label{figure:2-1}
+\end{ttfig}
 
 If any hard errors (errors that indicate the device must be replaced for
 proper operation) are found during power-up testing, a question mark is
@@ -248,23 +242,19 @@ explanation of how to use the configuration table.
 
 Each error summary consists of one or two question marks, a test number,
 the ID number of the failed device, and an eight-digit error code. For ex-
-ample, in Figure 2-3, the first line of the error summary shows a hard error
+ample, in \hyperref[figure:2-3]{Figure 2-3}, the first line of the error summary shows a hard error
 for TEST F, a device ID number of 00B0, and an error code of 0001.F002.
 The second line shows a soft error for TEST E, a device ID of 0040, and an
-error code of 0000.0005. Section ( 2.3.1.1) describes the error codes.
+error code of 0000.0005. \hyperlink{subsubsection.2.3.1.1}{Section 2.3.1.1} describes the error codes.
 \newpage
-\begin{figure}[H]
-\caption{Example of Power-up Tests Screen Display with Errors.}
-\begin{verbatim}
+\begin{ttfig}{2-3}{Example of Power-up Tests Screen Display with Errors.}
 KA410-A V1.0
 
 F?..E...0...C...B...A...9...8...7...6...5...4_..3_..2_..1_..
 
 ?? F  00B0  0001.F002
  ? E  0040  0000.0006
-\end{verbatim}
-\end{figure}
-\label{figure:2-2}
+\end{ttfig}
 
 If there is a fatal error in the NVR during power-up testing, the system stops
 testing the other devices and displays ?14 TOY ERR on the screen. When
@@ -275,6 +265,7 @@ the failing module. \hyperref[table:2-2]{Table 2-2} lists the LEDs and which mod
 \begin{table}
 \label{table:2-2}
 \caption{Keyboard LEDs Deflned}
+\small
 \begin{tabularx}{\textwidth}{l l}
 \hline
 \textbf{Keyboard LED} & \textbf{Failing module}\\
@@ -315,15 +306,14 @@ of the self-test and power-up tests and is updated each time self-test is run.
 The error codes for each device in the configuration table are explained in
 the troubleshooting section for that individual device. Remember that the
 configuration table contains the results of the self-test and power-up tests
-and not the results of the system exerciser. Figure 2-4 shows an example
+and not the results of the system exerciser. \hyperref[figure:2-4]{Figure 2-4} shows an example
 of the configuration table and for an explanation of the configuration table,
-see Paragraph 2.5.1.
+see \hyperlink{subsection.2.5.1}{Paragraph 2.5.1}.
 
 
-\begin{figure}[H]
-\caption{Example of the Configuration Table}
-\begin{verbatim}
+\begin{ttfig}{2-4}{Example of the Configuration Table}
 >>> TEST 50
+
 KA410-A V1.0
 ID 08-00-2B-02-CF-A4
 
@@ -344,10 +334,8 @@ ID 08-00-2B-02-CF-A4
    SYS        0000.0001
    NI         0000.0001 V1.0
 >>>
-\end{verbatim}
-\end{figure}
-\label{figure:2-3}
-
+\end{ttfig}
+\newpage
 The most common good error code is 0000.0001. There are, however, some
 devices that use the first four digits in the error code to indicate the status
 of the device and the last four digits to indicate the error found on the
@@ -379,15 +367,13 @@ tested. \hyperref[table:2-3]{Table 2-3} lists the test numbers and the devices t
 numbers. Figure 2-5 shows an example of running self-test successfully on
 the disk controller.
 
-\begin{figure}[H]
-\caption{Example of Running Self-test on the Disk Controller}
-\begin{verbatim}
+\begin{ttfig}{2-5}{Example of Running Self-test on the Disk Controller}
 >>> TEST 7
   7...
 >>>
-\end{verbatim}
-\end{figure}
-\label{figure:2-4}
+\end{ttfig}
+
+\newpage
 
 To test a group of devices, enter TEST followed by the test number of the
 first device to be tested and then the test number of the last device to be
@@ -396,15 +382,11 @@ tested. Figure 2-6 shows an example of testing a group of devices. In Figure
 pick and choose which devices to test between C and 4, all tests between
 C and 4 are tested when entered as a group.
 
-\begin{figure}[H]
-\caption{Example of Running a Series of Self-tests}
-\begin{verbatim}
+\begin{ttfig}{2-6}{Example of Running a Series of Self-tests}
 >>> TEST C 4
   C...B...A...9...8...7...6...5...4_..
 >>>
-\end{verbatim}
-\end{figure}
-\label{figure:2-5}
+\end{ttfig}
 
 To test all devices, enter TEST F 1. The MicroVAX 2000 skips over the
 MONO video test (TEST F) since it does not use the video circuits.
@@ -412,25 +394,26 @@ MONO video test (TEST F) since it does not use the video circuits.
 \begin{table}[H]
 \caption{Self-test Commands}
 \label{table:2-3}
+\small
 \begin{tabularx}{\textwidth}{p{2cm} p{8cm}}
 \hline
 \raggedright\textbf{Test\newline Number} & \textbf{Device\newline Tested} \\
 \hline
-1 & Option module (Network Interconnect module) (NI) \\
-2 & Option module (not available) \\
-3 & Option module (not available) \\
-4 & Option module (not available) \\
-5 & Interrupt Controller and ThinWire Ethernet ID ROM (SYS) \\
-6 & Tape Controller. (TPC) \\
-7 & Disk conroller. (HDC) \\
-8 & Interval timer. (IT) \\
-9 & Floating point unit. (FP) \\
-A & Memory management unit. (MM) \\
-B & Memory. (MEM) \\
-C & DZ Controller. (DZ) \\
-D & Non-volatile RAM. (NVR) \\
-E & Time-of-year dock. (CLK) \\
-F & Base video (MONO) (VAXstation 2000 only) \\
+1 & Option module (Network Interconnect module) (NI) \\[0.5em]
+2 & Option module (not available) \\[0.5em]
+3 & Option module (not available) \\[0.5em]
+4 & Option module (not available) \\[0.5em]
+5 & Interrupt Controller and ThinWire Ethernet ID ROM (SYS) \\[0.5em]
+6 & Tape Controller. (TPC) \\[0.5em]
+7 & Disk conroller. (HDC) \\[0.5em]
+8 & Interval timer. (IT) \\[0.5em]
+9 & Floating point unit. (FP) \\[0.5em]
+A & Memory management unit. (MM) \\[0.5em]
+B & Memory. (MEM) \\[0.5em]
+C & DZ Controller. (DZ) \\[0.5em]
+D & Non-volatile RAM. (NVR) \\[0.5em]
+E & Time-of-year dock. (CLK) \\[0.5em]
+F & Base video (MONO) (VAXstation 2000 only) \\[0.5em]
 \hline
 \end{tabularx}
 \end{table}
@@ -472,17 +455,227 @@ that the configuration table contains the results of the self-test and power-up
 tests and not the results of the system exerciser. See Paragraph 2 5 1 for an
 explanation of the configuration table.
 
-\begin{figure}[H]
-\caption{Example of a Self-test Error on the Disk Controller}
-\begin{verbatim}
->>> TEST 7
-  7?..
-  84 FAIL
->>>
-\end{verbatim}
-\end{figure}
-\label{figure:2-6}
-
+\newpage 
+\begin{ttfig}{2-7}{Example of a Self-test Error on the Disk Controller}
+  >>> TEST 7
+    7?..
+    84 FAIL
+  >>>
 (You must display the configuration table to see the error code)
+\end{ttfig}
 
+\newpage
 
+\subsection{System Exerciser Diagnostics}
+
+The system exerciser simulates a worst-case situation test for each device
+and checks how the device operates under these conditions. It does not use
+the configuration table to list its results of the tests. The system exerciser
+has a separate display that appears on the screen as the exerciser is running.
+Any errors found are displayed in the exerciser display. When examining
+the exerciser display, a single question mark in the far left column indicates
+a soft error, a double question mark indicates a hard error, and the absence
+of question marks indicate success. \hyperref[figure:2-8]{Figure 2-8} shows an example of the
+exerciser display.
+
+The system exerciser exercises most of the devices. However, some devices
+such as the memory management unit (MM) and the interval timer (IT) are
+tested through the testing of other devices and are not displayed. Of the
+devices the exerciser does exercise, it runs each one sequentially until all
+have been run once, then it runs them all at the same time (worst-case).
+This type of testing usually finds any intermittent failures.
+
+The system exerciser has two modes: customer mode and field service
+mode. Customer mode system exerciser (TEST 0) does not use loopback
+connectors and does not fully test all of the devices. Field service mode sys-
+tem exerciser requires loopback connectors installed and removable media
+from the maintenance kit inserted and loaded. You must initialize the floppy
+diskette in the maintenance kit with a special diagnostic key so the exerciser
+can perform write tests on the RX33. Refer to Paragraph 2.5.11 for more
+Information on creating the special diagnostic keys. Once the floppy has
+been initialized, load it into the RX33 (if a full read/write test of the RX33 is
+necessary) before you run the system exerciser in field service mode. You
+must also initialize the COMPACTape cartridge in the maintenance kit with
+a special diagnostic key so the exerciser can perform read/write tests on
+the TK50. Refer to Paragraph 2.5.11 for more information on creating the
+special diagnostic keys. Once the COMPACTape cartridge has been initial
+ized, load it into the TK50 (if a full read/write test of the TK50 is necessary)
+before you run the system exerciser in field service mode. If the RX33 or
+the TK50 are not loaded with the special-key media, the system exerciser
+does not do destructive writes to them and tests them the same as it does
+during the customer mode system exerciser. This special-key on the media
+prevents the exerciser from accidentally destroying data on the customers
+floppy diskette or COMPACTape cartridge. The field service mode system
+exerciser is available in a run once (TEST 101) and a run forever (TEST 102)
+configuration.
+
+\newpage
+
+\subsubsection{System Exerciser Diagnostic Commands}
+\hyperref[table:2-4]{Table 2-4} lists the System exerciser diagnostic commands.
+
+\begin{table}[H]
+\label{table:2-4}
+\caption{System Exerciser Diagnostic Commands}
+\small
+\begin{tabularx}{\textwidth}{p{0.2\textwidth} p{0.8\textwidth}}
+\hline
+\textbf{Test Commands} 	&	\textbf{Description of Commands} \\
+\hline
+
+0						&	Runs customer mode System exerciser. It exercises 
+							each device once sequentially, then exercises them 
+							simultaneously, and stops when the slowest device
+							finishes its second pass. No loopback connectors 
+							and no removable media required. \\
+
+101						&	Runs field service system exerciser. It exercises 
+							each device once sequentially, then exercises them 
+							simultaneously, and stops when the slowest device 
+							finishes its second pass. Do not stop the exerciser 
+							before it finishes exercising every device twice 
+							(second pass). Loopbacks and removable media required. \\
+
+102						&	Runs field Service System exerciser. It exercises each 
+							device once sequentially and then exexcises them 
+							simultaneously until you enter a \keystroke{CTRL}-\keystroke{C}. 
+							Note that the exerciser takes up to thirty seconds 
+							to stop after you enter \keystroke{CTRL}-\keystroke{C}. Do
+							not stop the exerciser until every device is exercised 
+							twice (second pass). Also, do not press the halt button 
+							to stop the exerciser. Loopbacks and removable media required. \\
+\hline
+\end{tabularx}
+\end{table}
+
+When the exerciser is started, PRA0 is displayed and the monitor connected
+to the video port on the VAXstation 2000 blinks white and black several
+times while the monochrome circuits are being tested. The results of the
+MONO tests are then displayed on the console screen. MicroVAX 2000
+does not use the MONO circuits and, therefore, does not test them. The
+DZ test results are the first to be displayed on the console screen. The rest
+of the devices are then exercised one at a Urne and the results are listed
+on the display. The console displays the results of each device until the
+last device is finished testing. When the last device is done, the exerciser
+starts running all devices together at the same time. When this happens, the
+monitor connected to the video port starts blinking again until the slowest
+device finishes testing. On the MicroVAX 2000, the console terminal holds
+the first pass display until the slowest device is done testing then displays a
+new exerciser display. The console screen (VAXstation 2000 and MicroVAX
+2000) displays the results of each device tested. This display stays on the
+screen for about 10 seconds, then the exerciser starts running all devices
+together again if TEST 102 was entered. If TEST 0 or TEST 101 was entered,
+the exerciser stops after the slowest device is done testing. The halt message
+is displayed when the exerciser is stopped.
+
+To run the field service mode system exerciser on VAXstation 2000, install a
+loopback (p/n 29-24795) on the 25-pin communication port and a loopback
+(p/n 29-24794) on the 9-pin printer port. Insert and load the floppy diskette
+and TK50 COMPACTape cartridge from the maintenance kit if the system
+has these devices installed. Run the exerciser by entering TEST 101 or TEST
+102. If you are using the diagnostic console device, you will get errors on
+the DZ line since there is no loopback for the video port.
+
+To run the field service mode system exerciser on MicroVAX 2000, install
+a loopback (p/n 29-24795) on the 25-pin communication port and install an
+MMJ loopback on both ports 2 and 3. Insert and load the scratch floppy
+diskette and scratch TK50 COMPACTape cartridge from the maintenance
+kit if the system has these devices installed. Run the exerciser by enter
+ing TEST 101 or TEST 102. If the scratch floppy or TK50 cartridge is not
+installed, the system tests those devices the same as in customer mode.
+
+\subsubsection{System Exersiser Error Codes}
+
+\hyperref[figure:2-8]{Figure 2-8} shows an example of the system exerciser display while running
+the system exerciser in field service mode. Customer mode gives the same
+display, but with a CU in place of the FS on the top of the display.
+
+\begin{ttfig}{2-8}{System Exerciser Display Example}
+KA410-A V1.0          01     FS
+
+   F  00B0    MONO    0000.0001      2      0 00:00:55.01
+   C  0080    DZ      0000.0001      5      0 00:01:28.03
+   B  0010    MEM     0175.0001      2      0 00:02:03.07
+   7  0090    HDC     2000.0001      4      0 00:02:08.58
+?                     0700.7091             0 00:02:08.58
+??                    1002.0051             0 00:01:03:45
+                      2500.0001
+   6  00A0    TPC     1000.0001      9      0 00:02:44.04
+                      1300.0001
+?? 1  OOCO    NI      0000.7004      3      0 00:04:46.32
+
+>>>
+
+  (The error codes are defined in the troubleshooting
+   procedures for each individual device)
+\end{ttfig}
+
+The first line indicates the CPU name (KA410-A), the ROM version (V1.0),
+the ROM Status (01 -- the ROM is corrupted if this is anything other than
+01), and the mode of the system exerciser (CU for customer and FS for field
+service mode). The next several lines list information on the devices that
+are exercised by the system exerciser.
+
+The first column of the display lists the test number (F,C,B,7,6,1). TESTS 4
+through 1 are option modules and these options may not be installed. They
+are listed in the display only if they are installed. The second column lists
+the device identifier (00B0, 0080, 0010,...). Next is the mnemonic for each
+device (MONO, DZ, MEM,...) followed by the error code (0000.0000) for
+that device (the HDC and TPC devices have additional error codes for each
+drive). After the error code is the number of times the device was tested
+followed by the time of the last pass the exerciser made on that device.
+The time is in the format of days hours:minutes:seconds.hundredths of
+seconds. Question marks identify hard (??) and soft (?) errors. See the
+troubleshooting procedures (\hyperlink{section.2.4}{Paragraph 2.4}) for 
+the device that has an error detected with it.
+
+\section{Troubleshooting Procedures}
+
+Each section below contains troubleshooting information for the device 
+indicated. Find the section below with the mnemonic (such as MONO or TPC)
+that you want to troubleshoot. Once the section is located, read through the
+procedures to familiarize yourself with the testing of the device.
+
+\subsection{MONO -- Monochrome Video Troubleshooting Procedures (VAXstation 2000 only)}
+
+You can troubleshoot the monochrome circuitry on the system module
+in either customer mode or field service mode. Both modes test the
+monochrome circuits the same. This procedure does not troubleshoot the
+video monitor, just the video circuits on the system module.
+
+\subsubsection{Self-test}
+
+To run self-test on MONO, enter TEST F. The monitor connected to the
+video port blinks white and black several times. This is normal. The results
+of the self-test are displayed when self-test is complete. Any error code
+other than 0000.0001 indicates a fault in the monochrome video circuits.
+You must replace the system module to fix this problem.
+
+\subsubsection{System Exerciser}
+
+To run the system exerciser, enter TEST 0 for customer mode or TEST 101
+for field service mode. The monitor connected to the video port blinks white
+and black several times while the monochrome circuits are being tested. The
+results of the MONO tests are displayed on the console screen after they are
+tested for the first time, then displayed again after each concurrent testing.
+Any error code other than 0000.0001 indicates a fault in monochrome video
+circuits. You must replace the system module to fix this problem. This
+device is not exercised on the MicroVAX 2000 system since MicroVAX 2000
+does not use video monitors.
+
+\subsection{CLK -- Time-of-Year Clock Troubleshooting Procedures}
+
+You can troubleshoot the CLK circuitry in either customer mode or field
+service mode. Both modes test the CLK circuits the same.
+
+\subsubsection{Self-test}
+
+To run self-test, enter TEST E. Any error code other than 0000.0001 
+indicates a fault in the CLK circuits. An error code of 0000.0005 indicates that
+the system time is not set. Refer to the operating system software 
+documentation to set the time. If any other error code appears in the CLK error
+display, you must replace the system module.
+
+The system exerciser does not display the Status of the CLK circuits. The
+CLK circuits are not directly tested but are tested through the testing of
+other circuits.
