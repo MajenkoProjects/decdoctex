@@ -9,13 +9,13 @@
 
 
 \titleformat{\section}{\raggedright\fontfamily{phv}\selectfont\bfseries\huge}{\thesection \hspace{1em}}{0.0em}{}[]
-\titlespacing{\section}{0em}{0em}{0em}
+\titlespacing{\section}{0em}{1em}{1em}
 
-\titleformat{\subsection}{\raggedright\fontfamily{phv}\selectfont\bfseries}{\thesubsection\hspace{1em}}{0.0em}{}[]
-\titlespacing{\subsection}{0em}{0em}{0em}
+\titleformat{\subsection}{\raggedright\fontfamily{phv}\selectfont\bfseries\LARGE}{\thesubsection\hspace{1em}}{0.0em}{}[]
+\titlespacing{\subsection}{0em}{1em}{1em}
 
 \titleformat{\subsubsection}{\raggedright\fontfamily{phv}\selectfont\bfseries}{\thesubsubsection\hspace{1em}}{0.0em}{}[]
-\titlespacing{\subsubsection}{0em}{0em}{-1em}
+\titlespacing{\subsubsection}{0em}{0.4em}{-0.4em}
 
 
 
@@ -81,8 +81,8 @@ DIBOL & Rainbow & \\
 
 \fancypagestyle{plain}{%
     \fancyhf{}%
-    \fancyfoot[LE]{\small\fontfamily{phv}\selectfont \textbf{\thechapter-\thepage} \hspace{1em} \@product \hspace{1pt} \@title}
-    \fancyfoot[RO]{\small\fontfamily{phv}\selectfont \Chaptername \hspace{1em} \textbf{\thechapter-\thepage}}
+%    \fancyfoot[LE]{\small\fontfamily{phv}\selectfont \textbf{\thechapter-\thepage} \hspace{1em} \@product \hspace{1pt} \@title}
+%    \fancyfoot[RO]{\small\fontfamily{phv}\selectfont \Chaptername \hspace{1em} \textbf{\thechapter-\thepage}}
     \renewcommand{\headrulewidth}{0pt}% Line at the header invisible
     \renewcommand{\footrulewidth}{0pt}% Line at the footer visible
 }

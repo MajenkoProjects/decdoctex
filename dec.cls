@@ -17,6 +17,14 @@
 \usepackage{hyperref}
 \usepackage{keystroke}
 \usepackage{fancyvrb}
+\usepackage{enumitem}
+\usepackage{environ}
+\usepackage{caption}
+
+\setlist{nosep}
+\setlist{parsep=0em, itemsep=0.5em,topsep=-0.8em}
+
+
 \hypersetup{
     colorlinks,
     citecolor=blue,
@@ -37,7 +45,7 @@
 \pagestyle{empty}
 \pagestyle{fancy}
 
-\setlength{\parskip}{\baselineskip}
+\setlength{\parskip}{0.5\baselineskip}
 \setlength{\parindent}{0pt}
 
 \newcommand{\uchapter}[1]{\chapter*{#1}
@@ -201,12 +209,13 @@ required to take measures to correct the interference.
 \titleformat{\subsubsection}{\raggedright\fontfamily{phv}\selectfont\bfseries}{}{0.0em}{}[]
 \titlespacing{\subsubsection}{0em}{0em}{0em}
 
-\newcommand{\fig}[2]{\begin{figure}[H]
-\caption{#2}
+\newcommand{\fig}[4][1.0]{\begin{figure}[H]
+\caption{#4}
 \begin{center}
-\makebox[\textwidth][c]{\includegraphics{fig/#1}}
+\makebox[#1\textwidth][c]{\includegraphics[width=#1\textwidth]{fig/#3}}
 \end{center}
 \end{figure}
+\label{figure:#2}
 }
 
 \newcommand{\howtoorder}{%
@@ -279,6 +288,9 @@ required to take measures to correct the interference.
 
 \newcommand{\pdf}[1]{\href{#1.pdf}{#1}}
 
+\captionsetup{skip=0pt}
+\captionsetup{font=Large}
+
 \newenvironment{ttfig}[2]{%
 \VerbatimEnvironment
 \begin{figure}[H] 
@@ -291,3 +303,24 @@ required to take measures to correct the interference.
 \end{Verbatim}
 \end{figure}
 }
+
+
+
+\NewEnviron{tbl}[3]{
+	\begin{table}[H]
+	\label{table:#1}
+	\captionsetup{font=Large}
+	\caption{#2}
+	\small
+	\begin{tabularx}{\textwidth}{#3}
+	\hline
+	\BODY
+	\hline
+	\end{tabularx}
+	\end{table}
+}
+
+\newcommand{\figref}[1]{\hyperref[figure:#1]{Figure #1}}
+\newcommand{\tabref}[1]{\hyperref[table:#1]{Table #1}}
+
+
