@@ -5,6 +5,8 @@ author:
 title: ReadMe
 ---
 
+Read this as a PDF for better rendering:
+
 Welcome to the DEC Documentation Rebuild project. This project, driven
 by the community, aims to recreate as much of the documentation for
 vintage Digital Equipment Corporation (DEC) computer equipment and
