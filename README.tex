@@ -1,4 +1,4 @@
-\documentclass{dec}
+\documentclass{decsectional}
 \product{DEC Documentation}
 \title{ReadMe}
 \pubmonth{March}
@@ -7,8 +7,11 @@
 \address{GitHub}
 
 \begin{document}
+\toc
+\newpage
 
-\pagestyle{main}
+\uchapter{Preface}
+\pagestyle{preface}
 
 Welcome to the DEC Documentation Rebuild project.  This project, driven by the community, aims to
 recreate as much of the documentation for vintage Digital Equipment Corporation (DEC) computer 
@@ -27,14 +30,15 @@ The reason for this is twofold:
 
 \end{enumerate}
 
-\section{How we are doing it}
+\chapter{How we are doing it}
+\pagestyle{main}
 
 It is highly likely (backed up by some evidence from the documentation itself\footnote{For example using a space separated console prompt such as {\tt > > >}
 to combat \LaTeX\ conversion of {>}{>} into >> }) the original documentation is written in \LaTeX. In order to try and maintain as much of the original layout and pagination as closely
 as possible to the original \LaTeX\ has again been chosen as the method to re-create the documentation. This also lets us separate out the style from the content
 making it much faster, once suitable document classes have been created, to recreate documents with the minimum of effort.
 
-\section{Contributing}
+\chapter{Contributing}
 
 You'd like to contribute? Fantastic! We are always looking for more volunteers to help recreate more documents. Just fork this repository and get
 writing. Most of the groundwork has been done for you in the form of some handy document classes (dec.cls and decsectional.cls) that implement
@@ -47,7 +51,8 @@ We only have a few stipulations when it comes to style, both of content and gene
 \begin{itemize}
 
 \item	The hyperref package is automatically included in the base dec.cls file. Please use hyperlinks and hyperrefs within the document
-		to link to sections, figures and tables where they are mentioned in the text. Also please use the {\tt \\pdf\{...\}\ } command to
+		to link to sections, figures and tables where they are mentioned in the text (see below for helper functions for these). 
+		Also please use the {\tt \\pdf\{...\}\ } command to
 		wrap any references to other DEC documents. This just creates a href to a PDF document in the same directory at the moment though
 		that may be subject to change in the future.
 
@@ -68,11 +73,139 @@ who is referencing the original scanned PDF and someone who is referencing the r
 can collaborate more seamlessly. Some bleed of paragraphs from page to page is fine, but tables, figures, and sections should be on the same pages
 as the original where possible.
 
-\section{License}
+\chapter{Helper Functions}
+
+We have a number of handy helper functions to aid in keeping the layout of the document as close to the original
+as possible without you having to think too hard about how to do it.
+
+They are included as (currently) two class files, \texttt{dec.cls} and \texttt{decsectional.cls}. The former is the master class
+which is geared towards simpler non-numbered (single chapter) documents. The latter extends the master class to allow
+creation of longer chapter based documents.
+
+\section{Figures}
+
+There are two figure helper functions, \texttt{fig} and \texttt{ttfig}.  The first of these is used to include a figure
+into the document at the current location.
+
+\begin{verbatim}
+\fig[Scale]{ImageRefCode}{Caption For This Figure}
+\end{verbatim}
+
+The \texttt{Scale} parameter is optional and sets the width of the image as a percentage (0.0 - 1.0) of the page width.
+The \texttt{ImageRefCode} is the ID code (XX-NNNN-YY) of an image within the fig directory, and the caption is placed
+above the image and included in the list of figures in the contents section.
+
+The \texttt{ttfig} is a little different in that it defines a new environment which is used for creating
+text-based (ASCII art, console display, etc) figures.
+
+
+\begin{verbatim}
+\begin{ttfig}{This is the caption}
+ _____ _                      
+|  ___(_) __ _ _   _ _ __ ___ 
+| |_  | |/ _` | | | | '__/ _ \
+|  _| | | (_| | |_| | | |  __/
+|_|   |_|\__, |\__,_|_|  \___|
+         |___/ 
+\end{ttfig}
+\end{verbatim}
+
+Result:
+
+\begin{ttfig}{This is the caption}
+ _____ _
+|  ___(_) __ _ _   _ _ __ ___
+| |_  | |/ _` | | | | '__/ _ \
+|  _| | | (_| | |_| | | |  __/
+|_|   |_|\__, |\__,_|_|  \___|
+         |___/
+\end{ttfig}
+
+A DEC-style label is automatically created for every figure (figure:F or figure:C-F) for hyperlinks to jump to.
+
+\section{Tables}
+
+Tables are internally handled by the \texttt{tabularx} package, but are wrapped in extra code to handle DEC style
+labels and captions. The main table environment is:
+
+\begin{verbatim}
+\begin{tbl}{Caption Here}{Spec}
+... content ...
+\end{tbl}
+\end{verbatim}
+
+The \texttt{Spec} is a normal tabularx column set specification describing the columns in the table.  A top and
+bottom horizontal line are automatically added, so just add the headings, another hline, and then the table body.
+For example:
+
+\begin{verbatim}
+\begin{tbl}{A Sample Table}{c c}
+\textbf{First column} & \textbf{Second column} \\
+\hline
+This is something & This is something else \\
+This is more & This is even more \\
+\end{tbl}
+\end{verbatim}
+
+The result:
+
+\begin{tbl}{A Sample Table}{c c}
+\textbf{First column} & \textbf{Second column} \\
+\hline
+This is something & This is something else \\
+This is more & This is even more \\
+\end{tbl}
+
+If a table is too long to fit on one page you can finish the table early, then re-start it on the next page
+using the \texttt{tblcont} environment. This is exactly the same as the \texttt{tbl} environment except the
+word (Cont.) is added to the caption numbering, and the table is not included in the list of tables in the
+TOC.
+
+\begin{verbatim}
+\begin{tblcont}{A Sample Table}{c c}
+\textbf{First column} & \textbf{Second column} \\
+\hline
+This is exta & This bit wouldn't fit in the previous table.\\
+\end{tblcont}
+\end{verbatim}
+
+\begin{tblcont}{A Sample Table}{c c}
+\textbf{First column} & \textbf{Second column} \\
+\hline
+This is exta & This bit wouldn't fit in the previous table.\\
+\end{tblcont}
+
+\section{Chapters and sections}
+
+As well as the normal chapter and section (both starred and unstarred variant) commands we have u-prefixed 
+variants which serve as a half-way house between the starred and unstarred variants. Like the starred variants
+they are unnumbered, but like the unstarred variants they are included in the TOC. This allows for unnumbered
+documents to be created yet still have a functional TOC with minimum fuss.
+
+
+
+\section{References}
+
+Creating links within the document is made easier with the use of a few reference helper functions: \texttt{figref} and
+\texttt{tableref}.  Both just take a DEC-style figure or table reference number (for example 2-5) and format the
+name of the link for you automatically.
+
+There is also a \texttt{pdf} helper function which just takes a DEC order number and links to the PDF externally.
+
+
+
+
+
+
+
+\chapter{License}
 
 These documents are provided with no warranty as regards their accuracy whatsoever. The document class files are provided under the CC-BY 4.0 license
 for you to use and adapt for your own purposes as you see fit. We hope you find them useful. The document content and images remain \copyright Digital
 Equipment Corporation or the current owner of their trademarks and copyrights (either HPE or VSI at the moment) and are provided and used as an educational
 resource for archival and learning purposes.
+
+
+
 
 \end{document}
