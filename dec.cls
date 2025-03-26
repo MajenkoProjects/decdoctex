@@ -218,7 +218,13 @@ required to take measures to correct the interference.
 \newcommand{\fig}[3][1.0]{\begin{figure}[H]
 \caption{#3}
 \begin{center}
-\makebox[#1\textwidth][c]{\includegraphics[width=#1\textwidth]{fig/#2}}
+\makebox[#1\textwidth][c]{%
+	\IfFileExists{fig/#2.png}{%
+		\includegraphics[width=#1\textwidth]{fig/#2}
+	}{
+		\textbf{MISSING GRAPHIC #2}
+	}
+}
 \end{center}
 \end{figure}
 \label{figure:\figlabel}
