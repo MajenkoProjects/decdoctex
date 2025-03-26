@@ -109,7 +109,8 @@ contents section.
 
 The `ttfig` is a little different in that it defines a new environment
 which is used for creating text-based (ASCII art, console display, etc)
-figures.
+figures. The default input format is UTF-8 so all box-drawing and
+similar characters are available for your use.
 
     \begin{ttfig}{This is the caption}
      _____ _                      

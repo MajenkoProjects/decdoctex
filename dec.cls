@@ -21,6 +21,8 @@
 \usepackage{environ}
 \usepackage{caption}
 \usepackage{longtable}
+\usepackage[utf8]{inputenc}
+\usepackage{pmboxdraw}
 
 \setlist{nosep}
 \setlist{parsep=0em, itemsep=0.5em,topsep=-0.8em}
@@ -293,7 +295,7 @@ required to take measures to correct the interference.
 \newcommand{\pdf}[1]{\href{#1.pdf}{#1}}
 
 \captionsetup{skip=0pt}
-\captionsetup{font=Large}
+\captionsetup{font=large}
 
 \newenvironment{ttfig}[1]{%
 \VerbatimEnvironment
@@ -344,4 +346,4 @@ required to take measures to correct the interference.
 \newcommand{\figref}[1]{\hyperref[figure:#1]{Figure #1}}
 \newcommand{\tabref}[1]{\hyperref[table:#1]{Table #1}}
 
-
+\newcommand{\caution}[1]{{\fontfamily{phv}\selectfont\textbf{CAUTION:}}\hspace*{1em}\textit{#1}}

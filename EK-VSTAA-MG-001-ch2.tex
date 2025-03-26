@@ -116,7 +116,7 @@ shortly after the Ethernet boot message (ESA0) is displayed, then you
 must press the halt button to abort the Ethernet boot. If you still need
 to boot over the Ethernet, make sure the node with the operating system 
 software is operating normally and the software is loaded. Run the
-Ethernet loopback Utility (TEST 90) to check the networking capability
+Ethernet loopback utility (TEST 90) to check the networking capability
 of the system if the Ethernet boot continues to fail.
 
 When a boot is invoked using this boot command, you can specify
@@ -379,7 +379,7 @@ C and 4 are tested when entered as a group.
 To test all devices, enter TEST F 1. The MicroVAX 2000 skips over the
 MONO video test (TEST F) since it does not use the video circuits.
 
-\begin{tbl}{Self-test Commands}{p{2cm} p{8cm}}
+\begin{tbl}{Self-test Commands}{c X}
 \raggedright\textbf{Test\newline Number} & \textbf{Device\newline Tested} \\
 \hline
 1 & Option module (Network Interconnect module) (NI) \\[0.5em]
@@ -495,7 +495,7 @@ configuration.
 \subsubsection{System Exerciser Diagnostic Commands}
 \tabref{2-4} lists the system exerciser diagnostic commands.
 
-\begin{tbl}{System Exerciser Diagnostic Commands}{p{0.2\textwidth} p{0.8\textwidth}}
+\begin{tbl}{System Exerciser Diagnostic Commands}{l X}
 \textbf{Test Commands} 	&	\textbf{Description of Commands} \\
 \hline
 
@@ -514,9 +514,9 @@ configuration.
 
 102						&	Runs field Service system exerciser. It exercises each 
 							device once sequentially and then exexcises them 
-							simultaneously until you enter a \keystroke{CTRL}-\keystroke{C}. 
+							simultaneously until you enter a \keystroke{CTRL/C}. 
 							Note that the exerciser takes up to thirty seconds 
-							to stop after you enter \keystroke{CTRL}-\keystroke{C}. Do
+							to stop after you enter \keystroke{CTRL/C}. Do
 							not stop the exerciser until every device is exercised 
 							twice (second pass). Also, do not press the halt button 
 							to stop the exerciser. Loopbacks and removable media required. \\
@@ -773,12 +773,12 @@ no errors found.
 .
 .
 B  0010    MEM     0175.0001     2    0 00:02:03.07 
-.                  |  | |  |
-.                  `--' `--'
-.                   |    |
-                    |    `-- Error code. 0001 = GOOD
-                    |
-                    `------- Status code. Number of
+.                  │  │ │  │
+.                  └┬─┘ └┬─┘
+.                   │    │
+                    │    └── Error code. 0001 = GOOD
+                    │
+                    └─────── Status code. Number of
                              pages of memory tested
                              when error code is 0001.
 \end{ttfig}
@@ -875,21 +875,21 @@ same as the self-test error code.
 
 \begin{ttfig}{HDC Power-up and Self-test Error Code}
 7 0090 0000.0000
-       |||| |  |
-       |||| `--'
-       ||||  |
-       ||||  `---> These four digits echo the first four digits
-       ||||        if a hard error is found on the disk
-       ||||        controller. Otherwise, 0001 = Good.
-       ||||
-       |||`------> Status of disk controller on system module.
-       |||         0 = Good.
-       |||
-       ||`-------> Status code for DUA0, listed in Table 2-6.
-       ||
-       |`--------> Status code for DUA1, listed in Table 2-6.
-       |
-       `---------> Status code for DUA2, listed in Table 2-6.
+       ││││ │  │
+       ││││ └┬─┘
+       ││││  │
+       ││││  └───> These four digits echo the first four digits
+       ││││        if a hard error is found on the disk
+       ││││        controller. Otherwise, 0001 = Good.
+       ││││
+       │││└──────> Status of disk controller on system module.
+       │││         0 = Good.
+       │││
+       ││└───────> Status code for DUA0, listed in Table 2-6.
+       ││
+       │└────────> Status code for DUA1, listed in Table 2-6.
+       │
+       └─────────> Status code for DUA2, listed in Table 2-6.
 
               DUA0 is the hard disk drive in the system box.
               DUA1 is the hard disk drive in the expansion box.
@@ -903,7 +903,7 @@ digits of the error code repeat the first four digits if a hard error is found o
 the disk controller. Otherwise, the last four digits contain 0001 to indicate
 no errors or soft errors.
 
-\begin{tbl}{Power-up and Self-test Error Codes for each Dlsk Drive}{p{0.2\textwidth} p{0.75\textwidth}}
+\begin{tbl}{Power-up and Self-test Error Codes for each Dlsk Drive}{l X}
 \textbf{Error Codes} & \textbf{Description of error codes for each disk drive}\\
 \hline
 1	&	Good -- No error for this drive.\\
@@ -999,7 +999,7 @@ diskette.
 \tabref{2-7} lists the erorr codes for the disk controller's line and \tabref{2-8}
 lists the error codes for the drives.
 
-\begin{tbl}{HDC Disk Controller System Exerciser Error Codes}{p{0.1\textwidth} p{0.3\textwidth} p{0.5\textwidth}}
+\begin{tbl}{HDC Disk Controller System Exerciser Error Codes}{l X X}
 \textbf{Error Codes} & \textbf{Possible Cause} & \textbf{Corrective Action}\\
 \hline
 
@@ -1028,7 +1028,7 @@ X000.0001	&	The X indicates the drive used for the data transfer test &
 
 \end{tbl}
 
-\begin{tbl}{HDC Dlsk Drive System Exerciser Error Codes}{p{0.1\textwidth} p{0.25\textwidth} p{0.55\textwidth}}
+\begin{tbl}{HDC Dlsk Drive System Exerciser Error Codes}{l X X}
 \textbf{Error Codes} & \textbf{Possible Cause} & \textbf{Corrective Action}\\
 \hline
 
@@ -1144,42 +1144,42 @@ indicators, and a status of the tape controller.
 
 \begin{ttfig}{TPC Power-up and Self-test Error Code}
 6  00A0 0000.0000
-        |||| ||||
-        `|`| ||`|
-         | | || `--> Status of tape controller on system module.
-         | | ||       01 = Good.
-         | | ||
-         | | |`----> Possible cause indicator.
-         | | |        0 = Good.
-         | | |        1 = Error most likely on system module.
-         | | |        2 = Error most likely in expansion box.
-         | | |        3 = Error could be in either location.
-         | | `-----> Possible cause indicator.
-         | |          0 = Good.
-         | |          1 = Retest TPC again.
-         | |          2 = Error most likely in expansion box.
-         | |          3 = Combination of 1 and 2.
-         | |          4 = DMA and interrupts not tested.
-         | |          5 = Combination of 1 and 4.
-         | |          6 = Combination of 2 and 4.
-         | |          7 = Combination of 1, 2, and 4.
-         | |          
-         | `-------> Status of the tape expansion box. The
-         |           ID address of the expansion box is
-         |           displayed here if it tested
-         |           diccessfully. These two digits should
-         |           be the same as the first two digits.
-         |            00 = No box connected to port A or
-         |                 no box tested successfully.
-         |            02 = ID Address 1
-         |            04 = ID Address 2
-         |            08 = ID Address 3
-         |            10 = ID Address 4
-         |            20 = ID Address 5
-         |            40 = ID Address 6
-         |            80 = ID Address 7
-         |
-         `---------> ID Address (shown above) of the tape
+        ││││ ││││
+        └┤└┤ ││└┤
+         │ │ ││ └──> Status of tape controller on system module.
+         │ │ ││       01 = Good.
+         │ │ ││
+         │ │ │└────> Possible cause indicator.
+         │ │ │        0 = Good.
+         │ │ │        1 = Error most likely on system module.
+         │ │ │        2 = Error most likely in expansion box.
+         │ │ │        3 = Error could be in either location.
+         │ │ └─────> Possible cause indicator.
+         │ │          0 = Good.
+         │ │          1 = Retest TPC again.
+         │ │          2 = Error most likely in expansion box.
+         │ │          3 = Combination of 1 and 2.
+         │ │          4 = DMA and interrupts not tested.
+         │ │          5 = Combination of 1 and 4.
+         │ │          6 = Combination of 2 and 4.
+         │ │          7 = Combination of 1, 2, and 4.
+         │ │          
+         │ └───────> Status of the tape expansion box. The
+         │           ID address of the expansion box is
+         │           displayed here if it tested
+         │           diccessfully. These two digits should
+         │           be the same as the first two digits.
+         │            00 = No box connected to port A or
+         │                 no box tested successfully.
+         │            02 = ID Address 1
+         │            04 = ID Address 2
+         │            08 = ID Address 3
+         │            10 = ID Address 4
+         │            20 = ID Address 5
+         │            40 = ID Address 6
+         │            80 = ID Address 7
+         │
+         └─────────> ID Address (shown above) of the tape
                      expansion box that is connected to
                      port A.
 \end{ttfig}
@@ -1282,7 +1282,7 @@ as described below.
 and \tabref{2-10} lists the system exerciser error codes for the tape drives error
 line.
 
-\begin{tbl}{TPC Tape Controller System Exerciser Error Codes}{p{0.2\textwidth} p{0.2\textwidth} p{0.5\textwidth}}
+\begin{tbl}{TPC Tape Controller System Exerciser Error Codes}{l X X}
 \textbf{Error Codes} & \textbf{Possible Cause} & \textbf{Corrective Action}\\
 \hline
 
@@ -1314,7 +1314,7 @@ X000.0001	&	This error code indicates no Controller error. The X indicates
 \end{tbl}
 
 
-\begin{tbl}{Tape Drive Expansion Box System Exerciser Error Codes}{p{0.2\textwidth} p{0.2\textwidth} p{0.5\textwidth}}
+\begin{tbl}{Tape Drive Expansion Box System Exerciser Error Codes}{l X X}
 \textbf{Error Codes} & \textbf{Possible Cause} & \textbf{Corrective Action}\\
 \hline
 
@@ -1347,7 +1347,7 @@ X000.0001	&	The X indicates the device ID address of tape expansion box. &
 \\
 \end{tbl}
 
-\begin{tblcont}{Tape Drive Expansion Box System Exerciser Error Codes}{p{0.2\textwidth} p{0.2\textwidth} p{0.5\textwidth}}
+\begin{tblcont}{Tape Drive Expansion Box System Exerciser Error Codes}{l X X}
 \textbf{Error Codes} & \textbf{Possible Cause} & \textbf{Corrective Action}\\
 \hline
 0000.XXX1	&	The XXX indicates the error codes. 000 indicates no errors. &
@@ -1551,7 +1551,7 @@ any of the three boxes.
 When troubleshooting the VR260, follow the suggested corrective actions
 in the order listed.
 
-\begin{tbl}{VR260 Troubleshooting Table}{p{0.3\textwidth} p{0.6\textwidth}}
+\begin{tbl}{VR260 Troubleshooting Table}{l X}
 \textbf{Symptom} & \textbf{Corrective Action} \\
 \hline
 
@@ -1614,7 +1614,7 @@ Raster; no video display.	&
 \\
 \end{tbl}
 
-\begin{tblcont}{VR260 Troubleshooting Table}{p{0.3\textwidth} p{0.6\textwidth}}
+\begin{tblcont}{VR260 Troubleshooting Table}{l X}
 \textbf{Symptom} & \textbf{Corrective Action} \\
 \hline
 
@@ -1634,3 +1634,960 @@ Video display but not to specifications.	&
 	according to \hyperlink{chapter.4}{Chapter 4}.
 \\
 \end{tblcont}
+
+\newpage
+
+\subsection{Terminal Communication Troubleshooting Procedures (MicroVAX 2000 only)}
+
+If you are having communications problems on a terminal, follow the
+flowcharts starting at \figref{2-20}. If you have performed the loopback
+test on the terminal and the terminal passed the tests, follow the flowcharts
+starting at \figref{2-21}.
+
+\fig[0.85]{MA-0067-87}{Flowchart for Troubleshooting Terminal Communications}
+\fig[0.8]{MA-0068-87}{Flowchart for Troubleshooting Terminal Communications on the DEC423 Converter}
+
+\section{Utilities}
+
+The Utilities help the user format a hard disk, set default and restart flags,
+and display alignment patterns on VAXstation 2000's monitors as well as
+other functions. Each utility is described below and is available on VAXsta
+tion 2000 and MicroVAX 2000 unless otherwise noted. \tabref{2-12} lists the
+console mode TEST commands that invoke the Utilities.
+
+\begin{tbl}{Utilities}{c X}
+\textbf{Test Number} & \textbf{Description of Utilitiy} \\
+\hline
+
+50		&	Configuration table \\
+51		&	Set NVR default Boot device \\
+52		&	Set NVR default Boot flags \\
+53		&	Set NVR default recovery action flags \\
+54		&	Language inquiry menu \\
+60		&	Monochrome circle cross-hatch alignment pattern (25-pin loopback (p/n 29-24795) must be installed) \\
+61		&	Monochrome screert of E's \\
+62		&	Monochrome white screen \\
+70		&	Mass storage disk formatter \\
+71		&	Mass storage verifier \\
+72		&	Special key on floppy diskettes for field service system exerciser (25-pin loopback (p/n 29-24795) must be installed) \\
+73		&	Special key on TK50 COMPACTapes for field service system exerciser (25-pin loopback (p/n 29-24795) must be installed) \\
+80-8F	&	Reserved for future option utilities \\
+90		&	Network test utility \\
+
+\end{tbl}
+
+\newpage
+
+\subsection{Configuration Table}
+
+The configuration table lists the Status of each device installed in the system.
+This configuration table holds the results of the self-test and power-up tests
+and is updated each time self-test is run. See \figref{2-22} for an example of
+a configuration table. The error codes for each device in the configuration
+table are explained in the troubleshooting section for that individual device.
+Remember that the configuration table contains the results of the self-test
+and power-up tests and not the results of the system exerciser.
+
+\begin{ttfig}{Example of the Configuration Table}
+
+>>> TEST 50
+
+KA410-A VI.0
+ID 08-00-2B-02-CF-A4
+
+  MONO       0000.0001
+  CLK        0000.0001
+  NVR        0000.0001
+  DZ         0000.0001
+      00000001 00000001 00000001 00000001 00000001 000012A0
+  MEM        0002.0001
+      00200000
+  MM         0000.0001
+  FP         0000.0001
+  IT         0000.0001
+  HDC        1110.0001
+     000146B8 0028173 00000320
+  TPC        0202.0001
+     FFFFFF03 01000001 FFFFFF05 FFFFFF05 FFFFFF05 FFFFFF05 ...
+  SYS        0000.0001
+  NI         0000.0001 V1.0
+
+>>>
+
+\end{ttfig}
+
+The first line contains the CPU and the ROM version (KA410-A V1.0). The
+second line contains the ThinWire Ethernet hardware address (in this example 
+it is ID 08-00-2B-02-CF-A4). The rest of the display contains the error
+codes for the devices installed on the System. The configuration table is
+built during power-up testing and the error codes are the result of the self-test 
+and power-up tests. This configuration table is the only place the results
+of self-test are indicated. It is updated every time self-test is run. Additional
+codes on the DZ, MEM, HDC, TPC, and NI give a more detailed status on
+these devices as listed below.
+
+\subsubsection{DZ Explanation in Configuration Table}
+
+The DZ has six 8-digit numbers that contain the status of the four serial
+lines, the keyboard, and the mouse or tablet. Any 8-digit number other
+than 00000001 for the first five status codes indicates a failure. A status code
+of 00000000 for the keyboard indicates that the keyboard is disconnected.
+The sixth 8-digit number is anything other than 000012A0 (good status) or
+00000000 (nothing connected) indicates a failure in the device connected to
+the monitor cable. The MicroVAX 2000 does not use the last two 8-digit
+numbers and 00000000 is the normal display for the MicroVAX systems.
+\figref{2-23} shows what each 8-digit number represents.
+
+\begin{ttfig}{Example of the DZ Line in the Configuration Table}
+DZ        0000.0001
+    00000001 00000001 00000001 00000001 00000001 000012A0
+    │      │ │      │ │      │ │      │ │      │ │      │
+    └──┬───┘ └──┬───┘ └──┬───┘ └──┬───┘ └──┬───┘ └──┬───┘
+       │        │        │        │        │        │
+       │        │        │        │        │        └── Mouse or
+       │        │        │        │        │        Tablet status
+       │        │        │        │        │
+       │        │        │        │        └── Keyboard self-test
+       │        │        │        │
+       │        │        │        └── Printer port status
+       │        │        │
+       │        │        └── Video port status
+       │        │
+       │        └── Communication port status
+       │
+       └── Keyboard Port (keyboard and video ports are physically
+                          located in the video connector)
+\end{ttfig}
+
+\subsubsection{MEM Explanation in Configuration Table}
+
+The MEM has one 8-digit number that contains the amount of physical
+memory in the system. This number is in hexadecimal. For example,
+00200000 indicates that at least 2 megabytes of memory is in the System.
+If there is an error in the memory, however, a second 8-digit number that
+contains the location of the failed memory is displayed. \figref{2-24} shows
+the second 8-digit number of the MEM display in the configuration table.
+The 3 in the last digit indicates the error is on the system module. Only
+the last digit needs to be explained because if any of the other seven digits
+are anything other than 0 (zero), then an error is on the memory option
+module. \tabref{2-13} lists whether the system module or memory option
+module is faultly according to the last digit in the second 8-digit number.
+
+\begin{ttfig}{Example of MEM Error Display in the Configuration Table}
+?? MEM       0000.0020
+       00200000 0000003
+
+       │      │ │     │
+       └──┬───┘ └──┬──┘
+          │        │
+          │        └──── Bit map representation of the
+          │              memory bank that failed. Digits
+          │              one through six are not used and
+          │              should always be 0. Digit seven
+          │              indicated a memory failure on the
+          │              memory option module if not 0.
+          │              Digit eight indicates either the
+          │              memory failed on the system module,
+          │              on the option module, or on both.
+          │              The values for the eighth digit are
+          │              listed in Table 2-13.
+          │
+          └───────────── Hexadecimal representation of the
+                         total amount of memory in the system.
+\end{ttfig}
+
+\begin{tbl}{Determining the Location of the Failing Memory Bank}{c c c}
+\textbf{Error Codes} & \textbf{System Module} & \textbf{Option Module} \\
+\hline
+
+0	&		&	 \\[0.5em]
+1	&	X	&	 \\[0.5em]
+2	&	X	&	 \\[0.5em]
+3	&	X	&	 \\[0.5em]
+4	&		&	X \\[0.5em]
+5	&	X	&	X \\[0.5em]
+6	&	X	&	X \\[0.5em]
+7	&	X	&	X \\[0.5em]
+8	&		&	X \\[0.5em]
+9	&	X	&	X \\[0.5em]
+A	&	X	&	X \\[0.5em]
+B	&	X	&	X \\[0.5em]
+C	&		&	X \\[0.5em]
+D	&	X	&	X \\[0.5em]
+E	&	X	&	X \\[0.5em]
+F	&	X	&	X \\[0.5em]
+\end{tbl}
+
+\newpage
+
+\subsubsection{HDC Explanation in Configuration Table}
+
+The HDC has three 8-digit numbers that contain the megabyte size of the
+hard disk drives and of the floppy diskette in the floppy drive. \figref{2-25}
+shows the status codes that contain the sizes of the drives. The amount
+of megabytes may be different for each drive because one drive may have
+more revectored bad blocks than another.
+
+\begin{ttfig}{Example of the Second HDC Line in the Configuration Table}
+HDC        1110.0001
+    000146B8 0028A173 00000320
+
+    │      │ │      │ │      │
+    └──┬───┘ └──┬───┘ └──┬───┘
+       │        │        │
+       │        │        ├── DUA2, number of blocks (Hex) on
+       │        │        │   RX50 media diskette 00000320
+       │        │        └── DUA2, number of blocks (Hex) on
+       │        │            RX33 media diskette 00000720
+       │        │
+       │        └── DUA1, number of block (Hex) in RD53 in
+       │            the expansion box
+       │
+       └── DUA0, number of blocks (Hex) in RD32 in system box
+\end{ttfig}
+\newpage
+
+\subsubsection{TPC Explanation in Configuration Table}
+
+The TPC has eight 8-digit numbers as shown in \figref{2-26}. The example
+in \figref{2-22} shows only six 8-digit numbers for lack of space. Each of the
+8-digit numbers contain the status of the devices connected to the tape port
+(port A on the expansion adapter). Up to seven devices can be connected to
+the tape port, but VMS and ULTRIX only support one tape expansion box.
+The tape Controller on the system module always holds ID address 0 as
+shown in \figref{2-26} by the FFFFFF03 code in ID 0. ID address 1 contains
+a status code of 01000001 to indicate that the tape expansion box connected
+to the tape port is at this address and it has no errors. The status code
+01000001 is the good status code for the tape expansion box only, not for
+any other type of device that the customer may have connected to port A (if
+any). The other ID addresses hold a status code of FFFFFF05 since, in this
+example, no more devices are installed at those ID addresses. Normally,
+when there is only one tape expansion box, it is located in ID address 1.
+However, the ID address may be changed to any ID address except ID
+address 0 since ID 0 is the tape Controller on the System module. The TPC
+troubleshooting procedure shows how the ID address of the expansion box
+can be changed. \figref{2-26} shows the ID addresses of the 8-digit numbers.
+
+\begin{ttfig}{Example of the Second TPC Line in the Configuration Table}
+TPC        0202.0001
+FFFFFF03 01000001 FFFFFF06 FFFFFF05 FFFFFF05 FFFFFF05 FFFFFF05 FFFFFF05
+
+│      │ │      │ │      │ │      │ │      │ │      │ │      │ │      │
+└──┬───┘ └──┬───┘ └──┬───┘ └──┬───┘ └──┬───┘ └──┬───┘ └──┬───┘ └──┬───┘
+   │        │        │        │        │        │        │        │
+   │        │        │        │        │        │        │        │
+   │        │        │        │        │        │        │        │
+
+ ID 0     ID 1     ID 2     ID 3     ID 4     ID 5     ID 6     ID 7
+
+
+NOTE: If there are no devices connected to port A, or if they are not
+powered up, the top line will indicate 0000.4001 with a single question
+mark for a good indication.
+\end{ttfig}
+
+\newpage
+
+\subsubsection{NI Explanation in Configuration Table}
+
+The ThinWire Ethernet network interconnect option module display in the
+configuration table contains the revision level of the ROM located on the
+NI module. V1.0 on the NI line in \figref{2-22} indicates the ROM on the
+network interconnect option module is version 1.
+
+\subsubsection{Determining the Revision Levels in the System Module's ROM}
+
+The ROM on the system module contains four separate sections of program 
+code. These sections are the self-test code, console code, VMB code,
+and the system exerciser code and all have different internal revision levels. 
+Enter TEST 80000050 to see the internal revision levels of the self-test,
+console, and VMB code displayed next to the KA410-A in the configuration
+table. An example of these three revision levels is shown in \figref{2-27}.
+The V1.17C is for the self-test revision level, 0BF is for the console revision
+level, and V1.0 is for the VMB revision level. The revision level of the system 
+exerciser is shown in the system exerciser display when the exerciser
+is running.
+
+\begin{ttfig}{Example of the System Module's ROM Code Revision Levels}
+>>> TEST 80000050
+
+KA410-A VI.17C-OBF-V1.0
+ID 08-00-2B-02-CF-A4
+
+  MONO       0000.0001
+  CLK        0000.0001
+  NVR        0000.0001
+   .
+   .
+   .
+   .
+\end{ttfig}
+
+\newpage
+
+\subsubsection{Determining the Revision Levels of the Tape Expansion Box's ROMS}
+
+The tape expansion box contains two ROMs. One ROM is on the TZK50
+controller board and the other ROM is in the TK50 tape drive. Perform the
+following steps to determine the revision levels of these two ROMs.
+
+\begin{enumerate}
+
+\item	Power up the tape expansion box.
+
+\item	Unload and remove any COMPACTape cartridge from the TK50 tape drive.
+
+\item	Enter TEST 73.
+
+\item	Enter 1 when the system prompts with VStmk\_QUE\_id (1,2,3,4,5,6,7) ?.
+
+\item	Enter 60000001 when the system prompts with VStmk\_QUE\_RUsure (1/0) ?.
+
+\item	The screen will scroll fast. Stop the screen from scrolling as soon as the
+		information shown in the example in \figref{2-28}.
+
+\begin{ttfig}{Example of Tape Port Bus Information}
+           .
+           .
+           .
+   receive_diagnostic
+     command:  1C 00 00 00 50 00
+     data_in:  05 1E 00 0A FB 00
+     status :  00
+     msg_in :  00
+           .
+           .
+           .
+\end{ttfig}
+
+\item	The data\_in: line holds the revision levels of the ROMs. \figref{2-29}
+		shows the codes that identify the TZK50 firmware/hardware revision
+		and the TK50 firmware/hardware revision levels. These revision level
+		codes are in hexadecimal.
+\end{enumerate}
+\newpage
+\begin{ttfig}{Example of the TZK50 and TK50 ROM Revision Levels}
+     data_in:  05 1E 00 0A FB 00
+               ││ ││    ││ ││
+               └┤ └┤    └┤ └┤
+                │  │     │  │
+                │  │     │  └── TK50 firmware revision (251)
+                │  │     │
+                │  │     └───── TK50 hardware revision (10)
+                │  │
+                │  └─────────── TZK50 firmware revision (30)
+                │
+                └────────────── TZK50 hardware revision (5)
+\end{ttfig}
+\subsection{Setting NVR Default Boot Device}
+
+This utility sets the default boot device in the NVR. There are five boot 
+devices to choose from: DUA0, DUA1, DUA2, MUA0, or ESA0. \figref{2-30}
+shows an example of changing the default boot device from four periods
+(....), no default device to DUA1 (RD53 in the expansion box).
+
+\begin{ttfig}{Example of Changing the Default Boot Device}
+>>> TEST 51
+    .... ? >>> DUA1
+>>>
+\end{ttfig}
+
+Enter a carriage return to exit TEST 51 without changing the default boot
+device. Enter a period (.) to clear the default boot device from NVR. Enter
+the device, such as DUA1, to set the default boot device to that device.
+
+\subsection{Setting NVR Default Boot Flags}
+
+This utility sets the default boot flags in the NVR. \tabref{2-14} lists the boot
+flags common to all operating systems. \tabref{2-15} lists additional boot
+flags that the VMS operating system uses. The boot flags in \tabref{2-15}
+has additional definitions for other operating systems. \figref{2-31} shows
+an example of changing the default boot flag from 00000000 to 00000010
+(diagnostic boot). Enter a carriage return to exit TEST 52 without changing
+the default boot flag.
+
+\begin{ttfig}{Example of Changing the Default Boot Flag}
+>>> TEST 52
+    00000000 ? >>> 00000010
+>>>
+\end{ttfig}
+
+You can specify one or any combination of boot flags in the NVR. To specify
+more than one flag, enter the sum value (in hex) of the flags that you want
+loaded into the NVR. For example, if you want to specify the RPB\$V\_DIAG
+flag, RPB\$V\_HALT flag, and the RPB\$V\_MPM flag, add all three flags as
+shown in \figref{2-32} and enter the sum into NVR (TEST 52).
+
+\begin{ttfig}{Determlning the NVR Code for Three Boot Flags}
+    RPB$V_DIAG  ---  00000010
+    RPB$V_HALT  ---  00000200
+    RPB$V_MPM   ---  00000A00
+                     --------
+    Enter this code  00000A10
+\end{ttfig}
+
+\begin{tbl}{Boot Flags Used by VMB for Booting All Operatlng System Software}{l X}
+\textbf{Flag} & \textbf{Definition}\\
+\hline
+
+00000008	&	RPB\$V\_BBLOCK -- This skips the files-11 boot and performs only the boot block type boot. \\[0.5em]
+
+00000010	&	RPB\$V\_DIAG -- Diagnostic boot.  Secondary bootstrap is image called [SYSMAINT]DIAGBOOT.EXE. \\[0.5em]
+
+00000020	&	RPB\$V\_BOOBPT -- Bootstrap breakpolnt. Stops the primary and secondary bootstraps with a breakpoint instruction before testing memory. \\[0.5em]
+
+00000040	&	RPB\$V\_HEADER -- Image header. Takes the transfer address of the secondary bootstrap image 
+				from that file's image header. If RPB\$V\_HEADER is not set, transfers control to the first byte of the secondary boot file. \\[0.5em]
+
+00000100	&	RPB\$V\_SOLICT -- File name. Prompt for the name of a secondary bootstrap file. \\[0.5em]
+\end{tbl}
+
+\begin{tblcont}{Boot Flags Used by VMB for Booting All Operatlng System Software}{l X}
+\textbf{Flag} & \textbf{Definition}\\
+\hline
+
+00000200	&	RPB\$V\_HALT -- Halt before transfer. Executes a halt instruction before transferring control to the secondary bootstrap. \\[0.5em]
+
+00001000	&	RPB\$V\_PFILE -- (overlays RPB\$V\_USEMPM) File name. Prompt for the name of the parameters file on a network bootstrap operation. \\[0.5em]
+
+X0000000	&	RPB\$V\_TOPSYS -- The X position specifies the top level directory number for system disks with multiple systems.\\[0.5em]
+\end{tblcont}
+
+\begin{tbl}{Specific Boot Flags Used by VMS}{l X}
+\textbf{Flag} & \textbf{Definition}\\
+\hline
+
+00000001	&	RPB\$V\_CONV -- Conversational boot. At various points in the system
+				boot procedure, the bootstrap code solicits parameters and other input
+				from the console terminal. If the DIAG is also on, the diagnostic supervisor 
+				then enters "MENU" mode and prompts the user for devices to test. \\[0.5em]
+
+00000002	&	RPB\$V\_DEBUG -- Debug. If this flag is set, VMS maps the code for the
+				XDELTA debugger into the system page tables of the running system. \\[0.5em]
+
+00000004	&	RPB\$V\_INIBPT -- Initial breakpoint. If RPB\$V\_DEBUG is set, VMS executes 
+				a BPT instruction immediately after enabling mapping. \\[0.5em]
+
+00000080	&	RPB\$V\_NOTEST -- Memory test inhibit. Sets a bit in the PFN bit map
+				for each page of memory present. Does not test the memory. \\[0.5em]
+
+00000400	&	RPB\$V\_NOPFND -- No PFN deletion (not implemented; intended to tell
+				VMB not to read a file from the boot device that identifies bad or reserved
+				memory pages, so that VMB does not mark these pages as valid in the PFN
+				bitmap). \\[0.5em]
+
+00000800	&	RPB\$V\_MPM -- Specifies that multiport memory is to be used for the
+				total exec memory requirement. No local memory is to be used. This
+				is for tightly-coupled multiprocessing. If the DIAG is also on, then the
+				diagnostic supervisor enters "AUTOTEST" mode. \\[0.5em]
+
+00002000	&	RPB\$V\_MEMTEST -- Specifies that a more extensive algorithm be used
+				when testing main memory for hardware uncorrectable (RDS) errors. \\[0.5em]
+
+00004000	&	RPB\$V\_FINDMEM — Requests use of MA780 memory if MS780 is insufficient 
+				for booting. Used for 11/782 installations. \\[0.5em]
+
+00008000	&	RPB\$V\_AUTOTEST - Used by diagnostic supervisor. \\[0.5em]
+
+00010000	&	RPB\$V\_CRDTEST — Request pages with CRD errors to be removed from bitmap. \\[0.5em]
+\end{tbl}
+
+\newpage
+
+\subsection{Setting NVR Default Recovery Action Flags}
+
+This utility sets the recovery action flags in the NVR. The default recovery
+action flag is used by the system during power up and also if the system
+detects a severe error of its operating environment. There are three flags to
+choose from: restart, boot, or halt. Restart searches for the restart parameter
+block (RPB) in memory (the RPB contains addresses of certain registers that
+hold restart Information). Boot starts booting the operating system software.
+Halt automatically halts the system and enters console mode. \tabref{2-16}
+lists the recovery flags available.
+
+\begin{tbl}{Default Recovery Flags}{l l}
+\textbf{Number} & \textbf{Recovery Action Flag}\\
+\hline
+
+1	&	RESTART \\[0.5em]
+2	&	BOOT \\[0.5em]
+3	&	HALT \\[0.5em]
+\end{tbl}
+
+To change the NVR recovery action flag, enter TEST 53. \figref{2-33} shows
+an example of changing the flag from 2 (boot) to 3 (HALT). Enter a carriage
+return to exit TEST 53 without changing the flag.
+
+\begin{ttfig}{Example of Changing the NVR Recovery Action Flags}
+>>> TEST 53
+    2 ? >>> 3
+>>>
+\end{ttfig}
+
+\subsection{Language Inquiry Menu}
+
+This utility is only available on the VAXstation 2000. This utility displays the
+language inquiry menu on the console device. To choose another language
+for the keyboard, enter TEST 54 and select the proper language. Hit the
+return key to obtain the console prompt without changing the language.
+The terminal on the MicroVAX 2000 has the language menu available in the
+setup procedures.
+
+\newpage
+
+\subsection{Circle Cross-Hatch Alignment Pattern}
+
+This utility is only available on the VAXstation 2000. This utility sends the
+circle cross-hatch alignment pattern to the monitor connected to the video
+port. Enter TEST 60 to display the circle cross-hatch alignment pattern. A
+loopback (p/n 29-24795) must be attached to the 25-pin communication port
+to run this utility. Hit the carriage return to stop the display.
+
+\subsection{Screen of E's Pattern}
+
+This utility is only available on the VAXstation 2000. This utility sends a full
+screen of E's to the monitor connected to the video port. Enter TEST 61 to
+display the screen of E's pattern. Hit the carriage return to stop the display.
+
+\subsection{White Screen}
+
+This utility is only available on the VAXstation 2000. This utility sends a full
+white screen to the monitor connected to the video port. Enter TEST 62 to
+display the white screen. Hit the carriage return to stop the display.
+
+\subsection{Mass Storage Disk Formatter}
+
+This utility formats the hard disk drives and RX33 floppy diskettes. The
+command to start the formatter is TEST 70. \figref{2-34} shows an example
+of running the formatter on DUA0. The procedure shown in \figref{2-34} is
+for all Digital hard disk drives. \figref{2-35} shows an example of running
+the formatter on an RX33 diskette in DUA2. This formatter cannot format
+RX50 diskettes. If the hard disk is not a Digital hard disk drive or if it is
+a hard disk drive that the formatter does not recognize, the formatter goes
+into a query mode. This query mode allows you to input specific data about
+the drive so the formatter can format it. \figref{2-36} shows an example of
+formatting an unknown hard disk drive and also explains the data needed
+to format the unknown disk drive.
+
+\caution{Formatting distroys all user data on the disk or diskette.}
+
+To run the formatter, enter TEST 70 then enter the drive number when the
+formatter asks, VSfmt\_QUE\_unitno (0-2) ? \_ \_ \_. Enter a 0 for the hard disk
+drive in the system box, enter 1 for the hard disk drive in the expansion
+box, and enter 2 for a diskette in the floppy drive. If you entered a 0 or 1
+for a hard disk, follow \figref{2-34}. If you entered 2 for a floppy diskette,
+follow \figref{2-35}.
+
+\begin{ttfig}{Example of Formatting a Hard Disk Drive}
+>>> TEST 70
+
+                       KA410-A  RDRXfmt
+ 
+VSfmt_QUE_unitno (0-2) ?  0           <--- Enter drive number.
+
+VSfmt_STS_Size ............. RD32     <--- RD32 is DUA0.
+
+VSfmt_QUE_SerNbr (0~999999999) ? 361  <--- Enter a number.
+VSfmt_QUE_RUsure (DUA0 1/0) ? 1       <--- Enter a 1 for yes,
+                                           0 for no.
+VSfmt_STS_RdMbb ............OK        <--- Manufacturer's bad
+                                           block located.
+VSfmt_STS_FMTing ............OK       <--- Disk formatted OK.
+
+VSfmt_STS_ChkPss ............OK       <--- Check pass is OK.
+
+VSfmt_STS_BBRvec := 7                 <--- Number of bad blocks
+                                           revectored.
+VSfmt_RES_Succ                        <--- Disk is formatted
+                                           successfully.
+
+>>>
+\end{ttfig}
+
+\newpage
+
+\begin{ttfig}{Example of Formatting an RX33 Floppy Diskette}
+>>> TEST 70
+
+                       KA410-A  RDRXfmt
+ 
+VSfmt_QUE_unitno (0-2) ?  2        <--- Enter drive number.
+
+VSfmt_QUE_RXmedtyp
+( 1=RX33 ) ? 1                     <--- Enter a 1 if RX33
+                                        diskette media.
+VSfmt_QUE_RUsure (DUA2 1/0) ? 1    <--- Enter a 1 for yes,
+                                        0 for no.
+VSfmt_STS_FMTing .....OK           <--- Diskette formatted OK.
+
+VSfmt.STS.CkRXfmt ..... OK         <--- RX33 format checked OK.
+
+VSfmt_RES_Succ                     <--- Diskette is formatted
+                                        successfully.
+
+>>>
+\end{ttfig}
+
+\newpage
+
+\begin{ttfig}{Example of Formatting an Unknown Hard Disk Drive}
+
+>>> TEST 70
+
+                       KA410-A  RDRXfmt
+
+VSfmt_QUE_unitno (0-2) ?  0          <--- Enter drive number.
+
+VSfmt_STS_Siz ............. ????     <--- Unknown disk drive.
+
+VSfmt_STS_EntUIB    <--- Formatter needs disk specifics.
+
+xbnsiz := 54        <--- Enter number of transfer blocks.
+
+dbnsiz := 48        <--- Enter number of diagnostic blocks.
+
+lbnsiz := 83236     <--- Enter number of logical blocks.
+
+rbnsiz := 200       <--- Enter number of replacement blocks.
+
+surpun := 6         <--- Enter number of surfaces per unit.
+
+cylpun := 820       <--- Enter number of cylinders per unit.
+
+wrtprc := 820       <--- Enter the write precompensation
+                         cylinder.
+rctsiz := 4         <--- Enter size of revectoring control
+                         table (RCT).
+rctnbr := 8         <--- Enter number of copies of RCT.
+
+secitl := 1         <--- Enter the sector interleave.
+
+stsskw := 2         <--- Enter the surface to surface skew.
+
+ctcskw := 9         <--- Enter the cylinder to cylinder skew.
+
+mediai := 627327008      <--- Enter the media MSCP ID.
+
+MSfmt_QUE_SerNbr (0-999999999) ? 361 <--- Enter serial number.
+
+VSfmt_QUE_RUsure (DUA0 1/0) ? 1      <--- Enter 1 for yes,
+                                          0 for no.
+VSfmt_STS_RdMbb ............OK       <--- Manufacturer's bad
+                                          block located.
+VSfmt_STS_FMTing ............OK      <--- Disk formatted OK.
+
+VSfmt_STS_ChkPss ............OK      <--- Check pass is OK.
+
+VSfmt_STS_BBRvec := 2                <--- Number of bad blocks
+                                          revectored.
+VSfmt_RES_Succ                       <--- Disk is formatted
+                                          successfully.
+>>>
+\end{ttfig}
+
+\subsubsection{Disk Formatter Messages}
+
+All messages for the formatter start with VSfmt\_. The second segment of
+the message indicates the type of message; STS\_ for a Status message,
+QUE\_ for a question that waits for a response, and RES\_ for an indication
+of a resultant message. \tabref{2-17} lists all the formatter messages and gives
+an explanation for each.
+
+\begin{tbl}{Disk Formatter Messages}{l X}
+\textbf{Formatter Message} & \textbf{Explanation}\\
+\hline
+
+VSfmt\_STS\_ChkPss					&	A check pass is being done on the disk. \\[0.5em]
+
+VSfmt\_STS\_CkRXfmt					&	The RX33 diskette format is being checked. \\[0.5em]
+
+VSfmt\_STS\_EntUIB					&	The formatter has sized an unknown disk and will
+										prompt you to input information about the disk. \\[0.5em]
+
+VSfmt\_STS\_FMTing					&	The disk is being formatted. \\[0.5em]
+
+VSfmt\_STS\_RdMbb					&	The manufacturer's bad block is being located. \\[0.5em]
+
+VSfmt\_STS\_RXfmt					&	The RX33 diskette is being formatted. \\[0.5em]
+
+VSfmt\_STS\_Siz 					&	The hard disk selected is being sized. \\[0.5em]
+
+VSfmt\_QUE\_RUsure (DUA\# 1/0) ?		&	The formatter uses this question as a safety check.
+										If you want to format the disk or diskette that is
+										indicated by the \#, enter 1 for yes. Otherwise,
+										enter any character other than 1 to abort the formatter. \\[0.5em]
+
+VSfmt\_QUE\_SerNbr (0-999999999) ?	&	Enter a number for the hard disk you are 
+										formatting. The number can be any number from
+										0 to 999999999. This number should be the serial
+										number of the drive, but does not have to be. You
+										can enter a 0 for DUA0 and a 1 for DUA1, but any
+										number will do. \\[0.5em]
+
+VSfmt\_QUE\_unitno (0-2) ?			&	Enter the drive that needs formatting. Enter 0 for
+										DUA0, 1 for DUA1, and 2 for DUA2. Any other
+										character aborts the formatier. \\[0.5em]
+
+VSfmt\_RES\_Succ					&	The disk has been successfully formatted. \\[0.5em]
+
+VSfmt\_RES\_Abtd					&	The RDRX formatter has been aborted. \\[0.5em]
+
+VSfmt\_RES\_ERR \#					&	The formatter has been stopped because of the error 
+										code indicated by the \#.  \tabref{2-18} lists the
+										error codes. \\[0.5em]
+
+\end{tbl}
+
+\begin{tbl}{Error Codes for the Disk Formatter}{c X}
+\textbf{Code} & \textbf{Description}\\
+\hline
+
+1	&	Illegal unit number entered. \\[0.5em]
+
+2	&	Error occurred during the RD autosizer. Either a disk is not a Digital disk or the disk is bad. \\[0.5em]
+
+3	&	Error occurred during formatting. \\[0.5em]
+
+4	&	Error occurred during the hard disk check pass. \\[0.5em]
+
+5	&	Error occurred during the floppy disk check pass. \\[0.5em]
+
+6	&	No diskette loaded in the floppy drive or the diskette is not RX33 media. \\[0.5em]
+
+\end{tbl}
+
+\subsection{Mass Storage Disk Verifier}
+
+This utility verifies the hard disk formats. It does not verify the diskette
+formats nor does it destroy data on the disks. The command to start the
+verifier is TEST 71. \figref{2-37} shows an example of running the formatter
+on DUA1.
+
+To run the verifier, enter TEST 71, then enter the drive number when the
+verifier asks, VSmsv\_QUE\_unitno (0-1) ? \_ \_ \_. Enter a 0 for the hard disk
+drive in the system box or enter 1 for the hard disk drive in the expansion
+box.
+
+\begin{ttfig}{Example of Running the Disk Verifier on DUA1}
+>>> TEST 71
+
+                       KA41O-A RDver
+
+VSmsv_QUE_unitno (0-1) ?  1       <--- Enter drive number.
+
+VSmsv_STS_Siz .. RD53             <--- Drive being sized
+
+VSmsv_QUE_RUsure (DUA1 1/0) ? 1   <--- Enter a 1 for yes,
+                                       0 for no.
+VSmsv_STS_RDing ........OK        <--- Read pass finished OK.
+
+VSmsv_8TS_OBBcnt = 16             <--- Old bad block count.
+
+VSmsv_STS_NBBcnt = 0              <--- New bad block count.
+
+VSmsv_RES_Succ                    <--- Disk verified
+                                       successfully.
+
+>>>
+\end{ttfig}
+
+\subsubsection{Disk Verifier Messages}
+
+All messages for the verifier start with VSmsv\_. The second segment of
+the message indicates the type of message. STS\_ for a status message,
+QUE\_ for a question that waits for a response, and RES\_ for an indication
+of a resultant message. \tabref{2-19} lists all the verifier messages and gives
+an explanation for each.
+
+\begin{tbl}{Disk Verifier Messages}{l X}
+\textbf{Verifier Message} & \textbf{Explanation}\\
+\hline
+
+VSmsv\_STS\_NBBcnt					&	The verifier lists the new bad block count since
+										the last time the disk was formatted. \\[0.5em]
+
+VSmsv\_STS\_NBBpo3					&	The verifier lists the new bad block locations if
+										any new bad blocks are found. It lists the cylinder
+										number, surface, and the sector. \\[0.5em]
+
+VSmsv\_STS\_OBBcnt					&	The verifier lists the old bad block count. \\[0.5em]
+
+VSmsv\_STS\_RDing					&	The verifier is reading the disk. \\[0.5em]
+
+VSmsv\_STS\_Siz						&	The hard disk selected is being sized. \\[0.5em]
+
+VSmsv\_QUE\_RUsure (DUA\# 1/0) ?	&	The verifier uses this question as a safety check.
+										If you want to verify the disk indicated by the \#,
+										enter 1 for yes. Otherwise, enter any character
+										other than 1 to abort the verifier. \\[0.5em]
+
+VSmsv\_QUE\_unitno (0-1) ?			&	Enter the drive that you are verifying.  Enter 0
+										for DUA0 or a 1 for DUA1. Any other character
+										aborts the verifier. \\[0.5em]
+
+VSmsv\_RES\_Succ					&	The disk has been successfully verified. \\[0.5em]
+
+VSmsv\_RES\_Abtd					&	The RD verifier has been aborted. \\[0.5em]
+
+VSmsv\_RES\_ERR \#					&	The verifier has been stopped because of the error
+										code indicated by the \#. \tabref{2-20} lists the error
+										codes. \\[0.5em]
+
+\end{tbl}
+
+\begin{tbl}{Error Codes for the Disk Verifier}{c X}
+\textbf{Code} & \textbf{Description} \\
+\hline
+
+1	&	Illegal unit number entered. \\[0.5em]
+
+2	&	Error occurred during the RD autosizer. The disk may not be formatted. \\[0.5em]
+
+3	&	Error reading the revectored block control table (RCT) \\[0.5em]
+
+\end{tbl}
+
+\subsection{Special Diagnostic Key for Field Service System Exerciser}
+
+The removable media in the maintenance kit contains a special diagnostic
+code on it that allows the system exerciser to write on this media when 
+running in field service mode. Without this special coding, such as on normal
+customer media, the system exerciser does not do write testing on the 
+removable media devices. This safety fearure prevents accidentally destroying
+the customers programed floppy diskettes or TK50 COMPACTapes.
+
+There are two Utilities that create these special-keys for the floppy diskette
+and TK50 COMPACTapes. TEST 72 creates a special-key on the floppy
+diskette and TEST 73 creates a special-key on the TK50 COMPACTape. The
+diskette and COMPACTape in the maintenance kit must be initialized with
+these special diagnostic keys before they can be used. The COMPACTape
+must be initialized every time you use it with the field service system exer
+ciser, because the special diagnostic key on the COMPACTape is destroyed
+once the exerciser recognizes the key. The special diagnostic key on the
+floppy diskette is not destroyed when it is used. \figref{2-38} shows a 
+successrul example of creating a special-key floppy diskette. \figref{2-39} shows
+a successful example of creating a special-key COMPACTape cartridge. If
+any errors occur while running TEST 72 or TEST 73, make sure the drive
+is on-line and operating properly and run the special-key command again.
+Also, make sure the COMPACTape is not write protected.
+
+\begin{ttfig}{Example of Creating the Special Key on a Floppy Diskette}
+>>> TEST 72
+
+                      KA410-A RXmker
+
+VSfmk_QUE_MEDtyp (0=RX50) (1=RX33) ? 0  <--- Enter media type.
+
+VSfmk_QUE_RUsure (DUA2 1/0) ? 1         <--- Enter 1 for yes,
+                                             0 for no.
+VSfmk_RES_SUCC                          <--- Keyed successfully.
+
+>>>
+\end{ttfig}
+
+\begin{ttfig}{Example of Creating the Special Key on a COMPACTape Cartridge}
+>>> TEST 73
+
+                      KA41O-A TPmker
+
+VStmk_QUE_id (1.2,3,4,5,6,7) ? 1   <--- Enter ID address of drive.
+
+VStmk_QUE_RUsure (1/0) ? 1         <--- Enter 1 for yes, 0 for no.
+
+VStmk ........... OK               <--- Keyed auccessfully.
+
+>>>
+\end{ttfig}
+
+\subsection{ThinWire Network Loop Testing Utility}
+
+This utility enables a ThinWire Ethernet network loop test or system ID
+procedure to verify correct operation of the ThinWire Ethernet port. It sets
+up the system to loopback Thinwire Ethernet data packets from another
+node which uses troubleshootine software such as NIE, Ethernim, UETP, or
+NCP loop testing. This troubleshooting software does Ethernet loop testing
+at various levels: firmware/hardware loop testing, protocol loop testing,
+operating system loop testing, and application loop testing. The level this
+utility works on is the firmware/hardware loop testing. You use this utility
+if booting over the network fails or if other levels of loopback testing fail.
+The other levels of loopback testing do not need to use this utility.
+
+To run this utility, halt the system and enter console mode. Once in console
+mode, enter TEST 90 to start the utility. The screen blanks then displays \_E\_
+net\$\_util followed by the Ethernet address of the system. Now the system
+is ready to respond to the network loopback commands issued from any
+other node on the network (typically the host system). Once TEST 90 is
+entered, nothing more can be done on this system since this system is now
+acting like a loopback connector. All loopback commands must be sent
+from another node on the network.
+
+When a loopback data packet is received from another node, the system
+checks for errors and extracts the Ethernet address of the next node that
+this packet must be sent to. The Ethernet address of the next node that
+this system is sending the loopback packet to is displayed on the screen.
+Most likely, the Ethernet address displayed on the screen will be the node
+that sent the packet, but some troubleshooting software have the capability
+to do three or more node loopback testing. Once all loopback testing is
+complete, enter a carriage return to get a report on the status of the loopback
+testing. Enter a \keystroke{CTRL/C} to exit TEST 90 and return to the console prompt.
+\figref{2-40} shows an example of the report. \tabref{2-21} lists the definitions
+of each item in the report.
+
+\begin{ttfig}{Example of ThinWire Ethernet Loop Testing Using TEST 90}
+>>> TEST 90
+
+_E_net$_util
+ID 08-00-2B-02-CF-A4      <--- Ethernet address of this node
+
+08-00-2B-03-CF-A8         <--- Ethernet address of next node
+
+<RETURN>                  <--- Enter a carridge return
+
+req$_num        - 0        sysid$_cnt        - 0
+tx$_cnt         - 0
+rx$_cnt         - 0
+mxcst$_cnt      - 0        jnk$_pkts         - 0
+r_err           - 0
+r_fram          - 0        r_oflo            - 0
+r_crc           - 0        r_buff            - 0
+t_err           - 0        t_more            - 0
+t_one           - 0        t_def             - 0
+t_buff          - 0        t_uflo            - 0
+t_lcol          - 0        t_lcar            - 0
+t_rtry          - 0        hng$_tx           - 0
+s_err           - 0
+s_babl          - 0        s_cerr            - 0
+s_miss          - 0        s_raerr           - 0
+\end{ttfig}
+
+\begin{tbl}{ThinWire Ethernet Loopback Test Report Definitions}{l X}
+\textbf{Item} & \textbf{Definition}\\
+\hline
+
+req\$\_num		&	System ID request response sent \\[0.5em]
+sysid\$\_cnt	&	Unsolicited system ID's sent \\[0.5em]
+tx\$\_cnt		&	Packeis transmitted \\[0.5em]
+rx\$\_cnt		&	Packets received \\[0.5em]
+mxcst\$\_cnt	&	Multicast or broadcast packets received \\[0.5em]
+jnk\$\_pkts		&	Packets received with bad format \\[0.5em]
+r\_err			&	Total receive errors detected by lance \\[0.5em]
+r\_fram			&	Receive framing error \\[0.5em]
+r\_oflo			&	Receive FIFO overflow error \\[0.5em]
+r\_crc			&	Receive crc error \\[0.5em]
+r\_buff			&	Receive buffer in chain not available error \\[0.5em]
+t\_err			&	Total transmit errors detected by lance \\[0.5em]
+t\_more			&	Transmits with more than one collision \\[0.5em]
+t\_one			&	Transmits with one collision \\[0.5em]
+t\_def			&	Transmits deferred \\[0.5em]
+t\_buff			&	Transmit buffer not available error \\[0.5em]
+t\_uflo			&	Transmit FIFO underflow error \\[0.5em]
+t\_lcol			&	Transmits with late collision error \\[0.5em]
+t\_lcar			&	Transmit loss of carrier error \\[0.5em]
+t\_rtry			&	Transmit maximum retry error \\[0.5em]
+hng\$\_tx		&	Transmit failed to complete error \\[0.5em]
+s\_err			&	Total errors reported in CSR0 of lance \\[0.5em]
+s\_babl			&	Babble error \\[0.5em]
+s\_cerr			&	Collision check (heartbeat) error \\[0.5em]
+s\_miss			&	Missed packet, no buffer available \\[0.5em]
+s\_merr			&	DMA memory access or memory parity error \\[0.5em]
+\end{tbl}
