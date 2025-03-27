@@ -144,7 +144,7 @@ VR260 tube/yoke/bezel assembly						& \npara{3.12.6}			& 3-47	\\[0.5em]
 
 \section{System Module Removal}
 
-\begin{itemize}
+\begin{enumerate}
 
 \item	Remove the shield (\para{3.2}).
 
@@ -179,7 +179,7 @@ VR260 tube/yoke/bezel assembly						& \npara{3.12.6}			& 3-47	\\[0.5em]
 
 \item	Install the new system module by reversing the above procedures.
 
-\end{itemize}
+\end{enumerate}
 
 \newpage
 
@@ -226,7 +226,7 @@ VR260 tube/yoke/bezel assembly						& \npara{3.12.6}			& 3-47	\\[0.5em]
 \item	Remove the three screws shown in \figref{3-17} that secure the drive to
 		the chassis.
 
-\fig{MA-0083-87}{Hard Disk Screw Locations}
+\fig[0.9]{MA-0083-87}{Hard Disk Screw Locations}
 
 \newpage
 
@@ -274,7 +274,7 @@ an entire RD53 disk drive.
 		\caution{Flexible cirant material is fragile and requires careful handling to
 				 avoid damage.}
 
-\fig{SHA-0134-85}{RD53 Device Electronics Board Removal}
+\fig{SHR-0134-85}{RD53 Device Electronics Board Removal}
 
 \item	Disconnect the two connectors from under the device electronics board.
 		Both connectors and cables are fragile, handle them with care.
@@ -322,7 +322,7 @@ Remove the shield (\para{3.2})
 		\figref{3-24}. Remove the mounting brackets and front panels from the
 		drive(s).
 
-\fig{MA-0087-87}{Half-Height Drives Mounting Brackets Removal}
+\fig[0.8]{MA-0087-87}{Half-Height Drives Mounting Brackets Removal}
 
 \item	If you are replacing the RX33 floppy drive, install the new RX33 by
 		reversing the above procedures.
@@ -356,7 +356,7 @@ assembly) to the base casting. Removing any of the screws violates the clean are
 		sure the violet and yellow wire in the connector is located near the LED
 		and the orange and blue wires are located toward the outer edge of the
 		board when reconnecting J4.
-\fig{SHA-0297-86}{Disconnecting J4 from RD32 Device Electronics Board}
+\fig[0.6]{SHR-0297-86}{Disconnecting J4 from RD32 Device Electronics Board}
 
 \item	Stand the board up. Be careful not to strain any of the connectors or
 		cables, and tilt the board over center until it rests against the outer
@@ -378,11 +378,11 @@ assembly) to the base casting. Removing any of the screws violates the clean are
 		on the old board you just removed (\figref{3-28}). Also be sure the new
 		board has the resistor termination pack installed.
 
-\fig{MA-0131-87}{RD32 Device Electronics Board Jumper Location}
+\fig[0.75]{MA-0131-87}{RD32 Device Electronics Board Jumper Location}
 
 \item	Replace the new device electronics board by reversing the above procedures.
 \end{enumerate}
-
+\newpage
 \section{Resistor Load Board Removal from System Box}
 
 The resistor load board loads down the power supply in a diskless system
@@ -417,7 +417,7 @@ boxes.
 
 \newpage
 
-\fig{MA-0118-87}{Drive Mounting Bracket Screw Locations}
+\fig[0.9]{MA-0118-87}{Drive Mounting Bracket Screw Locations}
 
 \newpage
 
@@ -457,7 +457,7 @@ the NVR when you power up the system.}
 \item	Put the system on its side and remove the four screws shown in
 		\figref{3-31} that hold the power supply to the bottom of the chassis.
 
-\fig{MA-0127-87}{Power Supply Screw Locations in the System Box}
+\fig[0.73]{MA-0127-87}{Power Supply Screw Locations in the System Box}
 \newpage
 \item	Slide the power supply out of the chassis.
 
@@ -477,7 +477,7 @@ You may need the following tools to repair the VR260 Monitor.
 
 \figref{3-32} shows the FRUs in the VR260 monitor.
 
-\fig{MA-0088-87}{VR260 FRU Locations}
+\fig[0.9]{MA-0088-87}{VR260 FRU Locations}
 \newpage
 
 \subsection{VR260 Cover}
@@ -488,7 +488,7 @@ You may need the following tools to repair the VR260 Monitor.
 
 \item	Disconnect the power cord and video cable from the monitor. Refer to \figref{3-33}.
 
-\fig{MA-7557-80}{VR260 Controls and Video Cable Locations}
+\fig[0.75]{MA-7557-80}{VR260 Controls and Video Cable Locations}
 
 \item	Carefully place the monitor on its face.
 
@@ -502,7 +502,7 @@ You may need the following tools to repair the VR260 Monitor.
 
 \item	Remove the four phillips cover screws shown in \figref{3-34} from the rear of the monitor.
 
-\fig{MA-0089-87}{VR260 Cover Screw Locations}
+\fig[0.75]{MA-0089-87}{VR260 Cover Screw Locations}
 
 \item	Lift the cover off.
 
@@ -510,10 +510,613 @@ You may need the following tools to repair the VR260 Monitor.
 
 \item	Lift the bezel off. Refer to \figref{3-35}.
 
-\fig{MA-0090-87}{VR260 Rear Bezel Location}
+\fig[0.75]{MA-0090-87}{VR260 Rear Bezel Location}
 
 \item	Place the monitor back down to its normal position.
 
 \item	Reverse the above procedures to replace the cover.
 
 \end{enumerate}
+
+\newpage
+
+\subsection{VR260 Deflection Board Removal}
+
+The deflection board is mounted inside the chassis door.
+
+\begin{enumerate}
+
+\item	Remove the monitor cover (\para{3.12.1})
+
+\item	Loosen the two 1/4-turn fasteners on the chassis door, and open the
+		door. Refer to \figref{3-36}.
+
+\fig{MA-0091-87}{VR260 Side Door Screw Locations}
+
+\newpage
+
+\item	Discharge and disconnect the high-voltage anode wire from the cathode
+		ray tube (CRT) as follows.
+
+		\begin{itemize}
+	
+		\item	Make sure the monitor's power switch is off.
+
+		\item	Ground the high-voltage discharge tool (p/n 29-24717) to the tension
+				band or the chassis.
+
+		\item	Insert the high-voltage discharge tool under the anode cap on the
+				CRT and make contact with the anode clip. Refer to \figref{3-37}.
+
+		\fig[0.5]{MA-0754-85}{High-Voltage Discharge Tool}
+
+		\item	Remove the discharge tool from the monitor.
+
+		\item	Disconnect the high-voltage anode wire from the CRT by squeezing
+				the metal clips inside the cap.
+
+		\end{itemize}
+\newpage
+
+\item	Disconnect the following cables from the deflection board.
+		Refer to \figref{3-38} for cable location.
+
+		\begin{itemize}
+		\item	CRT yoke (J3)
+		\item	Power transformer (J1, blue and green wires)
+		\item	Slip-on ground (J4)
+		\item	Video board (J5, red and orange wires)
+		\item	Video board (J2)
+		\end{itemize}
+
+\fig[0.8]{MA-0130-87}{VR260 Deflection Board}
+
+\item	Remove the deflection board from the six plastic clips on the chassis door.
+
+\item	Reverse the above procedures to replace the deflection board.
+\end{enumerate}
+\newpage
+
+\subsection{VR260 Rear Bulkhead Assembly}
+
+\begin{enumerate}
+
+\item	Remove the monitor cover (\para{3.12.1}).
+
+\item	Carefully place the monitor on its face.
+
+\item	Loosen the six keyhole screws shown in \figref{3-39} on the rear bulk
+		head assembly.
+
+\fig[0.75]{MA-0092-87}{VR260 Rear Bulkhead Screw Locations}
+
+\item	Slide the rear bulkhead assembly up and off.
+\newpage
+\item	 Disconnect the video wire from under the video board Refer to \figref{3-40}.
+ 
+\fig[0.8]{MA-0093-87}{VR260 Rear Bulkhead}
+\item	Disconnect the cable from the transformer assembly.
+
+\item	Disconnect the grounding strap.
+
+\caution{Be sure to reconnect the grounding strap when replacing the rear
+		 bulkhead assembly.}
+
+\item	Reverse the above procedures to replace the rear bulkhead.
+\end{enumerate}
+\newpage
+
+\subsection{VR260 Video Board Removal}
+
+\begin{enumerate}
+
+\item	Remove the monitor cover (\para{3.12.1}).
+\item	Remove the rear bulkhead assembly (\para{3.12.3}).
+\item	Release the video board from the three standoffs by pressing in on the
+		standoffs and lifting the video board.
+\item	Refer to \figref{3-41} and disconnect the following cables from the video board.
+		\begin{itemize}
+		\item	Deflection board (J12)
+		\item	Deflection board (J9)
+		\item	3-Wire cable (J6)
+		\item	2-Wire cable (J7)
+		\item	Ground wire (J8, double clip)
+		\end{itemize}
+
+\newpage
+\fig[0.8]{MA-0129-87}{VR260 Video Board}
+\note{When replacing the video board, be sure to match the keyed CRT socket
+	  on the video board to the pins of the CRT. Squeeze the standoffs while pressing
+	  the board onto the CRT.}
+\item	Reverse the above procedures to replace the video board.
+\end{enumerate}
+\subsection{VR260 Transformer Assembly}
+\begin{enumerate}
+\item	Remove the monitor cover (\para{3.12.1}).
+\item	Remove the rear bulkhead assembly (\para{3.12.3}).
+\item	Remove the video board (\para{3.12.4}).
+\newpage
+\item	Disconnect the 2-wire cable from the deflection board (Jl) and remove
+		this 2-wire cable from the plastic clips (3) on the chassis. Refer to \figref{3-42}.
+\fig[0.65]{MA-0094-87}{VR260 Transformer Assembly}
+\caution{Make sure the transformer does not drop onto the CRT while you
+		 remove the four screws in the next step.}
+\item	Remove the four screws holding the transformer assembly to the bottom
+		of the chassis.
+\item	Reverse the above procedure to replace the transformer assembly.
+\end{enumerate}
+\newpage
+
+\subsection{VR260 Tube/Yoke/Bezel Assembly Removal}
+
+The tube/yoke/bezel assembly is made up of the CRT, yoke, and front bezel
+subassemblies.
+
+\begin{enumerate}
+
+\item	Remove the monitor cover (\para{3.12.1}).
+
+\item	Remove the deflection board (\para{3.12.2}).
+
+\item	Remove the rear bulkhead assembly (\para{3.12.3}).
+
+\item	Remove the video board (\para{3.12.4}). Put the cable from J12 on
+		the video board aside or leave it connected to the video board so it will
+		not get misplaced.
+
+\item	If the tube/yoke/bezel assembly has a braided ground strap attached to
+		the tension band, then remove it from the chassis by unscrewing the
+		grounding screw on the chassis, not from the tension band. The braided
+		ground strap stays connected to the tension band. Unscrew any other
+		braided grounding straps from the chassis.
+
+\item	Loosen the middle screws and remove the two outer screws as shown
+		in \figref{3-43}. Do this for both sides of the chassis.
+
+\fig[0.7]{MA-0095-87}{VR260 Tube/Yoke/Bezel Assembly Screw Locations}
+\newpage
+
+\item	Lift the chassis from the tube/yoke/bezel assembly.
+
+\item	Place the new tube/yoke/bezel assembly face down and reverse the
+		above procedures to replace the tube/yoke/bezel assembly.
+
+\caution{The cable behveen the deflection board (J2) and the video board (J9)
+		 must be connected to the proper locations as shown in \figref{3-44}. If you were
+		 to connect it backwards, (that is, the LED connector end to the video board) the
+		green LED will not light when power is turned on.}
+
+\end{enumerate}
+\fig{MA-0096-87}{VR260 Tube/Yoke/Bezel Assembly's LED Cable}
+\figref{3-45} shows the cable connections for the VR260 monochrome monitor.
+
+\newpage
+
+\sfig[1.0]{MA-0097-87}{VR260 Cable Connections}
+\newpage
+
+\subsection{VR260 LED Assembly}
+
+Use a small-bladed screwdriver or a similar tool for the following procedure.
+
+\begin{enumerate}
+
+\item	Carefully pry the LED/bezel assembly off the monitor. Refer to \figref{3-46}.
+
+\fig[0.6]{MA-0411-85}{VR260 LED/Bezel Assembly}
+
+\item	Disconnect the LED wires.
+\end{enumerate}
+
+To replace the LED/bezel assembly, do the following.
+
+\begin{enumerate}
+\item	Connect the LED wires to the LED/bezel assembly. The black wire is
+		connected to the notched connector leg.
+
+\item	Remove the protective paper backing from the double-sided tape on
+		the LED/bezel assembly.
+
+\item	Press the LED/bezel assembly in place.
+\end{enumerate}
+\newpage
+
+
+\section{Keyboard Removal (VAXstation 2000 only)}
+\begin{enumerate}
+\item	Unplug the keyboard cable from the rear of the monitor. Refer to \figref{3-47}.
+\note{The keyboard is a Single FRU. Do not try to remove the keycaps or disassemble the keyboard.}
+\end{enumerate}
+\fig{MA-0098-87}{Disconnecting the Keyboard (VAXstation 2000)}
+\newpage
+
+\section{Mouse and Tablet (VAXstation 2000 only)}
+\begin{enumerate}
+\item	Disconnect the mouse or tablet from the monitor's cable. Refer to \figref{3-48}.
+\note{The mouse and the tablet are Single FRUs. Do not try to disassemble them.}
+\end{enumerate}
+\fig{MA-0099-87}{Disconnecting the Mouse or Tablet (VAXstation 2000)}
+\newpage
+
+
+\section{ Terminal Disconnection from MicroVAX 2000}
+\begin{enumerate}
+\item	Switch off the terminal's power switch.
+\item	Disconnect the cable from the COMM connector on the back of the terminal.
+\item	Refer to the terminal's pocket service guide for troubleshooting and
+		removal and replacement procedures for the terminal.
+\end{enumerate}
+
+\subsection{DEC423 Converter Removal from MicroVAX 2000}
+\begin{enumerate}
+\item	Switch off MicroVAX 2000's power.
+\item	Unscrew two screws on the bottom of the DEC423 converter as shown
+		in \figref{3-49} and remove the DEC423 Converter from the back of the
+		MicroVAX 2000 system box.
+\fig[0.8]{MA-0159-87}{DEC423 Converter's Mounting Screw Locations}
+\newpage
+\item	One at a time, disconnect the cables from the converter you are 
+		removing and reconnect them to the same connectors on the new converter.
+\item	Connect the new converter to the back of the MicroVAX 2000 system
+		box and screw in the two mounting screws.
+\end{enumerate}
+
+\section{Expansion Adapter Removal}
+
+The expansion adapter is not an FRU. There is one FRU module located
+inside the expansion adapter called the disk interface module. There is
+also an interface cable for the tape drive expansion box that passes through
+the expansion adapter and attaches directly to connector A on the back
+of the expansion adapter. Removal procedures for the expansion adapter
+are below. The removal and replacement Information for the disk interface
+module is in \para{3.16.1}.
+
+\begin{enumerate}
+\item	Remove the shield (\para{3.2})
+\item	Remove the four screws shown in \figref{3-50} that hold the expansion
+		adapter to the bottom of the System.
+\fig[0.7]{MA-0100-87}{Expansion Adapter Screws}
+\newpage
+\item	Disconnect the disk expansion cables from the disk interface module.
+		Refer to \figref{3-51}.
+\fig[0.8]{MA-0101-87}{Expansion Cables Locations}
+\item	Unscrew the tape port connector from the expansion adapter.
+\item	Replace the expansion adapter by reversing the above procedures.
+\end{enumerate}
+\newpage
+
+\subsection{Expansion Adapter Disk Interface Module Removal}
+
+\begin{enumerate}
+\item	Switch off power to the System.
+
+\item	Put the system box on its side and remove the two cover screws shown
+		in \figref{3-52} and remove the cover.
+
+\fig{MA-0069-87}{Expansion Adapter Cover Screws Location}
+\newpage
+\item	Disconnect the cables to the disk interface module and remove the three
+		screws shown in \figref{3-53}.
+
+\fig[0.9]{MA-0102-87}{Expansion Adapter Disk Interface Module Cables and Screw Locations}
+\item	Reverse the above proceduie to replace the disk interface module.
+\end{enumerate}
+\newpage
+
+\section{VAXstation 2000 and MicroVAX 2000 Expansion Box}
+
+There are two configurations of expansion boxes and both configurations
+are available for the VAXstation 2000 and MicroVAX 2000 systems. One
+configuration consists of an RD53 hard disk drive in an expansion box
+for 70 megabytes of storage memory. Another configuration consists of
+a TK50 tape drive with a TZK50 controller board in an expansion box for
+94.5 megabytes of storage memory.
+
+The expansion box with the hard disk contains five FRUs. They are the
+disk, disk device electronics board inside the disk, a resistor load board,
+the power supply, and the expansion box itself. The expansion box with the
+tape drive also contains five FRUs. They are the TK50 tape drive, TZK50
+controller board, a resistor load board, the power supply, and the expansion
+box itself.
+
+Paragraph 3.17.1 contains removal procedures for the hard disk drive ex
+pansion box and Paragraph 3.17.2 contains removal procedures for the tape
+drive expansion box.
+
+\subsection{Hard Disk Drive Expansion Box Disconnection from System Box}
+\begin{enumerate}
+\item	Switch off power to the expansion box.
+\item	Disconnect the power cable on the expansion box from the wall plug
+		and then from the expansion box.
+\newpage
+\item	Disconnect the hard disk drive expansion box cable shown is \figref{3-54}
+		 from the back of the expansion box.
+\fig{MA-0103-87}{Hard Disk Expansion Box Cable}
+\end{enumerate}
+\newpage
+
+\subsubsection{Hard Disk Drive Removal from Hard Disk Expansion Box}
+\begin{enumerate}
+\item	Switch off power to the expansion box.
+
+\item	Unscrew the four screws shown in \figref{3-55} and remove the expansion box cover.
+
+\fig[0.75]{MA-0104-87}{Hard Disk Expansion Box Cover Screw Locations}
+\newpage
+\item	Disconnect the power cable shown in \figref{3-56} from the resistor load board.
+\fig[0.9]{MA-0105-87}{Resistor Load Board Power Cable}
+\newpage
+\item	Remove the five screws shown in \figref{3-57} that hold the shieid to the main chassis.
+\fig[0.9]{MA-0106-87}{Hard Disk Expansion Box Shieid Screw Locations}
+\newpage
+
+\item	Lift the shield up and off to the side of the expansion box.
+
+\item	Remove the three drive mounting screws shown in \figref{3-58}.
+\fig[0.9]{MA-0107-87}{Hard Disk Expansion Box Drive Mounting Screws}
+\newpage
+\item	Slide the drive out halfway and disconnect the two data cables and the
+		power cable from the back of the drive, then remove the drive. See \figref{3-59}.
+\fig{MA-0108-87}{Hard Disk Expansion Box Drive Cables Locations}
+\newpage
+
+\item	Remove the four screws shown in \figref{3-60} and remove the mounting
+		bracket from the drive.
+\fig[0.8]{MA-0084-87}{Hard Disk Expansion Box Drive Mounting Bracket Screws Location}
+
+\item	If you removed an RD53 because of an error with the drive, go to \para{3.7.1}
+		to replace the device electronics board. Replace the RD53
+		by reversing the above procedure.
+\end{enumerate}
+
+\newpage
+\subsubsection{Power Supply Removal from the Hard Disk Expansion Box}
+\begin{enumerate}
+\item	Switch off power to the expansion box.
+
+\item	Unscrew the four screws shown in \figref{3-61} and remove the expansion box cover.
+\fig[0.75]{MA-0104-87}{Hard Disk Expansion Box Cover Screw Locations}
+\newpage
+
+\item	Disconnect the power cable shown in \figref{3-62} from the resistor load board.
+\fig{MA-0105-87}{Hard Disk Expansion Box Resistor Load Board Power Cable}
+\newpage
+
+\item	Remove the five screws shown in Figure 3-63 that hold the shield to
+		the main chassis.
+
+\fig[0.9]{MA-0106-87}{Hard Disk Expansion Box Shield Screw Locations}
+\newpage
+
+\item	Lift the shield up and hold it with one hand and disconnect the power
+		cable from the drive with the other hand.
+\item	Tip the expansion box on its side and remove the four screws shown in
+		\figref{3-64} that hold the power supply to the chassis.
+
+\fig[0.75]{MA-0157-87}{Hard Disk Expansion Box Power Supply Mounting Screw Locations}
+
+\note{One of the power supply cables has an extension cable on it. You must
+	  remove this extension from the power supply you are removing and connect it
+	  to the same cable on the new power supply.}
+\newpage
+
+\item	Repiace the power supply by reversing the above procedure.
+\end{enumerate}
+
+\subsubsection{Resistor Load Board Removal from the Hard Disk Expansion Box}
+
+The resistor load board in the expansion box is different from the resistor
+load board in the system box. The part number for the resistor load board
+in the expansion box is 5417163-01. The -02 version is for the system box.
+
+\begin{enumerate}
+\item	Switch off power to the expansion box.
+
+\item	Unscrew the four screws shown in \figref{3-65} and remove the expansion box cover.
+
+\fig[0.75]{MA-0104-87}{Hard Disk Expansion Box Cover Screw Location}
+\newpage
+
+\item	Disconnect the power cable from the resistor load board Refer to \figref{3-66}.
+\fig{MA-0105-87}{Hard Disk Expansion Box Resistor Load Board Power Cable}
+
+\item	Remove the resistor load board from the shield.
+
+\item	Replace the resistor load board by reversing the above procedure.
+\end{enumerate}
+\newpage
+
+\subsection{Tape Drive Expansion Box Disconnection from System Box}
+
+\begin{enumerate}
+\item	Switch off power to the expansion box.
+\item	Disconnect the power cable on the expansion box from the wall plug
+		and then from the expansion box.
+\item	Disconnect the tape drive expansion box cable shown in \figref{3-67}
+		from the back of the expansion box.
+\end{enumerate}
+\fig{MA-0109-87}{Tape Drive Expansion Box Data Cable}
+\newpage
+
+\subsubsection{TZK50 Controller Board Removal from the Tape Drive Expansion Box}
+
+\begin{enumerate}
+\item	 Switch off power to the expansion box.
+
+\item	Unscrew the four screws shown in \figref{3-68} and remove the expansion box cover
+
+\fig[0.75]{MA-0104-87}{Tape Drive Expansion Box Cover Screw Locations}
+\newpage
+
+\item	Disconnect the tape data cable (J3), the TK50 tape drive I/O cable (Jl),
+		and the power cable (P1) from the TZK50 controller board. Refer to \figref{3-69}.
+
+\fig[0.8]{MA-0110-87}{TZK50 controller Board Cable Locations}
+
+\item	Remove the TZK50 controller board from the shield.
+\item	Set the jumpers on the new TZK50 controller board in the same position
+		as they. are on the old TZK50 controller board you just removed (see
+		\figref{3-70}). If the old board does not have the three resistor packs in-
+		stalled (Z7, Z6, and Z8), remove them from the new board. \figref{3-70}
+		shows the TZK50 controller board configured for ID address 1, with
+		parity checking enabled, and internal diagnostics disabled.
+\item	Replace the TZK50 controller board by reversing the above procedure.
+\end{enumerate}
+\newpage
+
+\sfig[0.8]{MA-0158-87}{TZK50 Controller Board Jumper and Resistor Pack Locations}
+\newpage
+
+\subsubsection{TK50 Tape Drive Removal from Tape Drive Expansion Box}
+\begin{enumerate}
+\item	Remove the TZK50 Controller board (\para{3.17.2.1}).
+
+\item	Disconnect the power cable on the resistor load board that comes from
+		the power supply.
+
+\item	Unscrew the five screws shown in \figref{3-71} that secure the shield to
+		the main chassis.
+\fig[0.85]{MA-0111-87}{Tape Drive Expansion Box Shield Screw Locations}
+\newpage
+\item	Lift the shield up and off of the main chassis.
+
+\item	Remove the three drive mounting screws shown in \figref{3-72}.
+\fig[0.9]{MA-0112-87}{Tape Drive Expansion Box Drive Mounting Screw}
+\newpage
+
+\item	Slide the tape drive out halfway and disconnect the I/O cable and the
+		power cable from the back of the drive then remove the drive. Refer to \figref{3-73}.
+
+\fig{MA-0113-87}{TK50 Tape Drive Cable Locations}
+
+\newpage
+\item	Remove the four screws shown in \figref{3-74} that secure the mounting
+		brackets to the sides of the drive. Remove the mounting brackets from the drive.
+
+\fig[0.75]{MA-0114-87}{Tape Drive Mounting Brackets Screw Locations}
+
+\item	Replace the tape drive by reversing the above procedure.
+\end{enumerate}
+
+\subsubsection{Power Supply Removal from the Tape Drive Expansion Box}
+\begin{enumerate}
+\item	Remove the TZK50 Controller board (\para{3.17.2.1}).
+\item	Disconnect the power cable on the resistor load board that comes from
+		the power supply.
+\item	Unscrew the five screws shown in \figref{3-71} that secure the shield to
+		the main chassis.
+\item	Lift the shield up and off of the main chassis.
+\item	Remove the three drive mounting screws shown in \figref{3-72}.
+\item	Disconnect the power cable from the back of the drive and slide the
+		drive out of the box.
+\newpage
+
+\item	Put the expansion box on its side as shown in \figref{3-75} and remove
+		the four screws holding the power supply to the chassis.
+
+\fig[0.75]{MA-0126-87}{Tape Drive Expansion Box Power Supply Mounting Screw Locations}
+\item	Replace the power supply by reversing the above procedure.
+\end{enumerate}
+\newpage
+
+\subsubsection{Resistor Load Board Removal from the Tape Drive Expansion Box}
+
+The resistor load board in the expansion box is different from the resistor
+load board in the system box. The part number for the resistor load board
+in the expansion box is 5417163-01. The -02 version is for the system box
+
+\begin{enumerate}
+\item	Switch off power to the expansion box.
+\item	Unscrew the four screws shown in \figref{3-68} and remove the expansion box cover.
+\item	Disconnect the two power cables shown in \figref{3-76} from the resistor load board.
+\fig{MA-0115-87}{Tape Drive Expansion Box Resistor Load Board Power Cable Locations}
+\newpage
+\item	Remove the resistor load board from the shield.
+\item	Replace the resistor load board by reversing the above procedure.
+\end{enumerate}
+
+\section{Recommended Spares List}
+\begin{tbl}{}{l X l}
+\textbf{Part Number} & \textbf{Description} & \textbf{Qty} \\
+\hline
+
+70-24268-01	&	VAXstation 2000 and MicroVAX 2000 System module			&	1\\
+54-16802-BA	&	4 Megabyte memory module								&	1\\
+54-16802-AA	&	2 Megabyte memory module								&	1\\
+H7848-BA	&	120V power supply										&	1\\
+H7848-BB	&	240V power supply										&	1\\
+54-16804-01	&	Network interconnect module								&	1\\
+54-17163-01	&	Resistor load board for Expansion Box					&	1\\
+54-17163-02	&	Resistor load board for System Box						&	1\\
+29-24794-00	&	9-Pin loopback connector for printer port				&	1\\
+29-24795-00	&	25-Pin loopback connector for communication port		&	1\\
+12-19245-00	&	Battery pack											&	1\\
+54-17003-01	&	Disk interface module (in expansion adaptor)			&	1\\
+54-17639-01	&	(TZK50-AA) TZK50 Controller module (in expansion box)	&	1\\
+TK50-AA		&	TK50 tape drive											&	1\\
+29-26243-00	&	Branch suitcase											&	1\\
+17-00303-07	&	Network interconnect interface cable (connects network
+				interconnect module to System module)					&	2\\
+17-01107-01	&	Internal RX/RD cable (connects internal RX and RD
+				drives to System module)								&	1\\
+17-01107-02	&	RX/RD cable (connects internal RX and RD drives and
+				also the disk interface module that is in the expansion
+				adapter to the System module)							&	1\\
+17-01244-01	&	Internal tape port cable (connects the tape port A inside
+				the expansion adapter to the System module)				&	1\\
+17-00674-03	&	RD expansion adapter cable (From the disk port B on
+				the expansion adapter to the hard disk expansion box)	&	1\\
+\end{tbl}
+\begin{tbl}{}{l X l}
+\textbf{Part Number} & \textbf{Description} & \textbf{Qty} \\
+\hline
+17-01247-02	&	TK50 tape drive I/O cable (From TK50 to TZK50 in tape
+				drive expansion box)									&	1\\
+17-01397-01	&	Load board power cable extension (in tape drive 
+				expansion box)											&	1\\
+17-01249-01	&	Internal tape data cable (from TZK50 controller board
+				to the bulkhead connector in tape drive expansion box)	&	1\\
+17-01351-02	&	Tape drive expansion box data cable (from the tape port
+				A on the expansion adapter to the tape drive expansion
+				box)													&	1\\
+70-23766-01	&	DEC423 converter (MicroVAX 2000's RS232 to DEC423
+				MMJ plugs converter)									&	1\\
+17-00445-02	&	Hard disk drive expansion box data cable				&	1\\
+17-00300-XX	&	BCC05 printer cable										&	1\\
+17-00568-01	&	BC18P monochrome video cable							&	1\\
+17-00289-XX	&	BCC04-10 modem cable									&	1\\
+17-00301-XX	&	BCC08 console cable										&	1\\
+17-00313-04	&	BC22D-50 null modem cable								&	1\\
+17-00342-01	&	Power cable extension to resistor load board			&	1\\
+17-01090-01	&	Internal RD data cable in expansion box					&	1\\
+17-00811-03	&	BC16E-25 DECconnect office cable (with MMJ ends)		&	2\\
+17-00811-04	&	BC16E-50 DECconnect office cable (with MMJ ends)		&	1\\
+12-23599-01	&	H8571-A 25-Pin passive adapter							&	3\\
+H3103		&	MMJ loopback connector									&	2\\
+12-25869-01	&	ThinWire Ethernet ``T'' connector						&	1\\
+12-26318-01	&	ThinWire Ethernet cable terminator						&	2\\
+30-19448-06	&	RX50 blank media for field service system exerciser		&	1\\
+30-25145-05	&	RX33 blank media for field service system exerciser		&	1\\
+30-20515-01	&	TK50 blank meria for field service system exerciser		&	1\\
+70-21861-01	&	VR260 tube/yoke/bezel assembly							&	1\\
+70-21862-01	&	VR260 LED bezel assembly								&	1\\
+70-21266-01	&	VR260 rear bulkhead										&	1\\
+\end{tbl}
+
+\begin{tbl}{}{l X l}
+\textbf{Part Number} & \textbf{Description} & \textbf{Qty} \\
+\hline
+54-15624-01	&	VR260 deflection board									&	1\\
+54-15626-01	&	VR260 video amp board									&	1\\
+74-30063-01	&	VR260 video amp board standoffs							&	1\\
+70-21863-01	&	VR260 brightness/contrast control						&	1\\
+70-21478-01	&	VR260 H/V cable											&	1\\
+70-21480-01	&	VR260 ground cable										&	1\\
+70-21477-01	&	V/D cable assembly										&	1\\
+70-21865-01	&	VR260 transformer assembly								&	1\\
+70-21924-01	&	VR260 chassis subset									&	1\\
+74-28316-01	&	VR260 foot												&	1\\
+12-21126-04	&	VR260 fuse holder assembly (Europe)						&	1\\
+12-19283-19	&	VR260 fuse, 240 Vac (Europe)							&	1\\
+90-07212-00	&	VR260 fuse, 115 Vac (U.S.)								&	1\\
+\end{tbl}

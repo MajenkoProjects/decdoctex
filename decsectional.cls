@@ -94,9 +94,11 @@ DIBOL & Rainbow & \\
 
 \RenewEnviron{tbl}[2]{
     \begin{table}[H]
+	\IfStrEq{X#1}{X}{}{
     \label{table:\tbllabel}
     \captionsetup{font=Large}
     \caption{#1}
+	}
     \small
     \begin{tabularx}{\textwidth}{#2}
     \hline
@@ -108,10 +110,12 @@ DIBOL & Rainbow & \\
 
 \RenewEnviron{tblcont}[2]{
     \begin{table}[H]
+	\IfStrEq{X#1}{X}{}{
     \addtocounter{table}{-1}
     \renewcommand\thetable{\thechapter-\arabic{table} (Cont.)}
     \captionsetup{font=Large}
     \caption[]{#1}
+	}
     \small
     \begin{tabularx}{\textwidth}{#2}
     \hline

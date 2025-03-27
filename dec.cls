@@ -25,6 +25,8 @@
 \usepackage{pmboxdraw}
 \usepackage{xparse}
 \usepackage{xstring}
+\usepackage{rotating}
+
 
 \setlist{nosep}
 \setlist{parsep=0em, itemsep=0.5em,topsep=-0.8em}
@@ -221,8 +223,9 @@ required to take measures to correct the interference.
 \caption{#3}
 \begin{center}
 \makebox[#1\textwidth][c]{%
-	\IfFileExists{fig/#2.png}{%
-		\includegraphics[width=#1\textwidth]{fig/#2}
+	\StrBefore{#2}{-}[\FigAuthor]
+	\IfFileExists{fig/\FigAuthor/#2.png}{%
+		\includegraphics[width=#1\textwidth]{fig/\FigAuthor/#2}
 	}{
 		\textbf{MISSING GRAPHIC #2}
 	}
@@ -230,6 +233,26 @@ required to take measures to correct the interference.
 \end{center}
 \end{figure}
 \label{figure:\figlabel}
+}
+
+\newcommand{\sfig}[3][1.0]{\begin{sideways}
+\begin{minipage}{#1\textheight}
+\begin{figure}[H]
+\caption{#3}
+\begin{center}
+%\makebox[\textwidth][c]{%
+	\StrBefore{#2}{-}[\FigAuthor]
+	\IfFileExists{fig/\FigAuthor/#2.png}{%
+		\includegraphics[width=\textwidth]{fig/\FigAuthor/#2}
+	}{
+		\textbf{MISSING GRAPHIC #2}
+	}
+%}
+\end{center}
+\end{figure}
+\label{figure:\figlabel}
+\end{minipage}
+\end{sideways}
 }
 
 \newcommand{\howtoorder}{%
@@ -323,9 +346,11 @@ required to take measures to correct the interference.
 
 \NewEnviron{tbl}[2]{
 	\begin{table}[H]
-	\label{table:tbllabel}
+	\IfStrEq{X#1}{X}{No Caption}{
+	\label{table:\tbllabel}
 	\captionsetup{font=Large}
 	\caption{#1}
+	}
 	\small
 	\begin{tabularx}{\textwidth}{#2}
 	\hline
@@ -337,10 +362,12 @@ required to take measures to correct the interference.
 
 \NewEnviron{tblcont}[2]{
 	\begin{table}[H]
+	\IfStrEq{X#1}{X}{}{
 	\addtocounter{table}{-1}
 	\renewcommand\thetable{\arabic{table} (Cont.)}
 	\captionsetup{font=Large}
 	\caption{#1}
+	}
 	\small
 	\begin{tabularx}{\textwidth}{#2}
 	\hline
