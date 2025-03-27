@@ -23,6 +23,8 @@
 \usepackage{longtable}
 \usepackage[utf8]{inputenc}
 \usepackage{pmboxdraw}
+\usepackage{xparse}
+\usepackage{xstring}
 
 \setlist{nosep}
 \setlist{parsep=0em, itemsep=0.5em,topsep=-0.8em}
@@ -353,3 +355,20 @@ required to take measures to correct the interference.
 \newcommand{\tabref}[1]{\hyperref[table:#1]{Table #1}}
 
 \newcommand{\caution}[1]{{\fontfamily{phv}\selectfont\textbf{CAUTION:}}\hspace*{1em}\textit{#1}}
+\newcommand{\note}[1]{{\fontfamily{phv}\selectfont\textbf{NOTE:}}\hspace*{1em}\textit{#1}}
+
+\newcommand{\para}[1]{%
+\StrCount{#1}{.}[\@s]%
+\IfEq{\@s}{0}{\hyperlink{chapter.#1}{Chapter #1}}{}%
+\IfEq{\@s}{1}{\hyperlink{section.#1}{Paragraph #1}}{}%
+\IfEq{\@s}{2}{\hyperlink{subsection.#1}{Paragraph #1}}{}%
+\IfEq{\@s}{3}{\hyperlink{subsubsection.#1}{Paragraph #1}}{}%
+}
+			
+\newcommand{\npara}[1]{%
+\StrCount{#1}{.}[\@s]%
+\IfEq{\@s}{0}{\hyperlink{chapter.#1}{#1}}{}%
+\IfEq{\@s}{1}{\hyperlink{section.#1}{#1}}{}%
+\IfEq{\@s}{2}{\hyperlink{subsection.#1}{#1}}{}%
+\IfEq{\@s}{3}{\hyperlink{subsubsection.#1}{#1}}{}%
+}
